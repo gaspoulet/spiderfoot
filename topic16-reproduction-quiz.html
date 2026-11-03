@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Topic 16 Reproduction Quiz</title>
+<meta name="description" content="Interactive revision quiz for Cambridge IGCSE Biology (0610) Topic 16: Reproduction – Extended.">
+<style>
+:root{
+  --bg:#f5f7fb;--card:#ffffff;--ink:#1c2333;--muted:#5d6678;--line:#d8deea;--soft:#eef2fa;
+  --accent:#3563d9;--accent-soft:#9fb5ee;--accent-bg:#e8eefc;
+  --ok:#17914c;--ok-bg:#e2f5ea;--bad:#d03f3f;--bad-bg:#fde7e7;--warn:#c98200;--warn-bg:#fff2d4;
+  --amber:#e6a100;--red:#d64545;--green:#20a35a;
+  --d-stroke:#2a3346;--d-stem:#6db35a;--d-sepal:#86c56f;--d-petal:#f5a3c0;--d-nectary:#f39c3d;
+  --d-filament:#d8c58e;--d-anther:#f2c230;--d-style:#a9d886;--d-stigma:#e3cd52;--d-ovary:#9fd287;--d-cav:#d6efc7;--d-ovule:#fff0a6;
+  --d-organ:#f6c3b4;--d-organ2:#f0a99a;--d-bladder:#fbe7a8;--d-duct:#7aa7e0;--d-gland:#c7b2ec;--d-tube:#e98c8c;--d-cav2:#fde1da;
+  --d-sperm:#9ec3f0;--d-egg:#fbe0c3;--d-jelly:#e6f1ff;--d-nucleus:#7a5bbf;--d-mito:#f08f3a;--d-yolk:#f2c46b;
+  --c-fsh:#8b5cf6;--c-lh:#ea580c;--c-oes:#2563eb;--c-pro:#15924c;--c-lining:#f08aa0;
+  --m-blood:#f3b6b6;--f-blood:#b9d3f5;--soil:#a07850;--pot:#c9734a;
+  --shadow:0 1px 2px rgba(20,30,60,.06),0 4px 14px rgba(20,30,60,.05);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#11151d;--card:#1a202b;--ink:#e7ebf3;--muted:#a1aabb;--line:#2e3646;--soft:#232a37;
+  --accent:#7b9dff;--accent-soft:#4a62a8;--accent-bg:#222d48;
+  --ok:#4ccb7f;--ok-bg:#183527;--bad:#ff7b7b;--bad-bg:#3c1f22;--warn:#f0b93d;--warn-bg:#3a2f15;
+  --d-stroke:#cfd6e4;--d-stem:#4f8f40;--d-sepal:#5f9e4c;--d-petal:#c4668c;--d-nectary:#d0802c;
+  --d-filament:#a8976a;--d-anther:#d1a51c;--d-style:#78ab5a;--d-stigma:#b9a43a;--d-ovary:#6fa65a;--d-cav:#36522c;--d-ovule:#c9b85c;
+  --d-organ:#b9786a;--d-organ2:#a35f52;--d-bladder:#a48f45;--d-duct:#4f7fc0;--d-gland:#8a74b8;--d-tube:#c25f5f;--d-cav2:#5c3a35;
+  --d-sperm:#5c86bd;--d-egg:#9c7f60;--d-jelly:#27364d;--d-nucleus:#9c80e0;--d-mito:#d07028;--d-yolk:#c29a3a;
+  --c-fsh:#a98bff;--c-lh:#ff8a4c;--c-oes:#6aa0ff;--c-pro:#48c27a;--c-lining:#e0718a;
+  --m-blood:#6e3434;--f-blood:#2f4a6e;--soil:#6d5136;--pot:#9a5434;
+  --shadow:0 1px 2px rgba(0,0,0,.3);color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#11151d;--card:#1a202b;--ink:#e7ebf3;--muted:#a1aabb;--line:#2e3646;--soft:#232a37;
+  --accent:#7b9dff;--accent-soft:#4a62a8;--accent-bg:#222d48;
+  --ok:#4ccb7f;--ok-bg:#183527;--bad:#ff7b7b;--bad-bg:#3c1f22;--warn:#f0b93d;--warn-bg:#3a2f15;
+  --d-stroke:#cfd6e4;--d-stem:#4f8f40;--d-sepal:#5f9e4c;--d-petal:#c4668c;--d-nectary:#d0802c;
+  --d-filament:#a8976a;--d-anther:#d1a51c;--d-style:#78ab5a;--d-stigma:#b9a43a;--d-ovary:#6fa65a;--d-cav:#36522c;--d-ovule:#c9b85c;
+  --d-organ:#b9786a;--d-organ2:#a35f52;--d-bladder:#a48f45;--d-duct:#4f7fc0;--d-gland:#8a74b8;--d-tube:#c25f5f;--d-cav2:#5c3a35;
+  --d-sperm:#5c86bd;--d-egg:#9c7f60;--d-jelly:#27364d;--d-nucleus:#9c80e0;--d-mito:#d07028;--d-yolk:#c29a3a;
+  --c-fsh:#a98bff;--c-lh:#ff8a4c;--c-oes:#6aa0ff;--c-pro:#48c27a;--c-lining:#e0718a;
+  --m-blood:#6e3434;--f-blood:#2f4a6e;--soil:#6d5136;--pot:#9a5434;
+  --shadow:0 1px 2px rgba(0,0,0,.3);color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:76px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;min-height:100vh}
+button{font:inherit;color:inherit}
+.top{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 16px;background:var(--bg);border-bottom:1px solid var(--line)}
+.brand{font-weight:700;font-size:15px;display:flex;gap:8px;align-items:center;cursor:pointer;background:none;border:0;padding:0}
+.brand .logo{width:28px;height:28px;border-radius:8px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:14px}
+.top-actions{display:flex;gap:6px}
+.icon-btn{border:1px solid var(--line);background:var(--card);border-radius:10px;min-width:40px;height:38px;cursor:pointer;padding:0 10px;font-size:14px}
+main{max-width:880px;margin:0 auto;padding:16px 16px 60px}
+h1{font-size:clamp(22px,5vw,30px);line-height:1.2;margin:8px 0 4px}
+h2{font-size:clamp(18px,4.2vw,22px);line-height:1.25;margin:0 0 6px}
+h3{font-size:16px;margin:0 0 6px}
+p{margin:6px 0}
+.muted{color:var(--muted)}.small{font-size:13.5px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+.btn{border:1px solid var(--line);background:var(--card);padding:9px 16px;border-radius:11px;font-weight:600;cursor:pointer;min-height:42px;transition:transform .08s,background .15s}
+.btn:active{transform:scale(.97)}
+.btn.primary{background:var(--accent);color:#fff;border-color:transparent}
+.btn.ghost{background:transparent}
+.btn:disabled{opacity:.42;cursor:not-allowed;transform:none}
+.btn.sm{min-height:34px;padding:5px 12px;font-size:14px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+/* home */
+.hero{margin-bottom:14px}
+.sec-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:12px}
+.sec-card{text-align:left;cursor:pointer;display:flex;flex-direction:column;gap:6px;transition:border-color .15s,transform .1s}
+.sec-card:hover{border-color:var(--accent)}
+.sec-card .num{font-size:13px;font-weight:700;color:var(--accent)}
+.sec-card .name{font-weight:700;font-size:17px}
+.sec-card .meta{font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:6px;margin-top:auto}
+.badge{display:inline-block;padding:2px 9px;border-radius:99px;font-size:12.5px;font-weight:700;background:var(--soft)}
+.badge.g{background:var(--ok-bg);color:var(--ok)}.badge.a{background:var(--warn-bg);color:var(--warn)}.badge.r{background:var(--bad-bg);color:var(--bad)}
+.full-card{background:linear-gradient(135deg,var(--accent-bg),var(--card))}
+.conf-panel{margin-top:14px;animation:pop .25s}
+.conf-opts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.conf-opts button{border:2px solid var(--line);background:var(--card);border-radius:12px;padding:12px 6px;cursor:pointer;font-weight:600;font-size:14px}
+.conf-opts button:hover{border-color:var(--accent)}
+.conf-opts .dot{display:block;width:14px;height:14px;border-radius:50%;margin:0 auto 6px}
+.resume{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;border-color:var(--accent-soft)}
+/* quiz */
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:8px;font-size:14px;flex-wrap:wrap}
+.pbar{height:8px;background:var(--soft);border-radius:99px;overflow:hidden;margin-bottom:14px}
+.pbar>i{display:block;height:100%;background:var(--accent);border-radius:99px;transition:width .35s}
+.tag{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:99px;background:var(--accent-bg);color:var(--accent)}
+.qcard{animation:pop .25s}
+.qprompt{color:var(--muted);margin:2px 0 12px}
+.qbody{margin:6px 0}
+.actions{display:flex;gap:8px;align-items:center;justify-content:space-between;margin-top:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:12px}
+.act-mid{display:flex;gap:8px;flex-wrap:wrap;flex:1;justify-content:flex-end}
+.hint{background:var(--warn-bg);border-left:4px solid var(--warn);padding:10px 12px;border-radius:8px;margin-top:10px;font-size:14.5px;animation:pop .2s}
+.feedback{display:none;margin-top:12px;padding:12px 14px;border-radius:10px;font-size:15px}
+.feedback.show{display:block;animation:pop .3s}
+.feedback.ok{background:var(--ok-bg);border-left:4px solid var(--ok)}
+.feedback.part{background:var(--warn-bg);border-left:4px solid var(--warn)}
+.feedback.bad{background:var(--bad-bg);border-left:4px solid var(--bad)}
+.feedback.info{background:var(--soft);border-left:4px solid var(--accent)}
+.feedback .big{font-weight:800;font-size:16px}
+.model{margin-top:8px;padding:9px 11px;border-radius:8px;background:var(--card);border:1px solid var(--line);font-size:14.5px}
+.kwrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.kw{font-size:13px;padding:3px 9px;border-radius:99px;font-weight:600}
+.kw.ok{background:var(--ok);color:#fff}.kw.miss{background:var(--card);color:var(--bad);border:1px solid var(--bad)}
+.ta{width:100%;min-height:96px;border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;font:inherit;background:var(--card);color:var(--ink);resize:vertical}
+.ta:focus{outline:none;border-color:var(--accent)}
+.checklist{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px;margin:6px 0 10px}
+.ck{display:flex;gap:8px;align-items:center;padding:7px 10px;border:1.5px solid var(--line);border-radius:10px;font-size:14px;transition:all .3s}
+.ck .box{width:18px;height:18px;border-radius:5px;border:2px solid var(--line);flex:none;display:grid;place-items:center;font-size:12px;color:#fff}
+.ck.on{border-color:var(--ok);background:var(--ok-bg);animation:pulse .5s}
+.ck.on .box{background:var(--ok);border-color:var(--ok)}.ck.on .box::after{content:'✓'}
+.ck.off{border-color:var(--bad);opacity:.85}.ck.off .box{border-color:var(--bad)}
+/* drag & drop */
+.tok{display:inline-flex;align-items:center;gap:4px;padding:7px 11px;border-radius:10px;background:var(--card);border:1.5px solid var(--line);box-shadow:0 1px 0 var(--line);font-size:14px;line-height:1.25;cursor:grab;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;transition:border-color .15s,background .15s}
+.tok:hover{border-color:var(--accent-soft)}
+.tok.sel{outline:3px solid var(--accent);outline-offset:1px;border-color:var(--accent)}
+.tok.dragging{opacity:.3}
+.tok.ok{background:var(--ok-bg);border-color:var(--ok)}
+.tok.bad{background:var(--bad-bg);border-color:var(--bad)}
+.tok.locked{cursor:default}
+.tok .fix{font-size:12px;color:var(--bad);font-weight:700}
+.dnd-ghost{position:fixed!important;left:0;top:0;margin:0!important;pointer-events:none;z-index:1000;box-shadow:0 10px 24px rgba(0,0,0,.25)!important;opacity:.96;transition:none!important}
+[data-zone].over{outline:3px dashed var(--accent);outline-offset:2px;background:var(--accent-bg)!important}
+.selecting [data-zone]:not(.pool){box-shadow:0 0 0 2px var(--accent-soft) inset}
+.pool{display:flex;flex-wrap:wrap;gap:8px;padding:10px;min-height:54px;border:1.5px dashed var(--line);border-radius:12px;margin-top:12px;background:var(--soft);align-items:flex-start}
+.pool:empty::after{content:'All cards placed – press Check';color:var(--muted);font-size:13.5px;margin:auto}
+.locked .tok{cursor:default}
+.pool-label{font-size:12.5px;color:var(--muted);margin:10px 0 -6px;font-weight:600}
+/* sort */
+.sgrid{display:grid;gap:8px;align-items:stretch}
+.gh{font-weight:700;font-size:13.5px;padding:6px 8px;display:flex;align-items:center;justify-content:center;text-align:center;background:var(--soft);border-radius:8px}
+.gh.rowh{justify-content:flex-start;text-align:left}
+.gh.corner{background:transparent}
+.szone{min-height:84px;border:1.5px dashed var(--accent-soft);border-radius:12px;padding:6px;background:var(--card);transition:background .15s}
+.szone .zb{display:flex;flex-direction:column;gap:6px;min-height:60px}
+.szone .zh{font-weight:800;text-align:center;padding:4px 0 8px;font-size:15px}
+.szone .tok{width:100%;font-size:13.5px}
+.scols{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.scols.vs{position:relative}
+.scols.vs::after{content:'VS';position:absolute;left:50%;top:-4px;transform:translateX(-50%);background:var(--accent);color:#fff;font-weight:900;border-radius:99px;padding:4px 10px;font-size:13px}
+.scols.three{grid-template-columns:repeat(3,1fr)}
+/* grid table */
+.scrollx{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.gtable{display:grid;gap:6px;min-width:300px}
+.gc{display:flex;align-items:center;justify-content:center;border-radius:10px;padding:3px;transition:background .2s}
+.gc.ok{background:var(--ok-bg)}.gc.bad{background:var(--bad-bg)}
+.cyc{width:100%;min-height:46px;border:2px solid var(--line);border-radius:10px;background:var(--card);font-weight:800;font-size:16px;cursor:pointer;color:var(--muted)}
+.cyc.set{color:var(--ink);border-color:var(--accent-soft)}
+.cyc:disabled{cursor:default}
+.segw{display:flex;border:1.5px solid var(--line);border-radius:10px;overflow:hidden;width:100%}
+.segb{flex:1;border:0;background:var(--card);padding:9px 4px;cursor:pointer;font-weight:600;font-size:14px}
+.segb+.segb{border-left:1.5px solid var(--line)}
+.segb.on{background:var(--accent);color:#fff}
+.segw.locked .segb{cursor:default}
+.segb.should{box-shadow:inset 0 0 0 3px var(--ok)}
+s{opacity:.6}
+/* boards */
+.board{position:relative;max-width:540px;margin:0 auto;user-select:none;-webkit-user-select:none}
+.board>svg{width:100%;height:auto;display:block;overflow:visible}
+.hot{position:absolute;transform:translate(-50%,-50%);width:clamp(66px,22.5%,124px);min-height:30px;border:2px dashed var(--accent-soft);border-radius:9px;background:var(--card);display:flex;align-items:center;justify-content:center;z-index:2;transition:background .15s}
+.hot .tok{width:100%;justify-content:center;padding:4px 3px;font-size:12.5px;text-align:center;border-radius:7px}
+.hot.ok{border-color:var(--ok);border-style:solid}.hot.bad{border-color:var(--bad);border-style:solid}
+.hot.round{border-radius:50%;width:13%;aspect-ratio:1;min-height:0;background:transparent}
+.dg text{fill:var(--ink);font-family:system-ui,sans-serif}
+.dg .lbl{font-size:13px;font-weight:600}
+.leader{stroke:var(--d-stroke);stroke-width:1.2;fill:none}
+.leader-dot{fill:var(--d-stroke)}
+.ink{stroke:var(--d-stroke);stroke-width:1.6;stroke-linejoin:round}
+.part{cursor:pointer;transition:filter .15s,opacity .4s}
+.clickable .part:hover{filter:brightness(1.12) drop-shadow(0 0 3px var(--accent))}
+.part.good{animation:goodflash .7s}
+.part.wrong{animation:badflash .6s}
+.part.pulse{animation:pulsepart 1s infinite}
+.part.dim{opacity:.35}
+.hit{stroke:transparent!important;fill:none!important;stroke-width:16!important}
+.f-stem{fill:var(--d-stem)}.f-sepal path{fill:var(--d-sepal)}.f-petal path{fill:var(--d-petal)}.f-nectary ellipse{fill:var(--d-nectary)}
+.f-filament .fil{stroke:var(--d-filament);stroke-width:4.5;fill:none;stroke-linecap:round}
+.f-anther ellipse{fill:var(--d-anther)}.f-style path{fill:var(--d-style)}.f-stigma path{fill:var(--d-stigma)}
+.f-ovary>ellipse{fill:var(--d-ovary)}.f-ovary .cav{fill:var(--d-cav)}.f-ovule ellipse{fill:var(--d-ovule)}
+.dg .ol{stroke:var(--d-stroke);stroke-width:1.5}
+.info{min-height:44px;margin-top:10px;padding:9px 12px;border-radius:10px;background:var(--soft);font-size:14.5px}
+.info:empty{display:none}
+.prompt-pill{display:flex;gap:10px;align-items:center;padding:10px 14px;border-radius:12px;background:var(--accent-bg);font-weight:700;margin-bottom:10px;font-size:15.5px;animation:pop .25s}
+.prompt-pill .pnum{background:var(--accent);color:#fff;border-radius:99px;padding:2px 9px;font-size:12.5px;flex:none}
+.modes{display:flex;gap:6px;margin-bottom:10px}
+/* wires */
+.wires{position:relative;display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(30px,10vw,90px);row-gap:0}
+.wcol{display:flex;flex-direction:column;gap:7px;position:relative;z-index:1}
+.witem{border:1.5px solid var(--line);background:var(--card);border-radius:10px;padding:8px 10px;cursor:pointer;font-size:13.5px;text-align:left;line-height:1.25;min-height:40px;position:relative;transition:border-color .15s,background .15s}
+.wcol.r .witem{text-align:left}
+.witem.sel{border-color:var(--accent);background:var(--accent-bg);box-shadow:0 0 0 2px var(--accent)}
+.witem.linked{border-color:var(--accent-soft)}
+.witem.ok{border-color:var(--ok);background:var(--ok-bg)}.witem.bad{border-color:var(--bad);background:var(--bad-bg)}
+.witem .corr{display:block;font-size:12px;color:var(--ok);font-weight:700;margin-top:3px}
+.wcol.l .witem{font-weight:700}
+.ovl{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:visible}
+.ovl path{fill:none;stroke-width:3;stroke-linecap:round}
+/* order */
+.slots{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.slot{display:flex;align-items:center;gap:8px;border:1.5px dashed var(--accent-soft);border-radius:12px;padding:5px;min-height:46px;background:var(--card)}
+.slot .num{width:28px;height:28px;border-radius:50%;background:var(--accent-bg);color:var(--accent);font-weight:800;display:grid;place-items:center;flex:none;font-size:14px}
+.slot .zb{flex:1;min-height:34px;display:flex}
+.slot .tok{width:100%}
+.slot.ok{border-color:var(--ok);border-style:solid}.slot.bad{border-color:var(--bad);border-style:solid}
+.slot.playing{background:var(--accent-bg);border-color:var(--accent);border-style:solid}
+.stage{margin-top:14px;animation:pop .3s}
+.caption{text-align:center;font-weight:700;min-height:26px;margin-top:6px;color:var(--accent)}
+/* mindmap */
+.mm{position:relative}
+.mm-center{position:relative;z-index:1;margin:0 auto 34px;width:max-content;max-width:90%;padding:12px 22px;border-radius:999px;background:var(--accent);color:#fff;font-weight:800;font-size:17px;text-align:center}
+.mm-branches{position:relative;z-index:1;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.mm .szone{border-radius:16px}
+.mm .szone .zh{border-radius:10px;background:var(--soft)}
+/* dkey */
+.dk-ex{display:flex;gap:12px;align-items:center;padding:12px;border-radius:14px;background:var(--accent-bg);margin-bottom:12px;animation:pop .25s}
+.dk-ex .ico{width:52px;height:52px;flex:none}
+.dk-ex b{font-size:17px}
+.dk-key{display:flex;flex-direction:column;gap:8px}
+.dk-node{border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;opacity:.5;transition:all .25s}
+.dk-node.active{opacity:1;border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-bg)}
+.dk-node.passed{opacity:.9}
+.dk-node .q{font-weight:700}
+.dk-node .opts{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap}
+.dk-node .opts .btn{min-width:110px}
+.dk-node .lead{font-size:13px;color:var(--muted)}
+.dk-res{margin-top:10px;padding:10px 12px;border-radius:12px;font-weight:700;animation:pop .25s}
+.dk-res.ok{background:var(--ok-bg);color:var(--ok)}.dk-res.bad{background:var(--bad-bg);color:var(--bad)}
+.dk-dots{display:flex;gap:5px;margin-bottom:8px}
+.dk-dots i{width:12px;height:12px;border-radius:50%;background:var(--line)}
+.dk-dots i.ok{background:var(--ok)}.dk-dots i.bad{background:var(--bad)}.dk-dots i.cur{background:var(--accent)}
+.chosen.btn{background:var(--accent);color:#fff}
+.btn.right{background:var(--ok);color:#fff;border-color:transparent}
+.btn.wrongc{background:var(--bad);color:#fff;border-color:transparent}
+/* build flower */
+.bf{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.bf-card{border:2px dashed var(--accent-soft);border-radius:14px;padding:8px;background:var(--card);display:flex;flex-direction:column;align-items:stretch}
+.bf-card h3{text-align:center;margin:2px 0}
+.bf-card svg{width:100%;height:auto;max-height:250px}
+.bf-card .zb{display:flex;flex-direction:column;gap:5px}
+.bf-card .tok{font-size:12.5px;padding:5px 8px;width:100%}
+/* germ lab */
+.lab{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:12px;align-items:center}
+.switches{display:flex;flex-direction:column;gap:8px}
+.sw{display:flex;align-items:center;gap:10px;padding:8px 10px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);cursor:pointer;font-weight:700;text-align:left}
+.sw .tg{width:44px;height:26px;border-radius:99px;background:var(--line);position:relative;flex:none;transition:background .2s}
+.sw .tg::after{content:'';position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:left .2s;box-shadow:0 1px 2px rgba(0,0,0,.3)}
+.sw.on{border-color:var(--accent)}.sw.on .tg{background:var(--accent)}.sw.on .tg::after{left:21px}
+.sw .ic{font-size:20px;width:24px;text-align:center}
+.sw:disabled{cursor:default}
+.lab svg{width:100%;height:auto}
+.reasons{display:flex;flex-direction:column;gap:10px;margin-top:14px;animation:pop .3s}
+.reason{display:grid;grid-template-columns:110px 1fr;gap:8px;align-items:center}
+.reason select{width:100%;padding:9px;border-radius:10px;border:1.5px solid var(--line);background:var(--card);color:var(--ink);font:inherit;font-size:14px}
+.reason.ok select{border-color:var(--ok);background:var(--ok-bg)}.reason.bad select{border-color:var(--bad);background:var(--bad-bg)}
+.reason .fix{grid-column:2;font-size:13px;color:var(--ok);font-weight:600}
+/* cells */
+.cells{display:grid;grid-template-columns:1.4fr 1fr;gap:10px;align-items:center}
+.cells figure{margin:0;text-align:center}
+.cells figcaption{font-weight:700;font-size:14px}
+.cells svg{width:100%;height:auto}
+.choices{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+.choices .btn{text-align:left;font-weight:500;font-size:14px}
+.ans-list{display:grid;gap:5px;margin-top:10px;font-size:14px}
+.ans-list div{display:grid;grid-template-columns:110px 1fr;gap:8px;padding:6px 9px;border-radius:9px;background:var(--soft)}
+.ans-list div.ok{background:var(--ok-bg)}.ans-list div.bad{background:var(--bad-bg)}
+/* placenta */
+.plac{border-radius:16px;overflow:hidden;border:1.5px solid var(--line)}
+.band{padding:10px;text-align:center;font-weight:800;font-size:14.5px}
+.band.mom{background:var(--m-blood)}.band.fet{background:var(--f-blood)}
+.villi{display:block;width:100%;height:26px;background:var(--m-blood)}
+.lanes{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--card)}
+.lane{position:relative;min-height:190px;padding:8px 8px 8px 44px;border-radius:0!important;border:0!important;background:transparent}
+.lane+.lane{border-left:1.5px dashed var(--line)!important}
+.lane .zh{font-weight:800;font-size:14px;margin-bottom:6px}
+.lane .zb{display:flex;flex-direction:column;gap:6px}
+.lane .tok{font-size:13.5px}
+.flow{position:absolute;left:12px;top:8px;bottom:8px;width:20px;border-radius:99px;overflow:hidden;background:var(--soft)}
+.flow::before{content:'';position:absolute;left:0;right:0;top:-40px;bottom:-40px;background:repeating-linear-gradient(180deg,transparent 0 12px,var(--accent-soft) 12px 20px);animation:flowdown 1.2s linear infinite}
+.lane.up .flow::before{animation-name:flowup}
+.flow::after{content:'▼';position:absolute;left:0;right:0;bottom:2px;text-align:center;font-size:12px;color:var(--accent)}
+.lane.up .flow::after{content:'▲';top:2px;bottom:auto}
+.particle{position:absolute;left:46px;padding:2px 8px;border-radius:99px;background:var(--accent);color:#fff;font-size:12px;font-weight:700;pointer-events:none;z-index:3;white-space:nowrap}
+/* cycle */
+.cyc-legend{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;font-size:13.5px;font-weight:700;margin-bottom:4px}
+.cyc-legend span{display:inline-flex;gap:5px;align-items:center}
+.cyc-legend i{width:18px;height:4px;border-radius:2px;display:inline-block}
+.cyc-svg{width:100%;height:auto;display:block;touch-action:manipulation}
+.daycol{fill:transparent;cursor:pointer}
+.cyc-svg path:not(.curvehit),.cyc-svg line,.cyc-svg text{pointer-events:none}
+.daymode .daycol:hover{fill:var(--accent-bg)}
+.curve{fill:none;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;transition:stroke-width .15s}
+.curvehit{fill:none;stroke:transparent;stroke-width:18;cursor:pointer}
+.curvemode .curvehit:hover+.curve,.curve.hov{stroke-width:6}
+.steps{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.steps span{font-size:12.5px;padding:3px 9px;border-radius:99px;background:var(--soft);font-weight:600}
+.steps span.cur{background:var(--accent);color:#fff}.steps span.ok{background:var(--ok);color:#fff}.steps span.bad{background:var(--bad);color:#fff}
+/* results */
+.score-big{font-size:46px;font-weight:900;line-height:1;color:var(--accent)}
+.bars{display:flex;flex-direction:column;gap:9px;margin-top:10px}
+.bar-row{display:grid;grid-template-columns:minmax(100px,170px) 1fr 48px;gap:8px;align-items:center;font-size:14px}
+.bar{height:12px;border-radius:99px;background:var(--soft);overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;transition:width .8s}
+.rag{display:grid;gap:6px;margin-top:8px}
+.rag-row{display:grid;grid-template-columns:1fr 92px;gap:8px;align-items:center;padding:8px 10px;border-radius:10px;background:var(--soft);font-size:14px}
+.rag-pill{text-align:center;border-radius:99px;font-weight:800;font-size:12.5px;padding:4px 6px;color:#fff}
+.rag-pill.R{background:var(--red)}.rag-pill.A{background:var(--amber)}.rag-pill.G{background:var(--green)}.rag-pill.N{background:var(--line);color:var(--muted)}
+.revise{counter-reset:r;list-style:none;padding:0;margin:8px 0 0;display:grid;gap:6px}
+.revise li{counter-increment:r;display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:10px;background:var(--bad-bg);font-weight:600}
+.revise li::before{content:counter(r);width:26px;height:26px;border-radius:50%;background:var(--bad);color:#fff;display:grid;place-items:center;font-weight:800;flex:none}
+.stack>*+*{margin-top:12px}
+/* anims */
+@keyframes pop{from{opacity:0;transform:translateY(4px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.04)}100%{transform:scale(1)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-6px)}40%{transform:translateX(6px)}60%{transform:translateX(-4px)}80%{transform:translateX(4px)}}
+@keyframes goodflash{0%{filter:none}40%{filter:drop-shadow(0 0 6px var(--ok)) brightness(1.2)}100%{filter:none}}
+@keyframes badflash{0%,100%{filter:none}30%,70%{filter:drop-shadow(0 0 5px var(--bad)) saturate(.3)}}
+@keyframes pulsepart{0%,100%{filter:none}50%{filter:drop-shadow(0 0 7px var(--accent)) brightness(1.2)}}
+@keyframes flowdown{from{transform:translateY(0)}to{transform:translateY(20px)}}
+@keyframes flowup{from{transform:translateY(0)}to{transform:translateY(-20px)}}
+.shake{animation:shake .4s}
+.pop-in{animation:pop .3s}
+@media (max-width:560px){
+  main{padding:12px 12px 50px}
+  .card{padding:14px;border-radius:14px}
+  .mm-branches{grid-template-columns:1fr}
+  .scols.three{grid-template-columns:1fr}
+  .lab{grid-template-columns:1fr}
+  .cells{grid-template-columns:1fr}
+  .reason{grid-template-columns:1fr}.reason .fix{grid-column:1}
+  .witem{font-size:12.5px;padding:7px 8px}
+  .szone .tok{font-size:12.5px;padding:6px 7px}
+  .bf-card .tok{font-size:11.5px}
+  .gh{font-size:12.5px;padding:5px}
+  .act-mid .btn,.actions>.btn{flex:1}
+  .ans-list div{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<header class="top">
+  <button class="brand" id="homeBtn" type="button" aria-label="Home"><span class="logo">16</span><span>Reproduction Quiz</span></button>
+  <div class="top-actions">
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle light/dark mode" title="Light / dark">◐</button>
+  </div>
+</header>
+<main id="app"></main>
+<script>
+'use strict';
+/* ================= utilities ================= */
+const NS='http://www.w3.org/2000/svg';
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+function h(tag,attrs,...kids){
+  const e=document.createElement(tag);
+  for(const [k,v] of Object.entries(attrs||{})){
+    if(v==null||v===false) continue;
+    if(k==='class') e.className=v;
+    else if(k==='html') e.innerHTML=v;
+    else if(k==='style') e.style.cssText=v;
+    else if(k.startsWith('on')&&typeof v==='function') e.addEventListener(k.slice(2),v);
+    else e.setAttribute(k,v===true?'':v);
+  }
+  for(const k of kids.flat(Infinity)){ if(k==null||k===false) continue; e.append(k.nodeType?k:document.createTextNode(String(k))); }
+  return e;
+}
+function s(tag,attrs){ const e=document.createElementNS(NS,tag); for(const [k,v] of Object.entries(attrs||{})) e.setAttribute(k,v); return e; }
+function shuffle(a){ a=[...a]; for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function shuffleNotSame(a){ if(a.length<2) return [...a]; let r; let n=0; do{ r=shuffle(a); n++; }while(n<20&&r.every((x,i)=>x===a[i])); return r; }
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pct=x=>Math.round(x*100);
+function anim(el,frames,opts){ try{ return el.animate(frames,opts).finished.catch(()=>{}); }catch(e){ return Promise.resolve(); } }
+function svgFit(el){ if(!el) return; el.style.transformBox='fill-box'; el.style.transformOrigin='center'; }
+
+/* ================= storage ================= */
+const STORE_KEY='igcse-bio-topic16-quiz-v1';
+let S={results:{},conf:{},run:null,lastRun:null};
+function load(){ try{ const raw=localStorage.getItem(STORE_KEY); if(raw){ const d=JSON.parse(raw); if(d&&typeof d==='object') S=Object.assign(S,d); } }catch(e){} }
+function save(){ try{ localStorage.setItem(STORE_KEY,JSON.stringify(S)); }catch(e){} }
+
+/* ================= theme ================= */
+function initTheme(){
+  let t=null; try{ t=localStorage.getItem(STORE_KEY+'-theme'); }catch(e){}
+  if(t) document.documentElement.setAttribute('data-theme',t);
+  $('#themeBtn').addEventListener('click',()=>{
+    const cur=document.documentElement.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    const nx=cur==='dark'?'light':'dark';
+    document.documentElement.setAttribute('data-theme',nx);
+    try{ localStorage.setItem(STORE_KEY+'-theme',nx); }catch(e){}
+  });
+}
+
+/* ================= drag & drop (mouse + touch + tap-to-place) ================= */
+const DnD={
+  sel:null,
+  attach(root,onDrop){
+    root.addEventListener('pointerdown',e=>{
+      if(e.button>0) return;
+      const tok=e.target.closest('.tok');
+      if(!tok||!root.contains(tok)||tok.classList.contains('locked')||root.classList.contains('locked')) return;
+      e.preventDefault();
+      const r=tok.getBoundingClientRect();
+      const offX=e.clientX-r.left, offY=e.clientY-r.top, sx=e.clientX, sy=e.clientY;
+      let ghost=null, over=null;
+      const mv=ev=>{
+        if(!ghost){
+          if(Math.hypot(ev.clientX-sx,ev.clientY-sy)<6) return;
+          DnD.clear();
+          ghost=tok.cloneNode(true); ghost.classList.add('dnd-ghost'); ghost.classList.remove('sel');
+          ghost.style.width=r.width+'px'; document.body.appendChild(ghost); tok.classList.add('dragging');
+        }
+        ev.preventDefault();
+        ghost.style.transform=`translate(${ev.clientX-offX}px,${ev.clientY-offY}px) rotate(-2deg)`;
+        const z=DnD.zoneAt(root,ev.clientX,ev.clientY);
+        if(z!==over){ over&&over.classList.remove('over'); over=z; z&&z.classList.add('over'); }
+        if(ev.clientY<90) window.scrollBy(0,-14); else if(ev.clientY>innerHeight-60) window.scrollBy(0,14);
+      };
+      const up=ev=>{
+        window.removeEventListener('pointermove',mv); window.removeEventListener('pointerup',up); window.removeEventListener('pointercancel',up);
+        over&&over.classList.remove('over');
+        if(ghost){
+          ghost.remove(); tok.classList.remove('dragging');
+          if(ev.type==='pointerup'){ const z=DnD.zoneAt(root,ev.clientX,ev.clientY); if(z) onDrop(tok,z); }
+        } else if(ev.type==='pointerup'){
+          // tap
+          const sel=DnD.sel;
+          if(sel===tok){ DnD.clear(); return; }
+          const tz=tok.parentElement.closest('[data-zone]');
+          if(sel&&root.contains(sel)&&tz&&tz.dataset.cap==='1'&&tz!==sel.parentElement.closest('[data-zone]')){ DnD.clear(); onDrop(sel,tz); return; }
+          DnD.clear(); DnD.sel=tok; tok.classList.add('sel'); root.classList.add('selecting');
+        }
+      };
+      window.addEventListener('pointermove',mv,{passive:false}); window.addEventListener('pointerup',up); window.addEventListener('pointercancel',up);
+    });
+    root.addEventListener('click',e=>{
+      if(!DnD.sel||!root.contains(DnD.sel)) return;
+      if(e.target.closest('.tok')) return;
+      const z=e.target.closest('[data-zone]');
+      if(z&&root.contains(z)){ const t=DnD.sel; DnD.clear(); onDrop(t,z); }
+    });
+  },
+  clear(){ if(DnD.sel){ DnD.sel.classList.remove('sel'); $$('.selecting').forEach(x=>x.classList.remove('selecting')); } DnD.sel=null; },
+  zoneAt(root,x,y){ const el=document.elementFromPoint(x,y); const z=el&&el.closest('[data-zone]'); return z&&root.contains(z)?z:null; }
+};
+function zb(z){ return z.querySelector(':scope > .zb')||z; }
+/* put a token into a zone; single-capacity zones swap their occupant back */
+function place(tok,zone,pool){
+  const from=tok.parentElement.closest('[data-zone]');
+  if(zone===from) return;
+  if(zone.dataset.cap==='1'){
+    $$('.tok',zb(zone)).forEach(o=>{ if(o!==tok){ const back=(from&&from!==zone)?from:pool; zb(back).appendChild(o); } });
+  }
+  zb(zone).appendChild(tok);
+  anim(tok,[{transform:'scale(.92)'},{transform:'scale(1)'}],{duration:160});
+}
+function tokEl(text,data){ const t=h('div',{class:'tok',role:'button',tabindex:'0'},text); for(const k in (data||{})) t.dataset[k]=data[k]; return t; }
+
+/* ================= tolerant keyword marking ================= */
+function norm(t,keepStar){
+  t=String(t).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  t=t.replace(/z/g,'s').replace(/oe/g,'e').replace(/our/g,'or').replace(/ph/g,'f');
+  t=t.replace(keepStar?/[^a-z0-9*\s]/g:/[^a-z0-9\s]/g,' ');
+  return t.replace(/\s+/g,' ').trim();
+}
+function lev(a,b){
+  if(a===b) return 0; const m=a.length,n=b.length; if(!m) return n; if(!n) return m;
+  let p=Array.from({length:n+1},(_,i)=>i);
+  for(let i=1;i<=m;i++){ const c=[i]; for(let j=1;j<=n;j++) c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1)); p=c; }
+  return p[n];
+}
+function wordHit(tok,w){
+  if(w.endsWith('*')){ const p=w.slice(0,-1); if(tok.startsWith(p)) return true; if(tok.length<p.length) return false; if(p.length>=5) return lev(tok.slice(0,p.length),p)<=1; return p.length===4&&tok[0]===p[0]&&lev(tok.slice(0,4),p)<=1; }
+  if(tok===w||tok===w+'s'||tok===w+'es'||(w.endsWith('s')&&tok===w.slice(0,-1))) return true;
+  if(w.length<5||/\d/.test(w)) return false;
+  return lev(tok,w)<=(w.length>=9?2:1);
+}
+function tokens(text){ return norm(text).split(' ').filter(Boolean); }
+/* term syntax:  "a b|c+d*"  →  ('a b' OR 'c') AND 'd*'  ; multi-word alternatives need every word present */
+function termMatch(toks,term){
+  return term.split('+').every(part=>part.split('|').some(alt=>{
+    const ws=norm(alt,true).split(' ').filter(Boolean);
+    return ws.length>0&&ws.every(w=>toks.some(t=>wordHit(t,w)));
+  }));
+}
+
+/* ================= small helpers ================= */
+function relBox(el,c){ const r=el.getBoundingClientRect(), cr=c.getBoundingClientRect(); return {l:r.left-cr.left,r:r.right-cr.left,t:r.top-cr.top,b:r.bottom-cr.top,cx:r.left+r.width/2-cr.left,cy:r.top+r.height/2-cr.top}; }
+function curve(x1,y1,x2,y2,vertical){ if(vertical){ const my=(y1+y2)/2; return `M${x1},${y1} C${x1},${my} ${x2},${my} ${x2},${y2}`; } const mx=(x1+x2)/2; return `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`; }
+function observeResize(el,fn){ try{ const ro=new ResizeObserver(()=>fn()); ro.observe(el); }catch(e){ window.addEventListener('resize',fn); } }
+/* ================= DIAGRAMS ================= */
+/* --- half-flower (longitudinal section). Drawn in local coords, shifted +20 into a 440×440 viewBox --- */
+const FLOWER_PARTS={
+  sepal:`<g class="part f-sepal" data-part="sepal"><path class="ol" d="M160,338 C130,352 100,348 80,320 C108,323 136,327 165,331 Z"/><path class="ol" d="M240,338 C270,352 300,348 320,320 C292,323 264,327 235,331 Z"/></g>`,
+  petal:`<g class="part f-petal" data-part="petal"><path class="ol" d="M168,331 C122,322 80,262 80,180 C108,205 146,262 184,322 Z"/><path class="ol" d="M232,331 C278,322 320,262 320,180 C292,205 254,262 216,322 Z"/></g>`,
+  nectary:`<g class="part f-nectary" data-part="nectary"><ellipse class="ol" cx="180" cy="325" rx="8" ry="5"/><ellipse class="ol" cx="220" cy="325" rx="8" ry="5"/></g>`,
+  filament:`<g class="part f-filament" data-part="filament"><path class="hit" d="M181,328 C173,280 161,232 153,194"/><path class="hit" d="M219,328 C227,280 239,232 247,194"/><path class="fil" d="M181,328 C173,280 161,232 153,194"/><path class="fil" d="M219,328 C227,280 239,232 247,194"/></g>`,
+  anther:`<g class="part f-anther" data-part="anther"><ellipse class="ol" cx="149" cy="178" rx="10" ry="18" transform="rotate(-12 149 178)"/><ellipse class="ol" cx="251" cy="178" rx="10" ry="18" transform="rotate(12 251 178)"/></g>`,
+  style:`<g class="part f-style" data-part="style"><path class="ol" d="M194,270 L194,162 L206,162 L206,270 Z"/></g>`,
+  ovary:`<g class="part f-ovary" data-part="ovary"><ellipse class="ol" cx="200" cy="298" rx="31" ry="33"/><ellipse class="cav" cx="200" cy="298" rx="21" ry="25"/></g>`,
+  ovule:`<g class="part f-ovule" data-part="ovule"><ellipse class="ol" cx="193" cy="283" rx="8" ry="9.5"/><ellipse class="ol" cx="207" cy="298" rx="8" ry="9.5"/><ellipse class="ol" cx="193" cy="313" rx="8" ry="9.5"/></g>`,
+  stigma:`<g class="part f-stigma" data-part="stigma"><path class="ol" d="M180,167 C177,141 223,141 220,167 Q200,157 180,167 Z"/></g>`,
+};
+const FLOWER_ORDER=['sepal','petal','nectary','filament','anther','style','ovary','ovule','stigma'];
+const FLOWER_INFO={
+  stigma:['Stigma','Sticky surface that catches pollen grains.'],
+  style:['Style','Holds the stigma up; the pollen tube grows down through it to the ovary.'],
+  anther:['Anther','Makes and releases pollen grains (contain the male gametes).'],
+  filament:['Filament','Stalk that holds the anther up.'],
+  ovary:['Ovary','Contains the ovules. After fertilisation it becomes the fruit.'],
+  ovule:['Ovule','Contains the female gamete. After fertilisation it becomes the seed.'],
+  sepal:['Sepal','Protects the flower while it is still a bud.'],
+  petal:['Petal','Large and brightly coloured to attract insects.'],
+  nectary:['Nectary','Makes sugary nectar to attract insects.'],
+};
+/* label positions (viewBox 440×440) and anchor points (flower coords, +20 added when drawn) */
+const FSPOT={
+  anther:{x:52,y:100,ax:141,ay:175}, petal:{x:52,y:165,ax:96,ay:216}, stamen:{x:52,y:228,ax:141,ay:250},
+  filament:{x:52,y:290,ax:168,ay:270}, sepal:{x:52,y:362,ax:115,ay:338},
+  stigma:{x:388,y:80,ax:214,ay:155}, style:{x:388,y:145,ax:206,ay:212}, carpel:{x:388,y:212,ax:239,ay:240},
+  ovule:{x:388,y:278,ax:214,ay:298}, ovary:{x:388,y:345,ax:227,ay:316},
+};
+function flowerSVG(o={}){
+  const show=o.show||FLOWER_ORDER;
+  let g=`<rect class="f-stem ol" x="193" y="342" width="14" height="98" rx="3"/><ellipse class="f-stem ol" cx="200" cy="336" rx="44" ry="11"/>`;
+  for(const p of FLOWER_ORDER) g+= show.includes(p)?FLOWER_PARTS[p]:'';
+  if(o.brackets) g+=`<g class="brackets" stroke="var(--accent)" stroke-width="2.2" fill="none" stroke-dasharray="5 4"><path data-br="stamen" d="M140,158 L132,158 L141,250 L160,336 L170,336"/><path data-br="carpel" d="M224,143 L231,143 L239,240 L240,330 L232,330"/></g>`;
+  let lead='';
+  for(const id of (o.leaders||[])){ const sp=FSPOT[id]; lead+=`<line class="leader" x1="${sp.ax+20}" y1="${sp.ay}" x2="${sp.x}" y2="${sp.y}"/><circle class="leader-dot" cx="${sp.ax+20}" cy="${sp.ay}" r="2.6"/>`; }
+  return `<svg class="dg" viewBox="0 0 440 440" role="img" aria-label="Half-flower diagram"><g class="fl" transform="translate(20,0)">${g}<g class="extra"></g></g>${lead}</svg>`;
+}
+
+/* --- generic label board: SVG + HTML drop hotspots + token pool --- */
+function labelBoard(svgHTML,vbW,vbH,spots,labels){
+  const root=h('div',{class:'dnd'});
+  const board=h('div',{class:'board',html:svgHTML});
+  for(const sp of spots) board.append(h('div',{class:'hot','data-zone':sp.id,'data-cap':'1',style:`left:${sp.x/vbW*100}%;top:${sp.y/vbH*100}%`}));
+  const pool=h('div',{class:'pool','data-zone':'pool'});
+  shuffle(labels).forEach(l=>pool.append(tokEl(l.t,{a:l.a})));
+  root.append(board,h('div',{class:'pool-label'},'Labels – drag them onto the boxes (or tap a label, then tap a box):'),pool);
+  DnD.attach(root,(t,z)=>place(t,z,pool));
+  return {root,board,pool,
+    filled:()=>$$('.hot',board).every(x=>x.querySelector('.tok')),
+    mark(){ let ok=0; $$('.hot',board).forEach(hot=>{ const t=hot.querySelector('.tok'); const good=t&&t.dataset.a===hot.dataset.zone; ok+=good?1:0; hot.classList.add(good?'ok':'bad'); if(t){ t.classList.add(good?'ok':'bad','locked'); if(!good){ const right=labels.find(l=>l.a===hot.dataset.zone); t.innerHTML=`<span><s>${esc(t.textContent)}</s> ${esc(right?right.t:'')}</span>`; } } }); root.classList.add('locked'); return ok; }
+  };
+}
+
+/* --- fertilisation diagram --- */
+function fertSVG(){
+  return `<svg class="dg" viewBox="0 0 420 260" role="img" aria-label="Sperm plus egg gives zygote">
+  <g class="sperm-g"><path d="M22,110 C32,98 42,122 52,110 S72,98 84,110" fill="none" stroke="var(--d-stroke)" stroke-width="2.4"/>
+    <ellipse class="ol" cx="98" cy="110" rx="15" ry="10" fill="var(--d-sperm)"/><ellipse cx="100" cy="110" rx="6" ry="5" fill="var(--d-nucleus)"/></g>
+  <text x="140" y="118" font-size="26" font-weight="700" text-anchor="middle">+</text>
+  <g class="egg-g"><circle cx="200" cy="110" r="48" fill="var(--d-jelly)" stroke="var(--d-stroke)" stroke-dasharray="4 3"/><circle class="ol" cx="200" cy="110" r="40" fill="var(--d-egg)"/><circle class="egg-nuc" cx="200" cy="110" r="10" fill="var(--d-nucleus)"/></g>
+  <g class="arrow-g"><line x1="258" y1="110" x2="302" y2="110" stroke="var(--d-stroke)" stroke-width="3"/><path d="M302,102 L316,110 L302,118 Z" fill="var(--d-stroke)"/></g>
+  <g class="zyg-g"><circle class="ol zyg" cx="364" cy="110" r="42" fill="var(--d-egg)"/><circle cx="364" cy="110" r="14" fill="var(--d-nucleus)"/><text class="zyg-46" x="364" y="115" font-size="12" font-weight="800" text-anchor="middle" fill="#fff" style="fill:#fff">46</text></g>
+  <text x="80" y="146" text-anchor="middle" class="lbl">Sperm</text><text x="80" y="162" text-anchor="middle" font-size="12">23 chromosomes</text>
+  <text x="200" y="176" text-anchor="middle" class="lbl">Egg</text><text x="200" y="192" text-anchor="middle" font-size="12">23 chromosomes</text>
+  <text x="364" y="170" text-anchor="middle" class="lbl">Zygote</text><text x="364" y="186" text-anchor="middle" font-size="12">46 chromosomes</text>
+  <path d="M30,198 L30,206 L250,206 L250,198" fill="none" stroke="var(--accent)" stroke-width="2"/><line x1="140" y1="206" x2="140" y2="214" stroke="var(--accent)" stroke-width="2"/>
+  <line x1="364" y1="194" x2="364" y2="212" stroke="var(--accent)" stroke-width="2"/><line x1="287" y1="102" x2="287" y2="86" stroke="var(--accent)" stroke-width="2"/>
+  </svg>`;
+}
+
+/* --- male reproductive system (front view, schematic) --- */
+const MALE_INFO={testes:['Testes','Produce sperm (and the hormone testosterone).'],scrotum:['Scrotum','Sac that holds the testes outside the body, keeping them cooler.'],spermDuct:['Sperm duct','Carries sperm from the testes to the urethra.'],prostate:['Prostate gland','Adds fluid with nutrients to the sperm, making semen.'],urethra:['Urethra','Carries urine or semen out of the body.'],penis:['Penis','Becomes erect to place sperm in the vagina.'],bladder:['Bladder','Stores urine (not a reproductive organ).']};
+const MALE_LBL={testes:[134,270,60,256,'end'],scrotum:[268,300,312,330,'start'],spermDuct:[122,140,72,150,'end'],prostate:[230,146,300,150,'start'],urethra:[200,215,300,205,'start'],penis:[218,268,300,262,'start'],bladder:[172,56,92,40,'end']};
+function maleSVG(){
+  return `<svg class="dg" viewBox="0 0 400 380" role="img" aria-label="Male reproductive system"><g transform="translate(20,0)">
+  <path class="part ol" data-part="scrotum" fill="var(--d-organ)" d="M104,214 C78,250 84,332 140,338 C164,340 176,324 180,314 C184,324 196,340 220,338 C276,332 282,250 256,214 C230,204 130,204 104,214 Z"/>
+  <ellipse class="part ol" data-part="testes" fill="var(--d-organ2)" cx="134" cy="276" rx="26" ry="34"/><ellipse class="part ol" data-part="testes" fill="var(--d-organ2)" cx="226" cy="276" rx="26" ry="34"/>
+  <ellipse class="part ol" data-part="bladder" fill="var(--d-bladder)" cx="180" cy="80" rx="54" ry="40"/>
+  <g class="part" data-part="spermDuct"><path class="hit" d="M136,243 C118,200 92,150 100,110 C106,80 148,72 152,100 C155,118 162,128 168,136"/><path class="hit" d="M224,243 C242,200 268,150 260,110 C254,80 212,72 208,100 C205,118 198,128 192,136"/>
+    <path d="M136,243 C118,200 92,150 100,110 C106,80 148,72 152,100 C155,118 162,128 168,136" fill="none" stroke="var(--d-duct)" stroke-width="6" stroke-linecap="round"/><path d="M224,243 C242,200 268,150 260,110 C254,80 212,72 208,100 C205,118 198,128 192,136" fill="none" stroke="var(--d-duct)" stroke-width="6" stroke-linecap="round"/></g>
+  <ellipse class="part ol" data-part="prostate" fill="var(--d-gland)" cx="180" cy="142" rx="31" ry="17"/>
+  <path class="part ol" data-part="penis" fill="var(--d-organ)" d="M163,160 L197,160 L197,322 C197,342 163,342 163,322 Z"/>
+  <g class="part" data-part="urethra"><path class="hit" d="M180,118 L180,338"/><path d="M180,118 L180,338" stroke="var(--d-tube)" stroke-width="7" stroke-linecap="round" fill="none"/></g>
+  </g><g class="labels"></g></svg>`;
+}
+/* --- female reproductive system --- */
+const FEMALE_INFO={ovary:['Ovary','Produces eggs and the hormones oestrogen and progesterone.'],oviduct:['Oviduct','Carries the egg to the uterus; fertilisation happens here.'],uterus:['Uterus','Where the embryo implants and the fetus develops.'],cervix:['Cervix','Ring of muscle at the base of the uterus; keeps the fetus in place during pregnancy.'],vagina:['Vagina','Receives the penis and sperm during intercourse; the birth canal.']};
+const FEMALE_LBL={ovary:[330,134,330,170,'middle'],oviduct:[104,64,70,36,'middle'],uterus:[240,140,282,196,'start'],cervix:[186,220,130,222,'end'],vagina:[216,286,262,296,'start']};
+function femaleSVG(){
+  return `<svg class="dg" viewBox="0 0 400 340" role="img" aria-label="Female reproductive system">
+  <g class="part" data-part="oviduct"><path class="hit" d="M156,88 C124,58 92,56 74,84"/><path class="hit" d="M244,88 C276,58 308,56 326,84"/>
+    <path d="M156,88 C124,58 92,56 74,84" fill="none" stroke="var(--d-tube)" stroke-width="9" stroke-linecap="round"/><path d="M244,88 C276,58 308,56 326,84" fill="none" stroke="var(--d-tube)" stroke-width="9" stroke-linecap="round"/>
+    <path class="ol" fill="var(--d-tube)" d="M60,92 L74,80 L92,96 L84,100 L78,94 L72,102 L66,96 Z"/><path class="ol" fill="var(--d-tube)" d="M340,92 L326,80 L308,96 L316,100 L322,94 L328,102 L334,96 Z"/></g>
+  <g class="part" data-part="ovary"><ellipse class="ol" cx="70" cy="120" rx="25" ry="15" fill="var(--d-gland)"/><ellipse class="ol" cx="330" cy="120" rx="25" ry="15" fill="var(--d-gland)"/><circle cx="62" cy="118" r="4" fill="var(--d-egg)"/><circle cx="78" cy="123" r="3" fill="var(--d-egg)"/><circle cx="338" cy="118" r="4" fill="var(--d-egg)"/><circle cx="322" cy="123" r="3" fill="var(--d-egg)"/></g>
+  <g class="part" data-part="uterus"><path class="ol" fill="var(--d-organ)" d="M150,90 C148,62 252,62 250,90 C252,150 226,190 216,206 L184,206 C174,190 148,150 150,90 Z"/><path fill="var(--d-cav2)" d="M168,90 L232,90 L206,192 L194,192 Z"/></g>
+  <path class="part ol" data-part="cervix" fill="var(--d-organ2)" d="M183,204 L217,204 L214,238 L186,238 Z"/>
+  <g class="part" data-part="vagina"><path class="ol" fill="var(--d-organ)" d="M185,236 L215,236 L222,320 L178,320 Z"/><path d="M200,240 L200,318" stroke="var(--d-cav2)" stroke-width="7"/></g>
+  <g class="labels"></g></svg>`;
+}
+function addOrganLabel(svg,map,id,name){
+  const L=map[id]; if(!L||svg.querySelector(`[data-lab="${id}"]`)) return;
+  const g=s('g',{'data-lab':id}); g.append(s('line',{class:'leader',x1:L[0],y1:L[1],x2:L[2],y2:L[3]}));
+  const tx=s('text',{x:L[2]+(L[4]==='end'?-4:L[4]==='start'?4:0),y:L[3]+(L[4]==='middle'?(L[3]<L[1]?-4:14):4),'text-anchor':L[4],class:'lbl'}); tx.textContent=name; g.append(tx);
+  $('.labels',svg).append(g); anim(g,[{opacity:0},{opacity:1}],{duration:300});
+}
+
+/* --- sperm & egg --- */
+function spermSVG(){
+  return `<svg class="dg" viewBox="0 0 370 140" role="img" aria-label="Sperm cell">
+  <g class="part" data-part="flagellum"><path class="hit" d="M182,70 C206,40 226,100 250,70 S294,40 318,70 S352,96 364,78"/><path d="M182,70 C206,40 226,100 250,70 S294,40 318,70 S352,96 364,78" fill="none" stroke="var(--d-stroke)" stroke-width="3.5" stroke-linecap="round"/></g>
+  <g class="part" data-part="mitochondria"><rect class="ol" x="108" y="58" width="76" height="24" rx="10" fill="var(--d-sperm)"/><ellipse cx="122" cy="70" rx="6" ry="9" fill="var(--d-mito)"/><ellipse cx="138" cy="70" rx="6" ry="9" fill="var(--d-mito)"/><ellipse cx="154" cy="70" rx="6" ry="9" fill="var(--d-mito)"/><ellipse cx="170" cy="70" rx="6" ry="9" fill="var(--d-mito)"/></g>
+  <g class="part" data-part="nucleus"><ellipse class="ol" cx="72" cy="70" rx="44" ry="30" fill="var(--d-sperm)"/><ellipse cx="80" cy="70" rx="22" ry="16" fill="var(--d-nucleus)"/></g>
+  <g class="part" data-part="acrosome"><path class="ol" fill="#9fdcc9" d="M52,42 C30,46 26,60 26,70 C26,80 30,94 52,98 C40,86 38,54 52,42 Z"/></g>
+  </svg>`;
+}
+function eggSVG(){
+  return `<svg class="dg" viewBox="0 0 240 240" role="img" aria-label="Egg cell">
+  <g class="part" data-part="jelly"><circle cx="120" cy="120" r="112" fill="var(--d-jelly)" stroke="var(--d-stroke)" stroke-dasharray="5 4"/></g>
+  <g class="part" data-part="energy"><circle class="ol" cx="120" cy="120" r="88" fill="var(--d-egg)"/>
+   ${[[70,90],[90,160],[150,170],[170,100],[140,60],[80,130],[160,140],[110,180],[60,120],[180,130],[100,70],[130,190]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="5" fill="var(--d-yolk)"/>`).join('')}</g>
+  <g class="part" data-part="enucleus"><circle class="ol" cx="122" cy="118" r="24" fill="var(--d-nucleus)"/></g>
+  </svg>`;
+}
+
+/* --- menstrual cycle graph --- */
+const HORM={
+  FSH:{c:'var(--c-fsh)',k:[[1,.36],[4,.42],[7,.37],[10,.38],[12,.56],[13.5,.62],[15,.3],[18,.18],[23,.14],[27,.26],[28,.32]]},
+  LH:{c:'var(--c-lh)',k:[[1,.1],[10,.13],[12,.3],[13.6,.95],[14,1],[14.6,.7],[15.5,.3],[17,.14],[22,.1],[28,.1]]},
+  Oestrogen:{c:'var(--c-oes)',k:[[1,.15],[5,.2],[8,.36],[11,.72],[12.5,.82],[14,.45],[16,.34],[19,.5],[21,.56],[24,.4],[28,.15]]},
+  Progesterone:{c:'var(--c-pro)',k:[[1,.05],[13,.05],[14.5,.08],[17,.42],[20,.76],[21.5,.82],[24,.6],[26.5,.2],[28,.06]]},
+};
+const LINING=[[1,.6],[3,.32],[5,.15],[7,.22],[14,.55],[18,.85],[21,1],[27,1],[28,.75]];
+function interp(k,d){ for(let i=0;i<k.length-1;i++){ const [x0,y0]=k[i],[x1,y1]=k[i+1]; if(d>=x0&&d<=x1){ const t=(d-x0)/(x1-x0); const m=(1-Math.cos(t*Math.PI))/2; return y0+(y1-y0)*m; } } return k[k.length-1][1]; }
+const CX=d=>60+(d-1)/27*510;
+function cycleSVG(){
+  const HY=v=>220-v*165;
+  let curves='';
+  for(const [name,o] of Object.entries(HORM)){
+    let p=''; for(let d=1;d<=28.001;d+=.25){ p+=(p?'L':'M')+CX(d).toFixed(1)+','+HY(interp(o.k,d)).toFixed(1); }
+    curves+=`<g data-h="${name}"><path class="curvehit" d="${p}"/><path class="curve" d="${p}" stroke="${o.c}"/></g>`;
+  }
+  let top='',bot='';
+  for(let d=1;d<=28.001;d+=.25){ const t=interp(LINING,d); top+=(top?'L':'M')+CX(d).toFixed(1)+','+(330-t*52).toFixed(1); }
+  const lining=`<path d="${top} L${CX(28)},330 L${CX(1)},330 Z" fill="var(--c-lining)" opacity=".8"/><line x1="${CX(1)}" y1="330" x2="${CX(28)}" y2="330" stroke="var(--d-stroke)"/>`;
+  let ticks='';
+  for(let d=1;d<=28;d++){ const big=[1,7,14,21,28].includes(d); ticks+=`<line x1="${CX(d)}" y1="330" x2="${CX(d)}" y2="${big?338:334}" stroke="var(--d-stroke)"/>`+(big?`<text x="${CX(d)}" y="352" text-anchor="middle" font-size="12">${d}</text>`:''); }
+  let cols=''; const w=510/27;
+  for(let d=1;d<=28;d++) cols+=`<rect class="daycol" data-day="${d}" x="${CX(d)-w/2}" y="40" width="${w}" height="300"/>`;
+  return `<svg class="dg cyc-svg" viewBox="0 0 600 372" role="img" aria-label="Menstrual cycle graph">
+  <text x="14" y="135" font-size="12" transform="rotate(-90 14 135)" text-anchor="middle">Hormone level</text>
+  <text x="14" y="305" font-size="11" transform="rotate(-90 14 305)" text-anchor="middle">Lining</text>
+  <line x1="${CX(1)-8}" y1="40" x2="${CX(1)-8}" y2="222" stroke="var(--d-stroke)"/><line x1="${CX(1)-8}" y1="222" x2="${CX(28)}" y2="222" stroke="var(--d-stroke)"/>
+  <text x="${CX(14.5)}" y="268" text-anchor="middle" font-size="11" class="muted" style="fill:var(--muted)">Thickness of uterus lining</text>
+  <text x="${CX(14.5)}" y="368" text-anchor="middle" font-size="12" font-weight="700">Day of cycle</text>
+  <g class="cols">${cols}</g>${lining}${ticks}<g class="marks"></g><g class="curves">${curves}</g></svg>`;
+}
+
+/* --- build-a-flower (Q9) drawing, viewBox 200×240 --- */
+const BF_TRAITS={
+  petals:{i:'Large, brightly coloured petals',w:'Small, dull green petals (or none)'},
+  anthers:{i:'Anthers inside the flower, firmly attached',w:'Anthers hang outside on long filaments'},
+  stigma:{i:'Small, sticky stigma inside the flower',w:'Large, feathery stigma hanging outside'},
+  scent:{i:'Scent and sugary nectar',w:'No scent and no nectar'},
+  amount:{i:'Smaller amounts of pollen',w:'Huge amounts of pollen'},
+  pollen:{i:'Larger, sticky / spiky pollen grains',w:'Small, light, smooth pollen grains'},
+};
+function bfSVG(st){
+  const P=[];
+  P.push(`<rect x="96" y="150" width="8" height="90" rx="3" fill="var(--d-stem)" class="ol"/>`);
+  if(st.petals==='i') P.push(`<g class="pop-in"><path class="ol" fill="var(--d-petal)" d="M100,146 C58,142 26,104 34,64 C66,74 90,108 100,140Z"/><path class="ol" fill="var(--d-petal)" d="M100,146 C142,142 174,104 166,64 C134,74 110,108 100,140Z"/><path class="ol" fill="var(--d-petal)" opacity=".85" d="M100,140 C84,104 84,62 100,44 C116,62 116,104 100,140Z"/></g>`);
+  if(st.petals==='w') P.push(`<g class="pop-in"><path class="ol" fill="#9aa86a" d="M100,150 C86,148 76,138 78,126 C88,130 96,138 100,148Z"/><path class="ol" fill="#9aa86a" d="M100,150 C114,148 124,138 122,126 C112,130 104,138 100,148Z"/></g>`);
+  P.push(`<ellipse cx="100" cy="150" rx="26" ry="7" fill="var(--d-stem)" class="ol"/><ellipse cx="100" cy="137" rx="12" ry="13" fill="var(--d-ovary)" class="ol"/>`);
+  // stigma / style
+  if(st.stigma==='w') P.push(`<g class="pop-in"><line x1="100" y1="125" x2="100" y2="58" stroke="var(--d-style)" stroke-width="4"/>${[[100,58,70,24],[100,58,130,24]].map(([a,b,c,d])=>{let f=`<line x1="${a}" y1="${b}" x2="${c}" y2="${d}" stroke="var(--d-stigma)" stroke-width="2.5"/>`;for(let t=.15;t<1;t+=.17){const x=a+(c-a)*t,y=b+(d-b)*t;f+=`<line x1="${x}" y1="${y}" x2="${x-7}" y2="${y-3}" stroke="var(--d-stigma)" stroke-width="1.5"/><line x1="${x}" y1="${y}" x2="${x+7}" y2="${y-3}" stroke="var(--d-stigma)" stroke-width="1.5"/>`;}return f;}).join('')}</g>`);
+  else P.push(`<line x1="100" y1="125" x2="100" y2="${st.stigma==='i'?104:110}" stroke="var(--d-style)" stroke-width="4"/>`);
+  if(st.stigma==='i') P.push(`<g class="pop-in"><ellipse class="ol" cx="100" cy="101" rx="8" ry="5" fill="var(--d-stigma)"/><circle cx="96" cy="98" r="1.6" fill="#fff"/><circle cx="103" cy="99" r="1.4" fill="#fff"/></g>`);
+  // anthers
+  let ant=[[86,104],[114,104]];
+  if(st.anthers==='i') P.push(`<g class="pop-in"><line x1="96" y1="140" x2="86" y2="112" stroke="var(--d-filament)" stroke-width="2.5"/><line x1="104" y1="140" x2="114" y2="112" stroke="var(--d-filament)" stroke-width="2.5"/><ellipse class="ol" cx="86" cy="106" rx="5" ry="8" fill="var(--d-anther)"/><ellipse class="ol" cx="114" cy="106" rx="5" ry="8" fill="var(--d-anther)"/></g>`);
+  if(st.anthers==='w'){ ant=[[30,166],[170,166]]; P.push(`<g class="pop-in"><path d="M96,142 C70,112 34,118 30,156" fill="none" stroke="var(--d-filament)" stroke-width="2.2"/><path d="M104,142 C130,112 166,118 170,156" fill="none" stroke="var(--d-filament)" stroke-width="2.2"/><ellipse class="ol" cx="30" cy="166" rx="6" ry="11" fill="var(--d-anther)"/><ellipse class="ol" cx="170" cy="166" rx="6" ry="11" fill="var(--d-anther)"/></g>`); }
+  // scent & nectar
+  if(st.scent==='i') P.push(`<g class="pop-in"><path d="M92,146 q-3,5 0,7 q3,-2 0,-7Z" fill="#59a8e8"/><path d="M108,146 q-3,5 0,7 q3,-2 0,-7Z" fill="#59a8e8"/>${[70,100,130].map(x=>`<path d="M${x},38 q-6,-6 0,-12 q6,-6 0,-12" fill="none" stroke="var(--d-petal)" stroke-width="2.5" stroke-linecap="round"/>`).join('')}<text x="150" y="20" font-size="10" style="fill:var(--muted)">scent</text></g>`);
+  if(st.scent==='w') P.push(`<text x="62" y="232" font-size="10" text-anchor="middle" class="pop-in" style="fill:var(--muted)">no scent · no nectar</text>`);
+  // pollen amount
+  if(st.amount){ const n=st.amount==='i'?4:26; let dots=''; for(let k=0;k<n;k++){ const a=ant[k%2]; const dx=st.amount==='w'?((k*37)%70)+6:((k*13)%14)-7; const dy=st.amount==='w'?((k*23)%40)-24:((k*7)%10)-14; dots+=`<circle cx="${a[0]+(st.amount==='w'?dx*(k%2?-.6:.6):dx)}" cy="${a[1]+dy}" r="2.1" fill="var(--d-anther)" stroke="var(--d-stroke)" stroke-width=".5"/>`; }
+    if(st.amount==='w') dots+=`<path d="M20,40 q20,-8 40,0 t40,0" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3"/><path d="M110,30 q20,-8 40,0 t40,0" fill="none" stroke="var(--muted)" stroke-width="1.5" stroke-dasharray="4 3"/>`;
+    P.push(`<g class="pop-in">${dots}</g>`); }
+  // pollen grain inset
+  if(st.pollen){ let g=`<circle cx="170" cy="214" r="22" fill="var(--card)" stroke="var(--d-stroke)" stroke-dasharray="3 2"/><text x="170" y="191" font-size="8" text-anchor="middle" style="fill:var(--muted)">pollen grain</text>`;
+    if(st.pollen==='i'){ g+=`<circle cx="170" cy="214" r="10" fill="var(--d-anther)" class="ol"/>`; for(let a=0;a<12;a++){ const r=a*Math.PI/6; g+=`<line x1="${170+10*Math.cos(r)}" y1="${214+10*Math.sin(r)}" x2="${170+16*Math.cos(r)}" y2="${214+16*Math.sin(r)}" stroke="var(--d-stroke)" stroke-width="1.6"/>`; } }
+    else g+=`<circle cx="170" cy="214" r="6" fill="#f6e7a6" stroke="var(--d-stroke)" stroke-width="1"/>`;
+    P.push(`<g class="pop-in">${g}</g>`); }
+  return `<svg class="dg" viewBox="0 0 200 240" aria-hidden="true">${P.join('')}</svg>`;
+}
+
+/* --- germination pot --- */
+function germSVG(){
+  return `<svg class="dg" viewBox="0 0 300 230" role="img" aria-label="Seed in a pot">
+  <g class="g-light" opacity="0"><circle cx="42" cy="38" r="17" fill="#ffd34d"/>${Array.from({length:8},(_,i)=>{const a=i*Math.PI/4;return `<line x1="${42+22*Math.cos(a)}" y1="${38+22*Math.sin(a)}" x2="${42+30*Math.cos(a)}" y2="${38+30*Math.sin(a)}" stroke="#ffbf00" stroke-width="3" stroke-linecap="round"/>`;}).join('')}</g>
+  <g class="g-dark"><circle cx="42" cy="38" r="15" fill="var(--muted)" opacity=".5"/><text x="42" y="74" font-size="10" text-anchor="middle" style="fill:var(--muted)">dark</text></g>
+  <g class="g-temp"><rect x="256" y="20" width="12" height="80" rx="6" fill="var(--card)" stroke="var(--d-stroke)"/><circle cx="262" cy="104" r="10" class="g-bulb" fill="#4b8de0" stroke="var(--d-stroke)"/><rect class="g-merc" x="259" y="74" width="6" height="28" fill="#4b8de0"/><text class="g-tl" x="262" y="128" font-size="10" text-anchor="middle">5 °C</text></g>
+  <g class="g-o2" opacity=".15">${[[110,40],[128,26],[146,44],[176,30]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="9" fill="none" stroke="var(--c-oes)" stroke-width="2"/><text x="${x}" y="${y+3}" font-size="8" text-anchor="middle" style="fill:var(--c-oes)">O₂</text>`).join('')}</g>
+  <g class="g-water" opacity="0">${[[120,90],[150,80],[180,92]].map(([x,y])=>`<path d="M${x},${y} q-6,10 0,12 q6,-2 0,-12Z" fill="#4ea5ea"/>`).join('')}</g>
+  <path d="M70,120 L230,120 L210,222 L90,222 Z" fill="var(--pot)" class="ol"/>
+  <path class="g-soil" d="M74,126 L226,126 L222,146 L78,146 Z" fill="var(--soil)"/>
+  <rect class="g-soilbody" x="78" y="146" width="144" height="70" fill="var(--soil)" opacity=".9"/>
+  <path class="g-root" d="M150,160 C150,175 146,186 152,200 C156,208 148,212 146,214" fill="none" stroke="#f1e6c8" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="70" stroke-dashoffset="70"/>
+  <path class="g-shoot" d="M150,150 C150,130 152,110 150,86" fill="none" stroke="var(--d-stem)" stroke-width="4" stroke-linecap="round" stroke-dasharray="70" stroke-dashoffset="70"/>
+  <g class="g-leaves" opacity="0"><path class="ol" fill="var(--d-sepal)" d="M150,88 C132,70 112,74 108,84 C120,92 138,94 150,88Z"/><path class="ol" fill="var(--d-sepal)" d="M150,88 C168,70 188,74 192,84 C180,92 162,94 150,88Z"/></g>
+  <ellipse class="g-seed ol" cx="150" cy="156" rx="13" ry="9" fill="#c9965a"/>
+  <text class="g-msg" x="150" y="210" text-anchor="middle" font-size="14" font-weight="800" style="fill:#fff"></text>
+  </svg>`;
+}
+/* ================= QUESTION TYPES ================= */
+const T={};
+
+/* ---------- free text, keyword marking ---------- */
+T.text=(q,b,ctx)=>{
+  let cl=null;
+  if(q.checklist){
+    cl=h('div',{class:'checklist'},q.keys.map(k=>h('div',{class:'ck'},h('span',{class:'box'}),k.label)));
+    b.append(h('p',{class:'small muted'},'Mark scheme – a box lights up for each point your answer covers:'),cl);
+  }
+  const ta=h('textarea',{class:'ta',rows:q.rows||4,placeholder:'Type your answer here…','aria-label':'Your answer'});
+  b.append(ta);
+  ctx.check('Check answer',()=>{
+    const v=ta.value.trim();
+    if(v.replace(/\s/g,'').length<3){ ctx.say('Type an answer first.','info'); ta.focus(); return false; }
+    const toks=tokens(v); const res=q.keys.map(k=>k.any.some(t=>termMatch(toks,t)));
+    const found=res.filter(Boolean).length, need=q.need||q.keys.length;
+    ta.readOnly=true;
+    if(cl) res.forEach((ok,i)=>setTimeout(()=>cl.children[i].classList.add(ok?'on':'off'),i*220));
+    const chips=q.keys.map((k,i)=>`<span class="kw ${res[i]?'ok':'miss'}">${res[i]?'✓':'✗'} ${esc(k.label)}</span>`).join('');
+    ctx.finish(found/need,`Key ideas found: <b>${found}/${q.keys.length}</b> (${need} needed for full marks)<div class="kwrow">${chips}</div><div class="model"><b>Model answer</b><br>${q.model}</div>`);
+  });
+};
+
+/* ---------- table: click-to-cycle cells or segmented buttons ---------- */
+T.grid=(q,b,ctx)=>{
+  const g=h('div',{class:'gtable',style:`grid-template-columns:minmax(110px,1.35fr) repeat(${q.cols.length},minmax(0,1fr))`});
+  g.append(h('div',{class:'gh corner'},q.corner||''),...q.cols.map(c=>h('div',{class:'gh'},c)));
+  const cells=[];
+  q.rows.forEach(r=>{
+    g.append(h('div',{class:'gh rowh'},r.label));
+    q.cols.forEach((c,ci)=>{
+      const cell={r,ci,val:null,el:null};
+      if(q.style==='cycle'){
+        const bt=h('button',{class:'cyc',type:'button','aria-label':`${r.label}, ${c}: tap to change`},'?');
+        bt.onclick=()=>{ const o=r.opts; cell.val=o[cell.val==null?0:(o.indexOf(cell.val)+1)%o.length]; bt.textContent=cell.val; bt.classList.add('set'); anim(bt,[{transform:'rotateX(80deg)'},{transform:'none'}],{duration:180}); };
+        cell.el=bt; g.append(h('div',{class:'gc'},bt));
+      } else {
+        const seg=h('div',{class:'segw',role:'group','aria-label':`${r.label}, ${c}`});
+        r.opts.forEach(o=>{ const bt=h('button',{type:'button',class:'segb'},o); bt.onclick=()=>{ if(seg.classList.contains('locked')) return; cell.val=o; $$('.segb',seg).forEach(x=>x.classList.toggle('on',x===bt)); }; seg.append(bt); });
+        cell.el=seg; g.append(h('div',{class:'gc'},seg));
+      }
+      cells.push(cell);
+    });
+  });
+  if(q.style==='cycle') b.append(h('p',{class:'small muted'},'Tap a box to cycle through the options.'));
+  b.append(h('div',{class:'scrollx'},g));
+  ctx.check('Check',()=>{
+    if(cells.some(c=>c.val==null)){ ctx.say('Fill in every box first.','info'); return false; }
+    let ok=0;
+    cells.forEach(c=>{ const right=c.r.ans[c.ci], good=c.val===right; ok+=good; c.el.parentElement.classList.add(good?'ok':'bad');
+      if(q.style==='cycle'){ c.el.disabled=true; if(!good) c.el.innerHTML=`<s>${esc(c.val)}</s> ${esc(right)}`; }
+      else { c.el.classList.add('locked'); if(!good) $$('.segb',c.el).forEach(x=>{ if(x.textContent===right) x.classList.add('should'); }); } });
+    ctx.finish(ok/cells.length,`${ok}/${cells.length} boxes correct.${q.explain?'<div class="model">'+q.explain+'</div>':''}`);
+  });
+};
+
+/* ---------- sorting cards into zones (columns or rows×cols grid) ---------- */
+T.sort=(q,b,ctx)=>{
+  const root=h('div',{class:'dnd'}); const pool=h('div',{class:'pool','data-zone':'pool'});
+  let layout; const names={};
+  if(q.grid){
+    layout=h('div',{class:'sgrid',style:`grid-template-columns:${q.grid.rowW||'minmax(60px,auto)'} repeat(${q.grid.cols.length},minmax(0,1fr))`});
+    layout.append(h('div',{class:'gh corner'},q.grid.corner||''),...q.grid.cols.map(c=>h('div',{class:'gh'},c)));
+    q.grid.rows.forEach((r,ri)=>{ layout.append(h('div',{class:'gh rowh'},r)); q.grid.cols.forEach((c,ci)=>{ const id=ri+'-'+ci; names[id]=q.grid.zname?q.grid.zname(r,c):`${c} – ${r}`; layout.append(h('div',{class:'szone','data-zone':id,'data-cap':q.cap1?'1':null},h('div',{class:'zb'}))); }); });
+  } else {
+    layout=h('div',{class:'scols'+(q.vs?' vs':'')+(q.cols.length===3?' three':'')});
+    q.cols.forEach((c,ci)=>{ names[ci]=c; layout.append(h('div',{class:'szone','data-zone':String(ci)},h('div',{class:'zh'},c),h('div',{class:'zb'}))); });
+  }
+  shuffle(q.cards).forEach(c=>pool.append(tokEl(c.t,{z:c.z})));
+  root.append(layout,h('div',{class:'pool-label'},'Cards – drag (or tap, then tap a box):'),pool); b.append(root);
+  DnD.attach(root,(t,z)=>place(t,z,pool));
+  ctx.check('Check',()=>{
+    if(pool.querySelector('.tok')){ ctx.say('Place every card first.','info'); return false; }
+    let ok=0; const all=$$('.szone .tok',root);
+    all.forEach(t=>{ const z=t.parentElement.closest('[data-zone]').dataset.zone; const good=String(t.dataset.z)===z; ok+=good; t.classList.add(good?'ok':'bad','locked'); if(!good) t.append(h('span',{class:'fix'},' → '+names[t.dataset.z])); });
+    root.classList.add('locked');
+    ctx.finish(ok/all.length,`${ok}/${all.length} cards in the right place.${q.explain?'<div class="model">'+q.explain+'</div>':''}`);
+  });
+};
+
+/* ---------- connect with wires ---------- */
+T.wires=(q,b,ctx)=>{
+  const wrap=h('div',{class:'wires'}); const L=h('div',{class:'wcol l'}), R=h('div',{class:'wcol r'});
+  const svg=s('svg',{class:'ovl'}); wrap.append(svg,L,R);
+  const P=q.pairs, COL=['#3563d9','#d9822b','#8b5cf6','#0f9d8a','#d6457a','#6b8e23','#c0392b','#2e86c1','#a0522d','#7d3c98','#16a085','#b7950b'];
+  const conn={}; let selL=null, selR=null, locked=false;
+  const lEls={}, rEls={};
+  shuffle(P.map((p,i)=>i)).forEach(i=>{ const e=h('button',{class:'witem',type:'button'},P[i][0]); e.onclick=()=>pick('L',i); lEls[i]=e; L.append(e); });
+  shuffleNotSame(P.map((p,i)=>i)).forEach(i=>{ const e=h('button',{class:'witem',type:'button'},P[i][1]); e.onclick=()=>pick('R',i); rEls[i]=e; R.append(e); });
+  b.append(h('p',{class:'small muted'},'Tap an item on the left, then its match on the right. Tap again to change.'),wrap);
+  function pick(side,i){
+    if(locked) return;
+    if(side==='L') selL=selL===i?null:i; else selR=selR===i?null:i;
+    if(selL!=null&&selR!=null){ for(const k in conn) if(conn[k]===selR) delete conn[k]; conn[selL]=selR; selL=selR=null; }
+    refresh();
+  }
+  function refresh(){
+    for(const i in lEls){ lEls[i].classList.toggle('sel',+i===selL); lEls[i].classList.toggle('linked',conn[i]!=null); }
+    const used=new Set(Object.values(conn)); for(const i in rEls){ rEls[i].classList.toggle('sel',+i===selR); rEls[i].classList.toggle('linked',used.has(+i)); }
+    draw();
+  }
+  function draw(){
+    svg.innerHTML='';
+    for(const k in conn){
+      const a=relBox(lEls[k],wrap), z=relBox(rEls[conn[k]],wrap);
+      const col=wrap.classList.contains('checked')?(+k===conn[k]?'var(--ok)':'var(--bad)'):COL[k%COL.length];
+      svg.append(s('path',{d:curve(a.r,a.cy,z.l,z.cy),stroke:col}));
+      svg.append(s('circle',{cx:a.r,cy:a.cy,r:4,fill:col})); svg.append(s('circle',{cx:z.l,cy:z.cy,r:4,fill:col}));
+    }
+  }
+  observeResize(wrap,draw);
+  ctx.check('Check',()=>{
+    if(Object.keys(conn).length<P.length){ ctx.say(`Connect all ${P.length} items first.`,'info'); return false; }
+    locked=true; wrap.classList.add('checked'); let ok=0;
+    for(const k in conn){ const good=+k===conn[k]; ok+=good; lEls[k].classList.add(good?'ok':'bad'); rEls[conn[k]].classList.add(good?'ok':'bad'); if(!good) lEls[k].append(h('span',{class:'corr'},'✓ '+P[k][1])); }
+    draw();
+    ctx.finish(ok/P.length,`${ok}/${P.length} matches correct.${ok<P.length?' Correct matches are shown in green under each wrong item.':''}`);
+  });
+};
+
+/* ---------- put cards in order (+ optional animation) ---------- */
+T.order=(q,b,ctx)=>{
+  const root=h('div',{class:'dnd'}); const slots=h('ol',{class:'slots'}); const pool=h('div',{class:'pool','data-zone':'pool'});
+  q.items.forEach((t,i)=>slots.append(h('li',{class:'slot','data-zone':'s'+i,'data-cap':'1'},h('span',{class:'num'},i+1),h('div',{class:'zb'}))));
+  shuffleNotSame(q.items.map((t,i)=>i)).forEach(i=>pool.append(tokEl(q.items[i],{i})));
+  root.append(slots,h('div',{class:'pool-label'},'Cards – drag into the numbered slots (or tap, then tap a slot):'),pool); b.append(root);
+  DnD.attach(root,(t,z)=>place(t,z,pool));
+  ctx.check('Check order',async()=>{
+    if(pool.querySelector('.tok')){ ctx.say('Put every card in a slot first.','info'); return false; }
+    let ok=0; $$('.slot',slots).forEach((sl,i)=>{ const t=sl.querySelector('.tok'); const good=+t.dataset.i===i; ok+=good; sl.classList.add(good?'ok':'bad'); t.classList.add(good?'ok':'bad','locked'); });
+    root.classList.add('locked');
+    if(ok<q.items.length){ await sleep(900); slots.innerHTML=''; q.items.forEach((t,i)=>slots.append(h('li',{class:'slot ok pop-in'},h('span',{class:'num'},i+1),h('div',{class:'zb'},h('div',{class:'tok ok locked'},t))))); }
+    ctx.finish(ok/q.items.length,`${ok}/${q.items.length} cards in the right position.${ok<q.items.length?' The correct order is now shown.':''}${q.anim?' Watch the animation below ▼':''}`);
+    if(q.anim){ const st=h('div',{class:'stage'}); b.append(st); ANIMS[q.anim](st,slots); }
+  });
+};
+
+/* ---------- label a diagram (drag) ---------- */
+T.flowerLabel=(q,b,ctx)=>{
+  const parts=q.parts;
+  const lb=labelBoard(flowerSVG({leaders:parts}),440,440,parts.map(p=>({id:p,...FSPOT[p]})),parts.map(p=>({t:FLOWER_INFO[p][0],a:p})));
+  b.append(lb.root); const info=h('div',{class:'info'}); b.append(info);
+  ctx.check('Check labels',()=>{
+    if(!lb.filled()){ ctx.say('Put a label in every box first.','info'); return false; }
+    const ok=lb.mark(); enableFlowerInfo(lb.board,info);
+    ctx.finish(ok/parts.length,`${ok}/${parts.length} labels correct. Now tap or hover over any part of the flower to see what it does.`);
+  });
+};
+function enableFlowerInfo(board,info){
+  const svg=$('svg',board); svg.classList.add('clickable');
+  const show=e=>{ const p=e.target.closest('[data-part]'); if(!p) return; const [n,f]=FLOWER_INFO[p.dataset.part]; info.innerHTML=`<b>${n}:</b> ${f}`; $$('.part',svg).forEach(x=>x.classList.toggle('pulse',x===p)); };
+  svg.addEventListener('pointerover',show); svg.addEventListener('click',show);
+}
+
+/* ---------- click on the named part ---------- */
+T.flowerClick=(q,b,ctx)=>{
+  const board=h('div',{class:'board',html:flowerSVG()}); const svg=$('svg',board); svg.classList.add('clickable');
+  const prompt=h('div',{class:'prompt-pill'}); const info=h('div',{class:'info'});
+  b.append(prompt,board,info);
+  const items=shuffle(q.parts); let i=0, score=0, tries=0, done=false;
+  const show=()=>{ prompt.innerHTML=`<span class="pnum">${i+1}/${items.length}</span><span>Click on the <u>${FLOWER_INFO[items[i]][0].toLowerCase()}</u></span>`; anim(prompt,[{opacity:.3},{opacity:1}],{duration:250}); };
+  show();
+  svg.addEventListener('click',e=>{
+    const p=e.target.closest('[data-part]'); if(!p) return; const id=p.dataset.part;
+    if(done){ const [n,f]=FLOWER_INFO[id]; info.innerHTML=`<b>${n}:</b> ${f}`; $$('.part',svg).forEach(x=>x.classList.toggle('pulse',x===p)); return; }
+    const want=items[i];
+    p.classList.remove('good','wrong'); void p.getBBox();
+    if(id===want){
+      if(tries===0) score++; p.classList.add('good'); $$('.part',svg).forEach(x=>x.classList.remove('pulse'));
+      info.innerHTML=`✓ <b>${FLOWER_INFO[id][0]}</b> – ${FLOWER_INFO[id][1]}`; tries=0; i++;
+      if(i<items.length) show(); else { done=true; prompt.innerHTML='<span>All found! Tap any part to see its function.</span>'; ctx.finish(score/items.length,`${score}/${items.length} found on the first try.`); }
+    } else {
+      tries++; p.classList.add('wrong'); info.innerHTML=`✗ That is the <b>${FLOWER_INFO[id][0].toLowerCase()}</b>. Try again.`;
+      if(tries>=2){ svg.querySelector(`[data-part="${want}"]`).classList.add('pulse'); info.innerHTML+=' (The right part is now flashing.)'; }
+    }
+  });
+};
+
+/* ---------- fertilisation diagram ---------- */
+T.fert=(q,b,ctx)=>{
+  const spots=[{id:'haploid',x:140,y:232},{id:'fert',x:287,y:68},{id:'diploid',x:364,y:232}];
+  const lb=labelBoard(fertSVG(),420,260,spots,[{t:'Haploid',a:'haploid'},{t:'Fertilisation',a:'fert'},{t:'Diploid',a:'diploid'},{t:'Mitosis',a:'x'}]);
+  b.append(lb.root);
+  const play=async()=>{
+    const svg=$('svg',lb.board); const sp=$('.sperm-g',svg), egg=$('.egg-g',svg), zy=$('.zyg-g',svg), nuc=$('.egg-nuc',svg);
+    [sp,egg,zy,nuc].forEach(svgFit);
+    await anim(sp,[{transform:'translate(0,0)'},{transform:'translate(60px,0)'},{transform:'translate(100px,0) scale(.4)',opacity:.2}],{duration:1100,easing:'ease-in',fill:'forwards'});
+    await anim(nuc,[{transform:'scale(1)'},{transform:'scale(1.8)'},{transform:'scale(1.3)'}],{duration:500,fill:'forwards'});
+    anim(egg,[{transform:'none',opacity:1},{transform:'translate(164px,0)',opacity:0}],{duration:900,easing:'ease-in-out',fill:'forwards'});
+    await anim(zy,[{opacity:.3,transform:'scale(.8)'},{opacity:1,transform:'scale(1.12)'},{transform:'scale(1)'}],{duration:1200,easing:'ease-out'});
+    await sleep(600); sp.getAnimations().forEach(a=>a.cancel()); egg.getAnimations().forEach(a=>a.cancel()); nuc.getAnimations().forEach(a=>a.cancel());
+  };
+  ctx.check('Check labels',()=>{
+    if(!lb.filled()){ ctx.say('Put a label in each of the 3 boxes.','info'); return false; }
+    const ok=lb.mark();
+    ctx.finish(ok/3,`${ok}/3 labels correct. Gametes are <b>haploid</b> (23); they join at <b>fertilisation</b> to make a <b>diploid</b> zygote (46).`);
+    if(ok===3) play(); else setTimeout(play,400);
+    ctx.btn('↻ Replay fusion',play,'ghost sm');
+  });
+};
+
+/* ---------- mind map ---------- */
+T.mindmap=(q,b,ctx)=>{
+  const root=h('div',{class:'dnd'}); const mm=h('div',{class:'mm'});
+  const center=h('div',{class:'mm-center'},q.center);
+  const br=h('div',{class:'mm-branches'}); const zones=q.branches.map((n,i)=>h('div',{class:'szone','data-zone':String(i)},h('div',{class:'zh'},n),h('div',{class:'zb'})));
+  br.append(...zones); const svg=s('svg',{class:'ovl'}); mm.append(svg,center,br);
+  const pool=h('div',{class:'pool','data-zone':'pool'}); shuffle(q.cards).forEach(c=>pool.append(tokEl(c.t,{z:c.z})));
+  root.append(mm,h('div',{class:'pool-label'},'Keywords – drag each onto the right branch:'),pool); b.append(root);
+  const draw=()=>{ svg.innerHTML=''; const c=relBox(center,mm); zones.forEach(z=>{ const r=relBox(z,mm); svg.append(s('path',{d:curve(c.cx,c.b,r.cx,r.t,true),stroke:'var(--accent-soft)','stroke-width':4})); }); };
+  observeResize(mm,draw);
+  DnD.attach(root,(t,z)=>place(t,z,pool));
+  ctx.check('Check',()=>{
+    if(pool.querySelector('.tok')){ ctx.say('Place every keyword first.','info'); return false; }
+    let ok=0; const all=$$('.szone .tok',root);
+    all.forEach(t=>{ const z=t.parentElement.closest('[data-zone]').dataset.zone; const good=t.dataset.z===z; ok+=good; t.classList.add(good?'ok':'bad','locked'); if(!good) t.append(h('span',{class:'fix'},' → '+q.branches[t.dataset.z])); });
+    root.classList.add('locked');
+    ctx.finish(ok/all.length,`${ok}/${all.length} keywords on the right branch.`);
+  });
+};
+
+/* ---------- dichotomous key ---------- */
+T.dkey=(q,b,ctx)=>{
+  const dots=h('div',{class:'dk-dots'},q.examples.map(()=>h('i')));
+  const exBox=h('div'); const key=h('div',{class:'dk-key'}); const res=h('div');
+  b.append(dots,exBox,key,res);
+  let ei=0, score=0;
+  const next=h('button',{class:'btn primary sm',type:'button'},'Next example →');
+  function run(){
+    const ex=q.examples[ei]; dots.children[ei].className='cur'; res.innerHTML=''; let wrongAt=null;
+    exBox.innerHTML=''; exBox.append(h('div',{class:'dk-ex'},h('div',{class:'ico',html:ex.icon}),h('div',{},h('b',{},ex.name),h('div',{class:'small'},ex.desc))));
+    key.innerHTML='';
+    const nodes=q.nodes.map((n,ni)=>{ const el=h('div',{class:'dk-node'},h('div',{class:'lead'},`Step ${ni+1}`),h('div',{class:'q'},n.q)); key.append(el); return el; });
+    const go=ni=>{
+      nodes.forEach((n,k)=>n.classList.toggle('active',k===ni));
+      const n=q.nodes[ni]; const el=nodes[ni];
+      const opts=h('div',{class:'opts'}); el.append(opts);
+      ['yes','no'].forEach(ans=>{ const bt=h('button',{class:'btn',type:'button'},ans==='yes'?n.yesL:n.noL); bt.onclick=()=>{
+        $$('button',opts).forEach(x=>x.disabled=true); const right=ex.path[ni];
+        bt.classList.add(ans===right?'right':'wrongc');
+        if(ans!==right){ wrongAt=wrongAt??ni; $$('button',opts).find(x=>x!==bt).classList.add('right'); }
+        el.classList.add('passed');
+        const dest=n[right];
+        if(typeof dest==='number') setTimeout(()=>go(dest),ans===right?250:900);
+        else setTimeout(()=>finishEx(dest),ans===right?250:900);
+      }; opts.append(bt); });
+    };
+    const finishEx=dest=>{
+      nodes.forEach(n=>n.classList.remove('active'));
+      const ok=wrongAt==null; if(ok) score++;
+      dots.children[ei].className=ok?'ok':'bad';
+      res.innerHTML=''; res.append(h('div',{class:'dk-res '+(ok?'ok':'bad')},`${ok?'✓':'✗'} Conclusion: ${dest} reproduction. `,h('span',{class:'small',style:'font-weight:500'},ex.why)));
+      ei++;
+      if(ei<q.examples.length){ res.append(h('div',{style:'margin-top:8px'},next)); next.onclick=run; }
+      else ctx.finish(score/q.examples.length,`${score}/${q.examples.length} examples classified without a wrong turn.`);
+    };
+    go(0);
+  }
+  run();
+};
+
+/* ---------- build-a-flower (insect vs wind) ---------- */
+T.build=(q,b,ctx)=>{
+  const root=h('div',{class:'dnd'}); const pool=h('div',{class:'pool','data-zone':'pool'});
+  const kinds=[['i','Insect-pollinated'],['w','Wind-pollinated']]; const cards={};
+  const grid=h('div',{class:'bf'});
+  kinds.forEach(([k,n])=>{ const c=h('div',{class:'bf-card','data-zone':k},h('h3',{},n),h('div',{class:'pic',html:bfSVG({})}),h('div',{class:'zb'})); cards[k]=c; grid.append(c); });
+  const list=[]; for(const [tr,v] of Object.entries(BF_TRAITS)) for(const k of ['i','w']) list.push({t:v[k],tr,k});
+  shuffle(list).forEach(c=>pool.append(tokEl(c.t,{tr:c.tr,k:c.k})));
+  root.append(grid,h('div',{class:'pool-label'},'Features – drag each onto the flower it belongs to:'),pool); b.append(root);
+  const redraw=()=>kinds.forEach(([k])=>{ const st={}; $$('.tok',cards[k]).forEach(t=>st[t.dataset.tr]=t.dataset.k); $('.pic',cards[k]).innerHTML=bfSVG(st); });
+  DnD.attach(root,(t,z)=>{
+    if(z.dataset.zone!=='pool'){ const same=$$('.tok',z).find(o=>o!==t&&o.dataset.tr===t.dataset.tr); if(same) pool.append(same); }
+    place(t,z,pool); redraw();
+  });
+  ctx.check('Check flowers',()=>{
+    if(pool.querySelector('.tok')){ ctx.say('Place all 12 features (6 on each flower).','info'); return false; }
+    let ok=0; kinds.forEach(([k])=>$$('.tok',cards[k]).forEach(t=>{ const good=t.dataset.k===k; ok+=good; t.classList.add(good?'ok':'bad','locked'); if(!good) t.append(h('span',{class:'fix'},' → other flower')); }));
+    root.classList.add('locked');
+    ctx.finish(ok/12,`${ok}/12 features on the right flower.`);
+  });
+};
+
+/* ---------- construct the flower, then name the parts ---------- */
+const PIECE_ICON={
+  sepal:`<svg viewBox="0 0 60 30" width="54" height="27"><path d="M4,20 C20,30 44,28 56,6 C40,12 24,16 4,14Z" fill="var(--d-sepal)" stroke="var(--d-stroke)"/></svg>`,
+  petal:`<svg viewBox="0 0 40 60" width="28" height="42"><path d="M30,58 C12,52 2,30 6,2 C18,16 30,34 36,54Z" fill="var(--d-petal)" stroke="var(--d-stroke)"/></svg>`,
+  stamen:`<svg viewBox="0 0 30 60" width="20" height="42"><path d="M18,58 C16,40 14,28 12,16" stroke="var(--d-filament)" stroke-width="3.5" fill="none"/><ellipse cx="12" cy="11" rx="6" ry="10" fill="var(--d-anther)" stroke="var(--d-stroke)"/></svg>`,
+  carpel:`<svg viewBox="0 0 40 70" width="24" height="42"><rect x="17" y="12" width="6" height="34" fill="var(--d-style)" stroke="var(--d-stroke)"/><path d="M8,14 C8,2 32,2 32,14 Q20,9 8,14Z" fill="var(--d-stigma)" stroke="var(--d-stroke)"/><ellipse cx="20" cy="54" rx="14" ry="14" fill="var(--d-ovary)" stroke="var(--d-stroke)"/></svg>`,
+};
+T.construct=(q,b,ctx)=>{
+  const step=h('div',{class:'steps'},h('span',{class:'cur'},'1 · Build'),h('span',{},'2 · Name'),h('span',{},'3 · Stamen & carpel'));
+  b.append(step);
+  const area=h('div'); b.append(area);
+  const shown=[]; let errors=0;
+  const ZONES={carpel:{x:220,y:225},stamen:{x:162,y:190},petal:{x:112,y:256},sepal:{x:128,y:346}};
+  const root=h('div',{class:'dnd'}); const board=h('div',{class:'board',html:flowerSVG({show:[]})});
+  for(const [id,p] of Object.entries(ZONES)) board.append(h('div',{class:'hot round','data-zone':id,style:`left:${p.x/440*100}%;top:${p.y/440*100}%`}));
+  const pool=h('div',{class:'pool','data-zone':'pool'});
+  shuffle(Object.keys(ZONES)).forEach(k=>{ const t=tokEl('',{p:k}); t.innerHTML=PIECE_ICON[k]; t.setAttribute('aria-label','flower piece'); pool.append(t); });
+  root.append(h('p',{class:'small muted'},'Step 1: drag each piece onto the empty flower, in the right place (outermost → centre). The dashed circles show where pieces go.'),board,h('div',{class:'pool-label'},'Pieces:'),pool);
+  area.append(root);
+  const MAP={sepal:['sepal'],petal:['petal','nectary'],stamen:['filament','anther'],carpel:['style','ovary','ovule','stigma']};
+  DnD.attach(root,(t,z)=>{
+    if(z.dataset.zone==='pool') return;
+    if(z.dataset.zone===t.dataset.p){
+      shown.push(...MAP[t.dataset.p]); $('svg',board).outerHTML; board.querySelector('svg').remove(); board.insertAdjacentHTML('afterbegin',flowerSVG({show:shown}));
+      MAP[t.dataset.p].forEach(p=>{ const g=board.querySelector(`[data-part="${p}"]`); if(g){ svgFit(g); anim(g,[{opacity:0,transform:'scale(.6)'},{opacity:1,transform:'scale(1)'}],{duration:400,easing:'ease-out'}); } });
+      z.remove(); t.remove();
+      if(!pool.querySelector('.tok')) setTimeout(stage2,700);
+    } else { errors++; z.classList.add('shake'); setTimeout(()=>z.classList.remove('shake'),400); ctx.say(`Not there – think about the order from the outside in. (${errors} mistake${errors>1?'s':''})`,'info'); }
+  });
+  let lb=null;
+  function stage2(){
+    step.children[0].className='ok'; step.children[1].className='cur';
+    ctx.say('Flower built! Step 2: name all 10 parts. Stamen and carpel point to the dashed brackets.','info');
+    const ids=['petal','anther','stamen','filament','sepal','stigma','style','carpel','ovule','ovary'];
+    const NAMES={petal:'Petals',anther:'Anther',stamen:'Stamen',filament:'Filament',sepal:'Sepals',stigma:'Stigma',style:'Style',carpel:'Carpel',ovule:'Ovule',ovary:'Ovary'};
+    lb=labelBoard(flowerSVG({leaders:ids,brackets:true}),440,440,ids.map(p=>({id:p,...FSPOT[p]})),ids.map(p=>({t:NAMES[p],a:p})));
+    area.innerHTML=''; area.append(lb.root); chk.hidden=false;
+  }
+  const chk=ctx.check('Check names',()=>{
+    if(!lb.filled()){ ctx.say('Put a name in all 10 boxes.','info'); return false; }
+    const ok=lb.mark(); step.children[1].className=ok===10?'ok':'bad'; step.children[2].className='cur';
+    reveal(lb.board);
+    const s1=Math.max(0,4-errors)/4;
+    ctx.finish(0.3*s1+0.7*ok/10,`Build step: ${errors} mistake${errors===1?'':'s'} · Names: ${ok}/10.<div class="model"><b style="color:var(--c-lh)">Stamen</b> (male part) = <b>anther + filament</b><br><b style="color:var(--c-pro)">Carpel</b> (female part) = <b>stigma + style + ovary</b> (the ovary contains the ovules)</div>`);
+  });
+  chk.hidden=true;
+  async function reveal(board){
+    const svg=$('svg',board); const grp=(ids,col)=>ids.map(p=>svg.querySelector(`[data-part="${p}"]`)).filter(Boolean).map(g=>{ g.style.filter=`drop-shadow(0 0 4px ${col}) drop-shadow(0 0 2px ${col})`; return g; });
+    for(let r=0;r<2;r++){
+      const a=grp(['anther','filament'],'var(--c-lh)'); await sleep(1100); a.forEach(g=>g.style.filter='');
+      const c=grp(['stigma','style','ovary','ovule'],'var(--c-pro)'); await sleep(1100); c.forEach(g=>g.style.filter='');
+    }
+    step.children[2].className='ok';
+  }
+};
+
+/* ---------- germination virtual lab ---------- */
+T.germ=(q,b,ctx)=>{
+  const F=[['water','💧','Water'],['warmth','🌡️','Warmth'],['oxygen','🫧','Oxygen'],['light','☀️','Light']];
+  const on={water:false,warmth:false,oxygen:false,light:false};
+  const lab=h('div',{class:'lab'}); const sw=h('div',{class:'switches'}); const pic=h('div',{html:germSVG()});
+  F.forEach(([k,ic,n])=>{ const bt=h('button',{class:'sw',type:'button','aria-pressed':'false'},h('span',{class:'tg'}),h('span',{class:'ic'},ic),n); bt.onclick=()=>{ on[k]=!on[k]; bt.classList.toggle('on',on[k]); bt.setAttribute('aria-pressed',on[k]); paint(); }; sw.append(bt); });
+  lab.append(sw,pic);
+  b.append(h('p',{class:'small muted'},'Switch ON only the conditions a seed NEEDS to germinate, then run the experiment.'),lab);
+  const svg=$('svg',pic);
+  function paint(){
+    $('.g-light',svg).setAttribute('opacity',on.light?1:0); $('.g-dark',svg).setAttribute('opacity',on.light?0:1);
+    $('.g-water',svg).setAttribute('opacity',on.water?1:0); $('.g-o2',svg).setAttribute('opacity',on.oxygen?1:.12);
+    const c=on.warmth?'#e0483d':'#4b8de0'; $('.g-bulb',svg).setAttribute('fill',c); const m=$('.g-merc',svg); m.setAttribute('fill',c); m.setAttribute('y',on.warmth?36:74); m.setAttribute('height',on.warmth?66:28); $('.g-tl',svg).textContent=on.warmth?'25 °C':'5 °C';
+    $('.g-soil',svg).setAttribute('fill',on.water?'#6b4a2c':'var(--soil)'); $('.g-soilbody',svg).setAttribute('fill',on.water?'#6b4a2c':'var(--soil)');
+  }
+  paint();
+  const NEED=['water','warmth','oxygen'];
+  const R={
+    water:'Activates enzymes and lets the seed swell, so stored food can be broken down and moved to the growing parts',
+    warmth:'Gives a suitable temperature for enzymes to work',
+    oxygen:'Needed for aerobic respiration to release energy for growth',
+    light:'Not needed – the seed uses its food store; light is only needed later for photosynthesis',
+  };
+  const DISTRACT=['Needed so the seed can photosynthesise straight away','Kills bacteria and fungi in the soil'];
+  let partA=0;
+  const run=ctx.check('▶ Run experiment',async()=>{
+    $$('.sw',sw).forEach(x=>x.disabled=true); run.disabled=true;
+    const grows=on.water&&on.warmth&&on.oxygen; const seed=$('.g-seed',svg); svgFit(seed);
+    if(grows){
+      await anim(seed,[{transform:'scale(1)'},{transform:'scale(1.25)'}],{duration:700,fill:'forwards'});
+      const r=$('.g-root',svg), sh=$('.g-shoot',svg); r.style.transition='stroke-dashoffset 1.2s'; sh.style.transition='stroke-dashoffset 1.4s';
+      r.setAttribute('stroke-dashoffset',0); await sleep(700); sh.setAttribute('stroke-dashoffset',0); await sleep(1300);
+      const lv=$('.g-leaves',svg); lv.setAttribute('opacity',1); svgFit(lv); await anim(lv,[{transform:'scale(.2)'},{transform:'scale(1)'}],{duration:500});
+      $('.g-msg',svg).textContent='Germinated!';
+    } else { await anim(seed,[{fill:'#c9965a'},{fill:'#7d7468'}],{duration:900,fill:'forwards'}); $('.g-msg',svg).textContent='No germination'; }
+    const sel=F.map(f=>f[0]).filter(k=>on[k]); const exact=sel.length===3&&NEED.every(k=>on[k]);
+    partA=exact?1:0;
+    let msg;
+    if(exact) msg='✓ Correct – water, warmth and oxygen are all needed. Light is not.';
+    else if(grows&&on.light) msg='It germinated – but light was not needed! Seeds germinate in the dark (in the soil) using their food store.';
+    else msg=`✗ It ${grows?'germinated':'did not germinate'}. A seed needs <b>water, warmth and oxygen</b> – but not light.`;
+    ctx.say(msg+'<br><b>Now choose the reason for each condition below.</b>',exact?'ok':'part');
+    const box=h('div',{class:'reasons'}); const sels={};
+    F.forEach(([k,ic,n])=>{ const se=h('select',{'aria-label':'Reason for '+n},h('option',{value:''},'Choose a reason…'),shuffle([...Object.values(R),...DISTRACT]).map(t=>h('option',{value:t},t))); sels[k]=se; box.append(h('div',{class:'reason','data-k':k},h('b',{},`${ic} ${n}`),se)); });
+    b.append(box); fin.hidden=false; box.scrollIntoView({behavior:'smooth',block:'nearest'});
+    fin.onclick=()=>{
+      if(Object.values(sels).some(x=>!x.value)){ ctx.say('Choose a reason for all four conditions.','info'); return; }
+      let ok=0; F.forEach(([k])=>{ const good=sels[k].value===R[k]; ok+=good; const row=sels[k].parentElement; row.classList.add(good?'ok':'bad'); sels[k].disabled=true; if(!good) row.append(h('div',{class:'fix'},'✓ '+R[k])); });
+      ctx.finish(0.4*partA+0.6*ok/4,`Conditions: ${partA?'correct':'not quite'} · Reasons: ${ok}/4.<div class="model">Water, warmth and oxygen are needed. <b>Light is NOT needed</b> for germination.</div>`);
+    };
+    return false;
+  });
+  const fin=ctx.check('Check reasons',()=>false); fin.hidden=true;
+};
+
+/* ---------- click organs (male/female) ---------- */
+T.organ=(q,b,ctx)=>{
+  const male=q.which==='male'; const INFO=male?MALE_INFO:FEMALE_INFO; const LBL=male?MALE_LBL:FEMALE_LBL;
+  const board=h('div',{class:'board',html:male?maleSVG():femaleSVG()}); const svg=$('svg',board); svg.classList.add('clickable');
+  const prompt=h('div',{class:'prompt-pill'}); const info=h('div',{class:'info'});
+  b.append(prompt,board,info);
+  const items=shuffle(q.items); let i=0, score=0, tries=0, done=false;
+  const show=()=>{ prompt.innerHTML=`<span class="pnum">${i+1}/${items.length}</span><span>${items[i].q}</span>`; anim(prompt,[{opacity:.3},{opacity:1}],{duration:250}); };
+  show();
+  const parts=id=>$$(`[data-part="${id}"]`,svg);
+  svg.addEventListener('click',e=>{
+    const p=e.target.closest('[data-part]'); if(!p) return; const id=p.dataset.part;
+    if(done){ info.innerHTML=`<b>${INFO[id][0]}:</b> ${INFO[id][1]}`; $$('.part',svg).forEach(x=>x.classList.toggle('pulse',x.dataset.part===id)); return; }
+    const want=items[i].a; parts(id).forEach(x=>{ x.classList.remove('good','wrong'); void x.getBBox(); });
+    if(id===want){
+      if(tries===0) score++; parts(id).forEach(x=>{x.classList.remove('pulse');x.classList.add('good');}); addOrganLabel(svg,LBL,id,INFO[id][0]);
+      info.innerHTML=`✓ <b>${INFO[id][0]}</b> – ${INFO[id][1]}`; tries=0; i++;
+      if(i<items.length) show(); else { done=true; prompt.innerHTML='<span>All found! Tap any part to read its function.</span>'; ctx.finish(score/items.length,`${score}/${items.length} found on the first try.`); }
+    } else {
+      tries++; parts(id).forEach(x=>x.classList.add('wrong')); info.innerHTML=`✗ That is the <b>${INFO[id][0].toLowerCase()}</b>. Try again.`;
+      if(tries>=2){ parts(want).forEach(x=>x.classList.add('pulse')); info.innerHTML+=' (The right part is now flashing.)'; }
+    }
+  });
+};
+
+/* ---------- sperm & egg: click part, choose its function ---------- */
+T.cells=(q,b,ctx)=>{
+  const FN={
+    acrosome:'Contains enzymes that digest the jelly coat so the sperm can get into the egg',
+    mitochondria:'Release energy by respiration so the sperm can swim',
+    flagellum:'Lashes from side to side so the sperm can swim to the egg',
+    energy:'Provides nutrients / energy for the first cell divisions of the embryo',
+    jelly:'Changes after fertilisation so that only one sperm can enter',
+  };
+  const NAME={acrosome:'Acrosome',mitochondria:'Mitochondria',flagellum:'Flagellum',energy:'Energy store (cytoplasm)',jelly:'Jelly coat'};
+  const EXTRA={nucleus:'Nucleus – contains the haploid set of chromosomes (23) from the father.',enucleus:'Nucleus – contains the haploid set of chromosomes (23) from the mother.'};
+  const fig=h('div',{class:'cells'},h('figure',{},h('div',{html:spermSVG()}),h('figcaption',{},'Sperm cell')),h('figure',{},h('div',{html:eggSVG()}),h('figcaption',{},'Egg cell')));
+  $$('svg',fig).forEach(x=>x.classList.add('clickable'));
+  const panel=h('div',{class:'info'},'Tap a part of a cell (acrosome, mitochondria, flagellum, energy store, jelly coat).');
+  const list=h('div',{class:'ans-list'}); const ans={};
+  b.append(fig,panel,list);
+  const opts=shuffle([...Object.values(FN),'Contains the genetic information of the cell']);
+  let locked=false;
+  const drawList=()=>{ list.innerHTML=''; Object.keys(FN).forEach(k=>list.append(h('div',{'data-k':k},h('b',{},NAME[k]),h('span',{},ans[k]||'—')))); };
+  drawList();
+  fig.addEventListener('click',e=>{
+    const p=e.target.closest('[data-part]'); if(!p) return; const id=p.dataset.part;
+    $$('.part',fig).forEach(x=>x.classList.toggle('pulse',x===p));
+    if(EXTRA[id]){ panel.innerHTML=EXTRA[id]; return; }
+    if(locked){ panel.innerHTML=`<b>${NAME[id]}:</b> ${FN[id]}`; return; }
+    panel.innerHTML=''; panel.append(h('div',{},h('b',{},NAME[id]),' – choose its function:'));
+    const ch=h('div',{class:'choices'}); opts.forEach(o=>ch.append(h('button',{class:'btn'+(ans[id]===o?' chosen':''),type:'button',onclick:()=>{ ans[id]=o; drawList(); panel.innerHTML=`Saved for <b>${NAME[id]}</b>. Tap another part.`; p.classList.remove('pulse'); }},o)));
+    panel.append(ch);
+  });
+  ctx.check('Check',()=>{
+    if(Object.keys(FN).some(k=>!ans[k])){ ctx.say('Choose a function for all 5 parts (see the list).','info'); return false; }
+    locked=true; let ok=0;
+    $$('[data-k]',list).forEach(row=>{ const k=row.dataset.k, good=ans[k]===FN[k]; ok+=good; row.classList.add(good?'ok':'bad'); if(!good) row.lastChild.innerHTML=`<s>${esc(ans[k])}</s><br>✓ ${esc(FN[k])}`; });
+    ctx.finish(ok/5,`${ok}/5 functions correct.`);
+  });
+};
+
+/* ---------- placenta exchange ---------- */
+T.placenta=(q,b,ctx)=>{
+  const root=h('div',{class:'dnd'});
+  const lanes=h('div',{class:'lanes'});
+  const mk=(id,dir,title)=>h('div',{class:'szone lane '+dir,'data-zone':id},h('div',{class:'flow'}),h('div',{class:'zh'},title),h('div',{class:'zb'}));
+  const down=mk('m2f','down','Mother → Fetus'), up=mk('f2m','up','Fetus → Mother'); lanes.append(down,up);
+  const villi=`<svg class="villi" viewBox="0 0 400 26" preserveAspectRatio="none"><path d="M0,26 ${Array.from({length:10},(_,i)=>`Q${i*40+20},-14 ${i*40+40},26`).join(' ')} Z" fill="var(--card)"/></svg>`;
+  const pl=h('div',{class:'plac'},h('div',{class:'band mom'},"Mother's blood (in the placenta)"),h('div',{html:villi}),lanes,h('div',{class:'band fet'},'Fetal blood → umbilical cord → fetus'));
+  const pool=h('div',{class:'pool','data-zone':'pool'}); shuffle(q.items).forEach(it=>pool.append(tokEl(it.t,{z:it.z})));
+  root.append(pl,h('div',{class:'pool-label'},'Substances – drag each into the direction it crosses the placenta:'),pool); b.append(root);
+  DnD.attach(root,(t,z)=>{ place(t,z,pool); if(z.classList.contains('lane')){ const p=h('div',{class:'particle'},t.textContent); z.append(p); const H=z.clientHeight; anim(p,z.dataset.zone==='m2f'?[{top:'0px',opacity:0},{opacity:1,offset:.2},{top:(H-24)+'px',opacity:0}]:[{top:(H-24)+'px',opacity:0},{opacity:1,offset:.2},{top:'0px',opacity:0}],{duration:1400,easing:'ease-in-out'}).then(()=>p.remove()); } });
+  ctx.check('Check',()=>{
+    if(pool.querySelector('.tok')){ ctx.say('Place every substance first.','info'); return false; }
+    let ok=0; const all=$$('.lane .tok',root);
+    all.forEach(t=>{ const good=t.parentElement.closest('[data-zone]').dataset.zone===t.dataset.z; ok+=good; t.classList.add(good?'ok':'bad','locked'); if(!good) t.append(h('span',{class:'fix'},' → other way')); });
+    root.classList.add('locked');
+    ctx.finish(ok/all.length,`${ok}/${all.length} correct.<div class="model">Mother → fetus: oxygen, glucose, amino acids, water, antibodies (and other nutrients). Fetus → mother: carbon dioxide and urea (waste). The bloods never mix.</div>`);
+  });
+};
+
+/* ---------- menstrual cycle graph ---------- */
+T.cycle=(q,b,ctx)=>{
+  const legend=h('div',{class:'cyc-legend'},Object.entries(HORM).map(([n,o])=>h('span',{},h('i',{style:`background:${o.c}`}),n)),h('span',{},h('i',{style:'background:var(--c-lining);height:10px'}),'Uterus lining'));
+  const steps=h('div',{class:'steps'},q.tasks.map((t,i)=>h('span',{},`${i+1}`)));
+  const prompt=h('div',{class:'prompt-pill'}); const wrap=h('div',{html:cycleSVG()}); const svg=$('svg',wrap); const info=h('div',{class:'info'});
+  b.append(steps,prompt,legend,wrap,info);
+  let ti=0, score=0;
+  const marks=$('.marks',svg);
+  const mark=(d,col,txt)=>{ const g=s('g',{}); g.append(s('line',{x1:CX(d),x2:CX(d),y1:40,y2:330,stroke:col,'stroke-width':3,'stroke-dasharray':'6 4'})); const t=s('text',{x:CX(d),y:34,'text-anchor':'middle','font-size':12,'font-weight':800,style:`fill:${col}`}); t.textContent=txt; g.append(t); marks.append(g); };
+  const setMode=()=>{ const t=q.tasks[ti]; svg.classList.toggle('daymode',t&&t.type==='day'); svg.classList.toggle('curvemode',t&&t.type==='curve'); $('.cols',svg).style.pointerEvents=t&&t.type==='day'?'auto':'none'; $('.curves',svg).style.pointerEvents=t&&t.type==='curve'?'auto':'none'; };
+  const show=()=>{ $$('span',steps).forEach((x,k)=>{ if(k===ti) x.className='cur'; }); prompt.innerHTML=`<span class="pnum">${ti+1}/${q.tasks.length}</span><span>${q.tasks[ti].q}</span>`; setMode(); };
+  show();
+  const done=(good,msg)=>{ steps.children[ti].className=good?'ok':'bad'; score+=good; info.innerHTML=msg; ti++; if(ti<q.tasks.length) setTimeout(show,500); else { setMode(); prompt.innerHTML='<span>Graph complete – look at how the hormones and lining change together.</span>'; ctx.finish(score/q.tasks.length,`${score}/${q.tasks.length} correct.<div class="model">Day 1: menstruation (lining breaks down). Oestrogen rebuilds the lining → LH surge causes <b>ovulation ≈ day 14</b> → progesterone <b>maintains</b> the lining. If no pregnancy, progesterone falls and the lining breaks down again.</div>`); } };
+  svg.addEventListener('click',e=>{
+    const t=q.tasks[ti]; if(!t) return;
+    if(t.type==='day'){ const c=e.target.closest('.daycol'); if(!c) return; const d=+c.dataset.day; const good=d>=t.min&&d<=t.max;
+      mark(d,good?'var(--ok)':'var(--bad)',`Day ${d}`); if(!good) mark(t.show,'var(--ok)',`Day ${t.show} ✓`);
+      done(good,(good?'✓ ':'✗ ')+t.why); }
+    else { const g=e.target.closest('[data-h]'); if(!g) return; const n=g.dataset.h; const good=n===t.ans;
+      const flash=nm=>{ const p=$(`[data-h="${nm}"] .curve`,svg); p.classList.add('hov'); setTimeout(()=>p.classList.remove('hov'),1800); };
+      flash(n); if(!good) setTimeout(()=>flash(t.ans),300);
+      done(good,`${good?'✓':'✗ You chose '+n+'.'} ${t.why}`); }
+  });
+  svg.addEventListener('pointerover',e=>{ const g=e.target.closest('[data-h]'); if(g&&svg.classList.contains('curvemode')) info.textContent=g.dataset.h; });
+};
+
+/* ---------- animations ---------- */
+const ANIMS={};
+ANIMS.pollination=async(st,slots)=>{
+  const board=h('div',{class:'board',html:flowerSVG()}); const cap=h('div',{class:'caption'}); const rep=h('button',{class:'btn sm ghost',type:'button'},'↻ Replay animation');
+  st.append(board,cap,h('div',{style:'text-align:center;margin-top:6px'},rep));
+  let token=0;
+  const play=async()=>{
+    const my=++token; const alive=()=>my===token&&document.body.contains(board);
+    board.innerHTML=flowerSVG(); const svg=$('svg',board); const ex=$('.extra',svg);
+    const li=$$('.slot',slots);
+    const stepTo=async(k,txt,ms)=>{ if(!alive()) return false; li.forEach((x,j)=>x.classList.toggle('playing',j===k)); cap.textContent=`${k+1}. ${txt}`; await sleep(ms); return alive(); };
+    const grain=s('circle',{cx:200,cy:150,r:5,fill:'var(--d-anther)',stroke:'var(--d-stroke)'}); ex.append(grain);
+    const tubeD='M200,152 L200,262 C200,282 197,292 193,293';
+    const tube=s('path',{d:tubeD,fill:'none',stroke:'#e2a23b','stroke-width':3,'stroke-dasharray':'160','stroke-dashoffset':'160','stroke-linecap':'round'}); ex.append(tube);
+    const nuc=s('circle',{cx:200,cy:152,r:3.5,fill:'var(--d-nucleus)',opacity:0}); ex.append(nuc);
+    anim(grain,[{transform:'translate(-70px,-90px)',opacity:0},{transform:'translate(0,0)',opacity:1}],{duration:1000,easing:'ease-out'});
+    if(!await stepTo(0,'Pollen lands on the stigma',1300)) return;
+    tube.style.transition='stroke-dashoffset 1.8s ease-in-out'; tube.setAttribute('stroke-dashoffset','0');
+    if(!await stepTo(1,'A pollen tube grows down the style',2000)) return;
+    nuc.setAttribute('opacity',1); const L=tube.getTotalLength(); const t0=performance.now();
+    await new Promise(res=>{ const f=now=>{ const k=Math.min(1,(now-t0)/1500); const p=tube.getPointAtLength(L*k); nuc.setAttribute('cx',p.x); nuc.setAttribute('cy',p.y); if(k<1&&alive()) requestAnimationFrame(f); else res(); }; requestAnimationFrame(f); cap.textContent='3. The pollen (male) nucleus travels down the tube into the ovule'; li.forEach((x,j)=>x.classList.toggle('playing',j===2)); });
+    if(!await stepTo(2,'The pollen (male) nucleus enters the ovule',300)) return;
+    const ov=svg.querySelector('[data-part="ovule"] ellipse'); svgFit(ov);
+    anim(ov,[{filter:'none'},{filter:'drop-shadow(0 0 8px #fff) brightness(1.6)'},{filter:'none'}],{duration:900}); nuc.setAttribute('opacity',0);
+    if(!await stepTo(3,'Fertilisation: male nucleus fuses with the female nucleus',1300)) return;
+    const emb=s('circle',{cx:193,cy:283,r:0,fill:'var(--d-stem)'}); ex.append(emb); emb.style.transition='r 1s'; requestAnimationFrame(()=>emb.setAttribute('r',4));
+    if(!await stepTo(4,'The zygote divides and develops into an embryo',1500)) return;
+    const ovs=$$('[data-part="ovule"] ellipse',svg); ovs.forEach(o=>{ o.style.transition='fill 1s, stroke-width 1s'; o.style.fill='#a8743f'; o.style.strokeWidth='3'; }); tube.style.transition='opacity .8s'; tube.style.opacity='0';
+    if(!await stepTo(5,'Each ovule becomes a seed (with a tough seed coat)',1700)) return;
+    const ovary=svg.querySelector('[data-part="ovary"]'); svgFit(ovary); ovary.style.transition='transform 1.4s, filter 1.4s'; ovary.style.transform='scale(1.35)'; $('ellipse',ovary).style.transition='fill 1.4s'; $('ellipse',ovary).style.fill='#f08a3c';
+    ['petal','anther','filament','stigma','style','nectary'].forEach(p=>{ const g=svg.querySelector(`[data-part="${p}"]`); if(g){ g.style.transition='opacity 1.4s'; g.style.opacity='.12'; } });
+    if(!await stepTo(6,'The ovary becomes the fruit (petals and stamens wither)',2200)) return;
+    li.forEach(x=>x.classList.remove('playing')); cap.textContent='From pollination to fruit ✓';
+  };
+  rep.onclick=play; play();
+};
+ANIMS.hiv=async(st,slots)=>{
+  const N=14; const row=h('div',{style:'display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:8px 0'});
+  const cells=Array.from({length:N},()=>h('span',{style:'width:24px;height:24px;border-radius:50%;background:var(--accent-soft);border:2px solid var(--accent);display:inline-block;transition:all .6s'}));
+  row.append(...cells);
+  const meters=h('div',{class:'bars'}); const mk=(n,col)=>{ const i=h('i',{style:`width:100%;background:${col}`}); const v=h('span',{},'100%'); meters.append(h('div',{class:'bar-row'},h('span',{},n),h('div',{class:'bar'},i),v)); return [i,v]; };
+  const [lymB,lymV]=mk('Lymphocytes','var(--accent)'), [abB,abV]=mk('Antibodies made','var(--c-pro)');
+  const cap=h('div',{class:'caption'}); const rep=h('button',{class:'btn sm ghost',type:'button'},'↻ Replay');
+  st.append(row,meters,cap,h('div',{style:'text-align:center'},rep));
+  let token=0;
+  const play=async()=>{
+    const my=++token; const alive=()=>my===token&&document.body.contains(st); const li=$$('.slot',slots);
+    cells.forEach(c=>{c.style.opacity=1;c.style.background='var(--accent-soft)';c.style.transform='none';}); lymB.style.width='100%'; abB.style.width='100%'; lymV.textContent=abV.textContent='100%';
+    const set=(p)=>{ lymB.style.width=p+'%'; lymV.textContent=p+'%'; };
+    const go=async(k,txt,ms)=>{ if(!alive()) return false; li.forEach((x,j)=>x.classList.toggle('playing',j===k)); cap.textContent=txt; await sleep(ms); return alive(); };
+    cells.slice(0,9).forEach(c=>c.style.background='var(--c-lh)');
+    if(!await go(0,'HIV infects lymphocytes (white blood cells)',1500)) return;
+    cells.slice(0,9).forEach(c=>{c.style.opacity=.15;c.style.transform='scale(.6)';}); set(36);
+    if(!await go(1,'Infected lymphocytes are destroyed – the number falls',1500)) return;
+    abB.style.width='30%'; abV.textContent='30%';
+    if(!await go(2,'Fewer lymphocytes → fewer antibodies are made',1500)) return;
+    if(!await go(3,'The immune system is weakened',1300)) return;
+    cells.slice(9).forEach(c=>{c.style.opacity=.15;c.style.transform='scale(.6)';}); set(8); abB.style.width='6%'; abV.textContent='6%';
+    if(!await go(4,'Opportunistic infections (e.g. TB, pneumonia) cannot be fought off = AIDS',1800)) return;
+    li.forEach(x=>x.classList.remove('playing'));
+  };
+  rep.onclick=play; play();
+};
+/* ================= CONTENT ================= */
+const SECTIONS={
+  s1:{n:'16.1 – 16.2',t:'Asexual & sexual reproduction'},
+  s2:{n:'16.3',t:'Reproduction in flowering plants'},
+  s3:{n:'16.4',t:'Sexual reproduction in humans'},
+  s4:{n:'16.5',t:'Sex hormones'},
+  s5:{n:'16.6',t:'HIV, AIDS & STIs'},
+};
+const OBJ=[
+  ['o1','Describe asexual reproduction and its advantages & disadvantages'],
+  ['o2','Describe sexual reproduction: gametes, fertilisation, haploid & diploid'],
+  ['o3','Identify the structures of a flower and their functions'],
+  ['o4','Compare insect-pollinated and wind-pollinated flowers'],
+  ['o5','Self- and cross-pollination and their effects on populations'],
+  ['o6','Fertilisation in plants and formation of seeds and fruit'],
+  ['o7','Conditions needed for germination'],
+  ['o8','Male and female reproductive systems'],
+  ['o9','Adaptive features of sperm and egg cells'],
+  ['o10','The placenta: exchange between mother and fetus'],
+  ['o11','Puberty and sex hormones'],
+  ['o12','Hormones of the menstrual cycle; interpret menstrual cycle graphs'],
+  ['o13','STIs, HIV and AIDS'],
+];
+const ICON={
+  straw:`<svg viewBox="0 0 52 52"><path d="M6,40 C16,46 26,36 34,42" stroke="var(--d-stem)" stroke-width="2.5" fill="none"/><path d="M26,12 C14,12 10,24 18,34 C22,39 30,39 34,34 C42,24 38,12 26,12Z" fill="#e2453c"/><path d="M18,12 L26,6 L34,12 L26,15Z" fill="var(--d-stem)"/><circle cx="23" cy="22" r="1.3" fill="#ffd"/><circle cx="30" cy="26" r="1.3" fill="#ffd"/><circle cx="25" cy="30" r="1.3" fill="#ffd"/><circle cx="8" cy="42" r="4" fill="var(--d-sepal)"/></svg>`,
+  bact:`<svg viewBox="0 0 52 52"><rect x="4" y="18" width="20" height="14" rx="7" fill="#7fbf5a" stroke="var(--d-stroke)"/><rect x="28" y="18" width="20" height="14" rx="7" fill="#7fbf5a" stroke="var(--d-stroke)"/><path d="M24,25 L28,25" stroke="var(--d-stroke)" stroke-dasharray="2 2"/></svg>`,
+  human:`<svg viewBox="0 0 52 52"><circle cx="34" cy="26" r="13" fill="var(--d-egg)" stroke="var(--d-stroke)"/><ellipse cx="14" cy="26" rx="5" ry="3.5" fill="var(--d-sperm)" stroke="var(--d-stroke)"/><path d="M2,26 q3,-4 7,0" stroke="var(--d-stroke)" fill="none"/></svg>`,
+  potato:`<svg viewBox="0 0 52 52"><path d="M8,28 C6,16 22,10 34,14 C48,18 48,36 34,40 C20,44 10,40 8,28Z" fill="#c9965a" stroke="var(--d-stroke)"/><path d="M30,14 C30,8 34,4 38,4" stroke="var(--d-stem)" stroke-width="3" fill="none"/><circle cx="20" cy="24" r="1.6"/><circle cx="32" cy="30" r="1.6"/></svg>`,
+  bee:`<svg viewBox="0 0 52 52">${[0,1,2,3,4].map(i=>`<ellipse cx="18" cy="12" rx="5" ry="8" fill="var(--d-petal)" transform="rotate(${i*72} 18 22)"/>`).join('')}<circle cx="18" cy="22" r="4" fill="var(--d-anther)"/><ellipse cx="40" cy="36" rx="8" ry="5" fill="#f2c230" stroke="var(--d-stroke)"/><path d="M37,32 L37,40 M41,31 L41,41" stroke="var(--d-stroke)" stroke-width="1.5"/></svg>`,
+  pea:`<svg viewBox="0 0 52 52"><path d="M6,30 C16,14 36,12 46,20 C38,34 18,38 6,30Z" fill="var(--d-sepal)" stroke="var(--d-stroke)"/><circle cx="18" cy="26" r="4" fill="#9fd287"/><circle cx="27" cy="24" r="4" fill="#9fd287"/><circle cx="36" cy="22" r="4" fill="#9fd287"/></svg>`,
+};
+
+const Q=[
+/* ---------- 16.1 & 16.2 ---------- */
+{id:'q1',sec:'s1',obj:['o1','o2'],type:'grid',style:'cycle',title:'Compare asexual and sexual reproduction',prompt:'Complete the table.',
+ hint:'Asexual = ONE parent, no gametes, offspring are clones. Sexual = gametes fuse.',
+ cols:['Asexual','Sexual'],rows:[
+  {label:'Number of parents required',opts:['1','2'],ans:['1','2']},
+  {label:'Gametes involved?',opts:['Yes','No'],ans:['No','Yes']},
+  {label:'Fertilisation involved?',opts:['Yes','No'],ans:['No','Yes']},
+  {label:'Genetic variation?',opts:['Yes','No'],ans:['No','Yes']},
+  {label:'Are offspring clones?',opts:['Yes','No'],ans:['Yes','No']}],
+ explain:'Sexual reproduction usually needs two parents (a self-pollinated plant is the exception – one parent, but gametes still fuse).'},
+{id:'q2a',sec:'s1',obj:['o2'],type:'text',title:'Key definition: Gamete',prompt:'Define the term <b>gamete</b>.',hint:'Think “sex cell” and how many chromosomes it has.',
+ model:'A sex cell (e.g. sperm, egg or the male nucleus in pollen) that is <b>haploid</b> – it has one set of chromosomes (half the normal number).',
+ keys:[{label:'sex / reproductive cell',any:['sex cell*','sex','reproductive cell*','sperm','egg|ovum|ova','pollen']},{label:'haploid / half the chromosomes',any:['haploid','half+chromosom*','one set','single set','23']}]},
+{id:'q2b',sec:'s1',obj:['o2'],type:'text',title:'Key definition: Zygote',prompt:'Define the term <b>zygote</b>.',hint:'What is formed straight after fertilisation?',
+ model:'The cell formed when the nuclei of a male and a female gamete <b>fuse</b> at fertilisation. It is <b>diploid</b>.',
+ keys:[{label:'formed by fertilisation / fusion',any:['fertili*','fus*','join*','combin*','merg*']},{label:'two gametes (sperm + egg)',any:['gamete*','sperm+egg|ovum','male+female']},{label:'diploid',any:['diploid','two set*','46','full set','pair*']}],need:2},
+{id:'q2c',sec:'s1',obj:['o2'],type:'text',title:'Key definition: Haploid',prompt:'Define the term <b>haploid</b>.',hint:'How many sets of chromosomes? Example: human gametes.',
+ model:'A nucleus (or cell) with <b>one set</b> of chromosomes – half the normal number, e.g. 23 in human gametes.',
+ keys:[{label:'one set / half the number',any:['one set','single set','1 set','half','23','unpaired']},{label:'chromosomes',any:['chromosom*']}]},
+{id:'q2d',sec:'s1',obj:['o2'],type:'text',title:'Key definition: Diploid',prompt:'Define the term <b>diploid</b>.',hint:'How many sets of chromosomes? Example: human body cells.',
+ model:'A nucleus (or cell) with <b>two sets</b> of chromosomes (chromosomes in pairs) – e.g. 46 in human body cells.',
+ keys:[{label:'two sets / pairs / full number',any:['two set*','2 set*','pair*','46','double','full']},{label:'chromosomes',any:['chromosom*']}]},
+{id:'q3',sec:'s1',obj:['o2'],type:'fert',title:'Fertilisation',prompt:'Drag the labels onto the diagram: which cells are <b>haploid</b>, what is the arrow, which cell is <b>diploid</b>? (One label is not needed.)',
+ hint:'23 chromosomes = one set. 46 chromosomes = two sets. The joining of gametes has a special name.'},
+{id:'q4',sec:'s1',obj:['o2'],type:'text',title:'Why are gametes haploid?',prompt:'Why is it important that gametes are haploid?',hint:'What happens to the chromosome number when two gametes fuse?',
+ model:'So that when two gametes fuse at fertilisation, the zygote gets the correct, full (<b>diploid</b>) number of chromosomes – 46 in humans. If gametes were diploid, the chromosome number would <b>double</b> every generation.',
+ keys:[{label:'gametes fuse at fertilisation',any:['fertili*','fus*','join*','combin*']},{label:'zygote is diploid / correct number',any:['diploid','correct number','right number','normal number','46','same number','full']},{label:'otherwise the number doubles',any:['doubl*','twice','92']}],need:2},
+{id:'q5a',sec:'s1',obj:['o1'],type:'sort',title:'Asexual reproduction: advantages & disadvantages',prompt:'Sort the cards into the grid – for a population in the <b>wild</b> and for <b>crop</b> production.',
+ hint:'The big disadvantage of asexual reproduction is NO variation. The big advantage is speed and only one parent.',
+ grid:{rows:['Population in the wild','Crop production'],cols:['Advantages','Disadvantages'],rowW:'minmax(64px,90px)',zname:(r,c)=>`${c} · ${r.startsWith('Pop')?'Wild':'Crops'}`},
+ cards:[{t:'Only one parent needed – no need to find a mate',z:'0-0'},{t:'Fast – a good habitat can be colonised quickly',z:'0-0'},
+  {t:'No variation – a change in the environment could kill the whole population',z:'0-1'},{t:'Offspring grow close to the parent and compete for resources',z:'0-1'},
+  {t:'Good features are kept – all the plants are identical',z:'1-0'},{t:'Quick and cheap – no pollination or seeds needed',z:'1-0'},
+  {t:'No variation, so one disease can wipe out the whole crop',z:'1-1'},{t:'Cannot produce new, improved varieties',z:'1-1'}]},
+{id:'q5b',sec:'s1',obj:['o2'],type:'sort',title:'Sexual reproduction: advantages & disadvantages',prompt:'Now do the same for <b>sexual</b> reproduction.',
+ hint:'Variation is the key advantage. Needing a mate or pollinators is the key disadvantage.',
+ grid:{rows:['Population in the wild','Crop production'],cols:['Advantages','Disadvantages'],rowW:'minmax(64px,90px)',zname:(r,c)=>`${c} · ${r.startsWith('Pop')?'Wild':'Crops'}`},
+ cards:[{t:'Variation helps the species adapt to environmental change',z:'0-0'},{t:'Seeds can be dispersed far away – less competition',z:'0-0'},
+  {t:'Slower – needs to find a mate or pollinators',z:'0-1'},{t:'An isolated individual cannot reproduce',z:'0-1'},
+  {t:'New, improved varieties can be bred (selective breeding)',z:'1-0'},{t:'Some offspring may resist a new disease',z:'1-0'},
+  {t:"Offspring may not keep the farmer's desired features",z:'1-1'},{t:'Depends on pollinators / weather – less reliable',z:'1-1'}]},
+{id:'q6',sec:'s1',obj:['o1','o2'],type:'mindmap',title:'Mind Map Challenge',prompt:'Complete the mind map: put each keyword on the <b>Asexual</b>, <b>Sexual</b> or <b>Both</b> branch.',
+ hint:'“Both” = things that are true for any kind of reproduction.',center:'Reproduction',branches:['Asexual','Sexual','Both'],
+ cards:[{t:'One parent',z:'0'},{t:'No gametes, no fertilisation',z:'0'},{t:'Offspring are clones',z:'0'},{t:'Many offspring very quickly',z:'0'},
+  {t:'Usually two parents',z:'1'},{t:'Gametes fuse at fertilisation',z:'1'},{t:'Genetic variation',z:'1'},{t:'Needs a mate or pollinator',z:'1'},
+  {t:'Produces new individuals',z:'2'},{t:'Passes on DNA to offspring',z:'2'},{t:'Happens in plants and animals',z:'2'}]},
+{id:'q7',sec:'s1',obj:['o1','o2'],type:'dkey',title:'Challenge: dichotomous key',prompt:'Use the key to decide if each example is <b>sexual</b> or <b>asexual</b> reproduction.',
+ hint:'Careful with self-pollination: only ONE parent, but gametes still fuse – so it is sexual.',
+ nodes:[{q:'Does it need TWO parents?',yesL:'Yes',noL:'No',yes:'Sexual',no:1},{q:'Do the nuclei of two gametes fuse (fertilisation)?',yesL:'Yes – go to conclusion',noL:'No – go to conclusion',yes:'Sexual',no:'Asexual'}],
+ examples:[
+  {name:'Strawberry runners',icon:ICON.straw,desc:'A strawberry plant grows side shoots (runners) that root and become new plants.',path:['no','no'],why:'One parent, no gametes – the new plants are clones.'},
+  {name:'Bacteria – binary fission',icon:ICON.bact,desc:'One bacterium splits into two identical cells.',path:['no','no'],why:'One parent, no gametes.'},
+  {name:'Human fertilisation',icon:ICON.human,desc:'A sperm from the father fuses with an egg from the mother.',path:['yes'],why:'Two parents and gametes fuse.'},
+  {name:'Potato tubers',icon:ICON.potato,desc:'A potato tuber left in the soil sprouts into a new plant.',path:['no','no'],why:'A tuber is a food store of one plant – offspring are clones.'},
+  {name:'Insect-pollinated flower seeds',icon:ICON.bee,desc:'A bee carries pollen from one apple tree to another apple tree; seeds form.',path:['yes'],why:'Cross-pollination: two parent plants.'},
+  {name:'Self-pollinated pea seeds',icon:ICON.pea,desc:'Pollen lands on the stigma of the same pea flower; seeds form.',path:['no','yes'],why:'Only one parent, but male and female gametes still fuse – sexual!'}]},
+
+/* ---------- 16.3 ---------- */
+{id:'q8a',sec:'s2',obj:['o3'],type:'flowerLabel',title:'Label the flower (Fig. 4.2)',prompt:'Drag the labels onto the half-flower.',parts:['stigma','style','anther','filament','ovary','ovule','sepal','petal'],
+ hint:'The male parts (anther on a filament) stand around the female part in the middle (stigma on top of the style, ovary at the bottom with ovules inside).'},
+{id:'q8b',sec:'s2',obj:['o3'],type:'flowerClick',title:'Find the part',prompt:'Click on the part of the flower that is named.',parts:['stigma','style','anther','filament','ovary','ovule','sepal','petal'],
+ hint:'Sepals are the green leaf-like parts at the base. Ovules are the small round bodies inside the ovary.'},
+{id:'q9',sec:'s2',obj:['o4'],type:'build',title:'Build-a-flower: insect vs wind pollinated',prompt:'Drag each feature onto the right flower. Watch the drawing change!',
+ hint:'Insects need to be attracted and to brush against anthers and stigma. Wind needs parts hanging outside and lots of light pollen.'},
+{id:'q10',sec:'s2',obj:['o4'],type:'text',checklist:true,rows:6,title:'Extended response',prompt:'Explain the differences between insect-pollinated and wind-pollinated flowers. Include: petals, nectar, anthers, stigma, amount of pollen.',
+ hint:'Write in pairs: “Insect-pollinated flowers have …, whereas wind-pollinated flowers have …”. Cover each feature.',
+ model:'Insect-pollinated flowers have <b>large, brightly coloured petals</b>, <b>scent and nectar</b> to attract insects; the <b>anthers and stigma are inside</b> the flower so insects brush against them; the stigma is <b>sticky</b>; they make <b>smaller amounts</b> of larger, sticky/spiky pollen. Wind-pollinated flowers have <b>small, dull (green) petals or none</b> and <b>no scent or nectar</b>; the <b>anthers hang outside</b> on long filaments so the wind blows the pollen away; the <b>stigma is large and feathery</b> and hangs outside to catch pollen from the air; they make <b>huge amounts</b> of small, light, smooth pollen.',
+ keys:[{label:'Petals',any:['petal*+bright*|colo*|large|big|showy|small|dull|green|absent|no']},{label:'Nectar / scent',any:['nectar*','scent*|smell*|perfume*|fragran*']},
+  {label:'Anthers',any:['anther*+inside|outside|hang*|dangl*|exposed|enclosed|within|out|firm*|loose*']},{label:'Stigma',any:['stigma*+sticky|feather*|outside|inside|hang*|large|big|branch*']},
+  {label:'Amount of pollen',any:['pollen+lot*|more|huge|many|less|few*|plenty|mass*|abundan*|quantit*|amount*']},{label:'Pollen grain type',any:['pollen+light*|smooth|spik*|sticky|hook*|rough|heavy']}],need:5},
+{id:'q11a',sec:'s2',obj:['o5'],type:'text',title:'Define self-pollination',prompt:'Define <b>self-pollination</b>.',hint:'Pollen goes from an anther to a stigma… of which flower?',
+ model:'The transfer of pollen from the anther to the stigma of the <b>same flower</b>, or of another flower on the <b>same plant</b>.',
+ keys:[{label:'pollen transfer (anther → stigma)',any:['pollen+stigma|transfer*|move*|anther']},{label:'same flower / same plant',any:['same+flower|plant']}]},
+{id:'q11b',sec:'s2',obj:['o5'],type:'text',title:'Define cross-pollination',prompt:'Define <b>cross-pollination</b>.',hint:'Different plant – but what must be the same?',
+ model:'The transfer of pollen from the anther of a flower to the stigma of a flower on a <b>different plant</b> of the <b>same species</b>.',
+ keys:[{label:'pollen transfer (anther → stigma)',any:['pollen+stigma|transfer*|anther']},{label:'different plant',any:['different|another|other|separate+plant*|flower*']},{label:'same species',any:['same species']}]},
+{id:'q12',sec:'s2',obj:['o5'],type:'grid',style:'seg',title:'Effects on populations',prompt:'Choose the right option for each box.',
+ hint:'Cross-pollination mixes genes from two plants → more variation, but it relies on pollinators.',
+ cols:['Self-pollination','Cross-pollination'],rows:[
+  {label:'Genetic variation',opts:['Low','High'],ans:['Low','High']},
+  {label:'Response to environmental change',opts:['Worse','Better'],ans:['Worse','Better']},
+  {label:'Reliance on pollinators',opts:['Less','More'],ans:['Less','More']}],
+ explain:'Self-pollination: less variation, so the population is less able to adapt, but it does not depend on pollinators.'},
+{id:'q13',sec:'s2',obj:['o3'],type:'wires',title:'Flower dissection – match structures and functions',prompt:'Connect each structure to its function (12 pairs).',
+ hint:'Stamen = whole male organ; carpel = whole female organ. Anther makes pollen; pollen contains the male gamete; ovule contains the female gamete.',
+ pairs:[['Sepal','Protects flower bud'],['Petal','Attracts insects'],['Nectary','Produces nectar'],['Stamen','Male reproductive organ'],['Anther','Produces pollen'],['Filament','Supports the anther'],
+  ['Pollen','Contains male gamete'],['Ovary','Produces ovules'],['Style','Male gamete travels down here'],['Stigma','Sticky to catch pollen'],['Carpel','Female reproductive organ'],['Ovule','Contains female gamete']]},
+{id:'q14',sec:'s2',obj:['o3'],type:'construct',title:'Draw and label: build the flower',prompt:'Build an insect-pollinated flower from its pieces, then name the parts.',
+ hint:'From the outside in: sepals → petals → stamens → carpel in the centre.'},
+{id:'q15',sec:'s2',obj:['o6'],type:'order',anim:'pollination',title:'From pollination to seed',prompt:'Put the stages in the correct order.',
+ hint:'Pollen must reach the stigma first; the ovary (the outer part) is the last thing to change.',
+ items:['Pollen lands on the stigma','A pollen tube grows down the style','The pollen nucleus enters the ovule','Fertilisation – male and female nuclei fuse','The embryo develops','The ovule becomes a seed','The ovary becomes a fruit']},
+{id:'q16',sec:'s2',obj:['o7'],type:'germ',title:'Germination – virtual lab',prompt:'Which conditions does a seed need to germinate? Test it, then give a reason for each.',
+ hint:'Seeds germinate underground, in the dark. Think about enzymes and respiration.'},
+
+/* ---------- 16.4 ---------- */
+{id:'q17a',sec:'s3',obj:['o8'],type:'organ',which:'male',title:'Male reproductive system',prompt:'Read the description and click the right structure.',
+ hint:'Sperm are made in the testes; the sperm duct loops up over the bladder to join the urethra at the prostate gland.',
+ items:[{q:'Where are sperm made?',a:'testes'},{q:'Which sac holds the testes outside the body, keeping them cooler?',a:'scrotum'},{q:'Which tube carries sperm from the testes towards the urethra?',a:'spermDuct'},{q:'Which gland adds fluid with nutrients to the sperm, making semen?',a:'prostate'},{q:'Which tube carries urine OR semen out of the body?',a:'urethra'},{q:'Which organ becomes erect and places sperm in the vagina?',a:'penis'}]},
+{id:'q17b',sec:'s3',obj:['o8'],type:'wires',title:'Male system – structures and functions',prompt:'Connect each structure to its function.',hint:'Two tubes: one only carries sperm, the other carries urine or semen.',
+ pairs:[['Testes','Produce sperm and testosterone'],['Scrotum','Holds the testes outside the body (cooler)'],['Sperm duct','Carries sperm from the testes to the urethra'],['Prostate gland','Adds fluid with nutrients to make semen'],['Urethra','Carries urine or semen out of the body'],['Penis','Places sperm in the vagina']]},
+{id:'q18a',sec:'s3',obj:['o8'],type:'organ',which:'female',title:'Female reproductive system',prompt:'Read the description and click the right structure.',hint:'Ovary → oviduct → uterus → cervix → vagina.',
+ items:[{q:'Where are eggs produced and released?',a:'ovary'},{q:'Where does fertilisation usually happen?',a:'oviduct'},{q:'Where does the embryo implant and the fetus grow?',a:'uterus'},{q:'Which ring of muscle holds the fetus in the uterus until birth?',a:'cervix'},{q:'Where are sperm deposited during intercourse (also the birth canal)?',a:'vagina'}]},
+{id:'q18b',sec:'s3',obj:['o8'],type:'wires',title:'Female system – structures and functions',prompt:'Connect each structure to its function.',hint:'The oviduct is where sperm meet the egg.',
+ pairs:[['Ovary','Produces eggs and the hormones oestrogen and progesterone'],['Oviduct','Carries the egg to the uterus; site of fertilisation'],['Uterus','Where the fetus develops'],['Cervix','Ring of muscle that keeps the fetus in the uterus'],['Vagina','Receives sperm; the birth canal']]},
+{id:'q19',sec:'s3',obj:['o9'],type:'cells',title:'Sperm and egg cells – adaptations',prompt:'Tap a part of each cell (acrosome, mitochondria, flagellum, energy store, jelly coat) and choose its function.',
+ hint:'Mitochondria = energy. Acrosome = enzymes. Jelly coat = only one sperm gets in.'},
+{id:'q20',sec:'s3',obj:['o9'],type:'sort',vs:true,title:'Compare sperm and egg cells',prompt:'Drag each card to the right cell: size, shape, number produced, movement.',hint:'The egg is one of the largest cells in the body and cannot swim.',
+ cols:['Sperm cell','Egg cell'],cards:[{t:'Very small',z:0},{t:'Much larger',z:1},{t:'Streamlined head with a long tail',z:0},{t:'Round (spherical)',z:1},{t:'Millions made every day',z:0},{t:'Usually one released per month',z:1},{t:'Swims using its flagellum',z:0},{t:'Moved along the oviduct by cilia',z:1}]},
+{id:'q21',sec:'s3',obj:['o10'],type:'placenta',title:'Pregnancy – placenta exchange',prompt:'Which way does each substance cross the placenta?',hint:'The fetus needs food and oxygen; its waste goes to the mother to be removed.',
+ items:[{t:'Oxygen',z:'m2f'},{t:'Glucose',z:'m2f'},{t:'Amino acids',z:'m2f'},{t:'Antibodies',z:'m2f'},{t:'Water',z:'m2f'},{t:'Carbon dioxide',z:'f2m'},{t:'Urea',z:'f2m'}]},
+
+/* ---------- 16.5 ---------- */
+{id:'q22',sec:'s4',obj:['o11'],type:'text',title:'Define puberty',prompt:'What is <b>puberty</b>?',hint:'Hormones… sexual maturity… secondary sexual characteristics.',
+ model:'The stage of development when a person becomes <b>sexually mature</b> and able to reproduce. <b>Sex hormones</b> (testosterone in boys, oestrogen in girls) cause the <b>secondary sexual characteristics</b> to develop.',
+ keys:[{label:'becomes sexually mature / can reproduce',any:['matur*','reproduc*','fertile','adult']},{label:'sex hormones',any:['hormon*','testosteron*','oestrogen*']},{label:'secondary sexual characteristics',any:['secondary','characteristic*','body change*','breast*','facial hair','voice','period*']}],need:2},
+{id:'q23',sec:'s4',obj:['o11'],type:'sort',cap1:true,title:'Sex hormones table',prompt:'Drag the cards into the table: where each hormone is produced and what it does.',hint:'Testosterone: testes. Oestrogen and progesterone: ovaries (progesterone also from the placenta in pregnancy).',
+ grid:{rows:['Testosterone','Oestrogen','Progesterone'],cols:['Produced by','Function'],rowW:'minmax(86px,auto)',zname:(r,c)=>`${r} · ${c}`},
+ cards:[{t:'Testes',z:'0-0'},{t:'Ovaries',z:'1-0'},{t:'Ovaries (corpus luteum) – later the placenta',z:'2-0'},
+  {t:'Development of male secondary sexual characteristics',z:'0-1'},{t:'Female secondary sexual characteristics; repairs and thickens the uterus lining',z:'1-1'},{t:'Maintains the thick uterus lining',z:'2-1'}]},
+{id:'q24',sec:'s4',obj:['o12'],type:'cycle',title:'Menstrual cycle graph',prompt:'Interpret the 28-day graph by clicking on it.',hint:'The lining is lost at the start of the cycle. The tallest, sharpest peak is the hormone that triggers ovulation.',
+ tasks:[{type:'day',q:'Click on the day menstruation (the period) begins.',min:1,max:1,show:1,why:'Menstruation starts on day 1 – the uterus lining breaks down and is lost (about days 1–5).'},
+  {type:'day',q:'Click on the day ovulation occurs.',min:13,max:15,show:14,why:'Ovulation happens around day 14, just after the LH surge.'},
+  {type:'curve',q:'Click on the curve of the hormone that CAUSES ovulation.',ans:'LH',why:'LH (luteinising hormone) – its sharp peak triggers the release of the egg.'},
+  {type:'curve',q:'Click on the curve of the hormone that MAINTAINS the uterus lining.',ans:'Progesterone',why:'Progesterone stays high in the second half of the cycle to keep the lining thick.'}]},
+{id:'q25',sec:'s4',obj:['o12'],type:'wires',title:'Functions of the hormones',prompt:'Connect each hormone of the menstrual cycle to its function.',hint:'FSH and LH come from the pituitary gland; oestrogen and progesterone from the ovary.',
+ pairs:[['FSH','Makes an egg mature in a follicle and stimulates oestrogen production'],['LH','Causes ovulation (release of the egg)'],['Oestrogen','Repairs and thickens the uterus lining'],['Progesterone','Maintains the uterus lining']]},
+
+/* ---------- 16.6 ---------- */
+{id:'q26a',sec:'s5',obj:['o13'],type:'text',title:'Define pathogen',prompt:'Define <b>pathogen</b>.',hint:'Two words: disease + …',
+ model:'A <b>disease-causing organism</b> (e.g. a bacterium, virus or fungus).',
+ keys:[{label:'causes disease',any:['disease*|illness|infection*|sick*']},{label:'organism / microorganism',any:['organism*','microorganism*','microbe*','bacteri*','virus*','fung*']}]},
+{id:'q26b',sec:'s5',obj:['o13'],type:'text',title:'Define transmissible disease',prompt:'Define <b>transmissible disease</b>.',hint:'The pathogen can be passed from … to …',
+ model:'A disease in which the <b>pathogen</b> can be <b>passed from one host to another</b>.',
+ keys:[{label:'caused by a pathogen',any:['pathogen*','germ*','microorganism*','bacteri*','virus*']},{label:'passed / spread',any:['pass*','spread*','transmit*','transfer*','catch*','contagious']},{label:'from one host to another',any:['host*','person','people','another','individual*']}],need:2},
+{id:'q26c',sec:'s5',obj:['o13'],type:'text',title:'Define STI',prompt:'What is an <b>STI</b>?',hint:'Write out the full name, then say how it is passed on.',
+ model:'A <b>sexually transmitted infection</b>: an infection that is passed from one person to another during <b>sexual contact</b>, through <b>body fluids</b> (semen, vaginal fluid, blood).',
+ keys:[{label:'sexual contact',any:['sexual*','sex','intercourse']},{label:'infection / pathogen',any:['infection*','disease*','pathogen*','virus*','bacteri*']},{label:'passed between people',any:['pass*','spread*','transmit*','transfer*']},{label:'body fluids',any:['fluid*','semen','blood','vagin*']}],need:3},
+{id:'q27a',sec:'s5',obj:['o13'],type:'text',title:'How is HIV transmitted?',prompt:'How is HIV transmitted?',hint:'Body fluids: think of at least three different routes.',
+ model:'In <b>body fluids</b>: by <b>unprotected sexual intercourse</b>; by <b>sharing needles</b> (e.g. drug users); by <b>transfusion of infected blood</b>; and from <b>mother to baby</b> across the placenta, at birth or in breast milk.',
+ keys:[{label:'unprotected sex',any:['sex*','intercourse']},{label:'sharing needles',any:['needle*','syringe*','inject*']},{label:'infected blood / transfusion',any:['transfusion*','blood']},{label:'mother to baby',any:['mother|placenta|breast*|birth|milk|pregnan*']},{label:'body fluids',any:['fluid*','semen']}],need:3},
+{id:'q27b',sec:'s5',obj:['o13'],type:'text',title:'How can HIV lead to AIDS?',prompt:'Explain how HIV can lead to AIDS.',hint:'Lymphocytes → antibodies → immune system → other infections.',
+ model:'HIV infects and destroys <b>lymphocytes</b> (white blood cells). With fewer lymphocytes, fewer <b>antibodies</b> are made, so the <b>immune system is weakened</b>. The person cannot fight off other (<b>opportunistic</b>) <b>infections</b>, such as TB or pneumonia – this is AIDS.',
+ keys:[{label:'destroys lymphocytes',any:['lymphocyte*','white blood cell*','t cell*','white cell*']},{label:'fewer antibodies',any:['antibod*']},{label:'immune system weakened',any:['immun*']},{label:'other / opportunistic infections',any:['infection*','disease*','opportunistic','pathogen*','tb','tuberculosis','pneumonia']}],need:3},
+{id:'q27c',sec:'s5',obj:['o13'],type:'order',anim:'hiv',title:'HIV → AIDS: put it in order',prompt:'Put the stages in the right order.',hint:'Start with what the virus attacks.',
+ items:['HIV infects lymphocytes (white blood cells)','The number of lymphocytes falls','Fewer antibodies are made','The immune system is weakened','Opportunistic infections develop = AIDS']},
+{id:'q27d',sec:'s5',obj:['o13'],type:'text',title:'Controlling the spread of STIs',prompt:'How can the spread of STIs be controlled?',hint:'Barriers, behaviour, testing, treatment, needles, education – give at least three.',
+ model:'Use <b>condoms</b>; have <b>fewer sexual partners</b> (or abstain); get <b>tested</b> and trace contacts; <b>treat</b> infected people (antibiotics for bacterial STIs, antiretroviral drugs for HIV); <b>do not share needles</b>; <b>education</b> campaigns.',
+ keys:[{label:'condoms',any:['condom*','femidom*','barrier']},{label:'fewer partners / abstinence',any:['partner*','abstain*','abstinen*','faithful','monogam*']},{label:'testing / tracing',any:['test*','screen*','check*','tracing','diagnos*']},{label:'treatment',any:['treat*','drug*','antibiotic*','antiretrovir*','medic*']},{label:'no shared needles',any:['needle*','syringe*']},{label:'education',any:['educat*','awareness','inform*','campaign*']}],need:3},
+];
+const QMAP={}; Q.forEach(q=>QMAP[q.id]=q);
+
+/* ================= ENGINE ================= */
+const app=$('#app');
+const confName={1:'Not confident',2:'Somewhat confident',3:'Confident'};
+const confCol={1:'var(--red)',2:'var(--amber)',3:'var(--green)'};
+function secScore(ids,scores){ const v=ids.filter(id=>scores[id]!=null).map(id=>scores[id]); return v.length?v.reduce((a,b)=>a+b,0)/v.length:null; }
+function rag(x){ return x==null?'N':x>=.8?'G':x>=.5?'A':'R'; }
+const RAGN={R:'Red',A:'Amber',G:'Green',N:'Not tried'};
+const allScores=()=>{ const o={}; for(const k in S.results) o[k]=S.results[k].s; return o; };
+
+function home(){
+  DnD.clear(); window.scrollTo(0,0); app.innerHTML='';
+  const sc=allScores();
+  app.append(h('div',{class:'hero'},h('div',{class:'tag'},'Cambridge IGCSE Biology 0610 · Extended'),h('h1',{},'Topic 16: Reproduction'),h('p',{class:'muted'},`Interactive revision quiz – ${Q.length} questions. Choose a section or take the full test.`)));
+  if(S.run&&S.run.idx<S.run.ids.length){
+    const r=S.run; app.append(h('div',{class:'card resume'},h('div',{},h('b',{},'Continue where you left off'),h('div',{class:'small muted'},`${r.label} – question ${r.idx+1} of ${r.ids.length}`)),h('div',{class:'row'},h('button',{class:'btn ghost sm',onclick:()=>{S.run=null;save();home();}},'Discard'),h('button',{class:'btn primary',onclick:showQ},'Resume →'))));
+  }
+  const grid=h('div',{class:'sec-grid'}); const panel=h('div');
+  for(const [k,sec] of Object.entries(SECTIONS)){
+    const ids=Q.filter(q=>q.sec===k).map(q=>q.id); const x=secScore(ids,sc); const done=ids.filter(id=>sc[id]!=null).length;
+    grid.append(h('button',{class:'card sec-card',type:'button',onclick:()=>askConf(k,panel)},h('span',{class:'num'},sec.n),h('span',{class:'name'},sec.t),
+      h('span',{class:'meta'},h('span',{},`${ids.length} questions · ${done} done`),x==null?h('span',{class:'badge'},'new'):h('span',{class:'badge '+rag(x).toLowerCase()},pct(x)+'%'))));
+  }
+  grid.append(h('button',{class:'card sec-card full-card',type:'button',onclick:()=>askConf('all',panel)},h('span',{class:'num'},'All sections'),h('span',{class:'name'},'Full test'),h('span',{class:'meta'},h('span',{},`${Q.length} questions, mixed`),h('span',{class:'badge'},'★'))));
+  app.append(grid,panel);
+  if(Object.keys(S.results).length) app.append(h('div',{class:'row',style:'margin-top:18px;justify-content:space-between'},
+    h('button',{class:'btn sm',onclick:()=>{ S.lastRun={label:'All progress',ids:Q.map(q=>q.id),scores:allScores(),conf:null}; results(true); }},'📊 My progress & RAG grid'),
+    h('button',{class:'btn ghost sm',onclick:()=>{ if(confirm('Delete all saved progress?')){ S={results:{},conf:{},run:null,lastRun:null}; save(); home(); } }},'Reset all progress')));
+}
+function askConf(k,panel){
+  const name=k==='all'?'the full test':`${SECTIONS[k].n} ${SECTIONS[k].t}`;
+  panel.innerHTML='';
+  const c=h('div',{class:'card conf-panel'},h('h3',{},'Before you start – my confidence level'),h('p',{class:'small muted'},`How confident do you feel about ${name}?`),
+    h('div',{class:'conf-opts'},[1,2,3].map(v=>h('button',{type:'button',onclick:()=>{ S.conf[k]=v; const ids=k==='all'?shuffle(Q.map(q=>q.id)):Q.filter(q=>q.sec===k).map(q=>q.id); startRun(k==='all'?'Full test':`${SECTIONS[k].n} ${SECTIONS[k].t}`,ids,v,k); }},h('span',{class:'dot',style:`background:${confCol[v]}`}),confName[v]))));
+  panel.append(c); c.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function startRun(label,ids,conf,key){ S.run={label,ids,idx:0,scores:{},conf,key}; save(); showQ(); }
+
+function showQ(){
+  DnD.clear(); const run=S.run; if(!run) return home();
+  if(run.idx>=run.ids.length) return finishRun();
+  const q=QMAP[run.ids[run.idx]]; if(!q){ run.idx++; return showQ(); }
+  window.scrollTo(0,0); app.innerHTML='';
+  const answered=Object.keys(run.scores).length; const tot=Object.values(run.scores).reduce((a,b)=>a+b,0);
+  app.append(h('div',{class:'qhead'},h('span',{},h('span',{class:'tag'},SECTIONS[q.sec].n),' ',h('b',{},`Question ${run.idx+1} / ${run.ids.length}`)),
+    h('span',{class:'muted small'},answered?`Score so far: ${pct(tot/answered)}%`:run.label)));
+  app.append(h('div',{class:'pbar'},h('i',{style:`width:${run.idx/run.ids.length*100}%`})));
+  const card=h('div',{class:'card qcard'}); app.append(card);
+  card.append(h('h2',{},q.title),h('p',{class:'qprompt',html:q.prompt}));
+  const body=h('div',{class:'qbody'}); const fb=h('div',{class:'feedback','aria-live':'polite'}); const hint=h('div',{class:'hint',hidden:true},'💡 '+q.hint);
+  const mid=h('div',{class:'act-mid'});
+  const last=run.idx===run.ids.length-1;
+  const nextBtn=h('button',{class:'btn primary',type:'button',disabled:true,onclick:()=>{ run.idx++; save(); showQ(); }},last?'See results':'Next →');
+  const actions=h('div',{class:'actions'},h('button',{class:'btn ghost',type:'button',onclick:()=>{ hint.hidden=!hint.hidden; }},'💡 Hint'),mid,nextBtn);
+  card.append(body,hint,fb,actions);
+  app.append(h('div',{class:'row',style:'margin-top:12px;justify-content:space-between'},h('button',{class:'btn ghost sm',onclick:home},'← Save & quit'),
+    h('button',{class:'btn ghost sm',onclick:()=>{ run.scores[q.id]=run.scores[q.id]??0; run.idx++; save(); showQ(); }},'Skip question')));
+  let done=false;
+  const ctx={
+    check(label,fn){ const bt=h('button',{class:'btn primary chk',type:'button'},label); let busy=false;
+      bt.addEventListener('click',async()=>{ if(busy||done) return; busy=true; try{ await fn(); }catch(e){ console.error(e); } finally{ busy=false; } }); mid.append(bt); return bt; },
+    btn(label,fn,cls){ const bt=h('button',{class:'btn '+(cls||''),type:'button',onclick:fn},label); mid.append(bt); return bt; },
+    say(html,kind){ fb.className='feedback show '+(kind||'info'); fb.innerHTML=html; },
+    finish(score,html){
+      if(done) return; done=true; score=Math.max(0,Math.min(1,score||0));
+      run.scores[q.id]=score; S.results[q.id]={s:score,t:Date.now()}; save();
+      const kind=score>=.999?'ok':score>=.5?'part':'bad';
+      const head=kind==='ok'?'✓ Correct!':kind==='part'?'◐ Partly right':'✗ Not quite';
+      ctx.say(`<div class="big">${head} <span class="small">(${pct(score)}%)</span></div>${html||''}`,kind);
+      $$('.chk',mid).forEach(b=>b.disabled=true); nextBtn.disabled=false;
+      anim(fb,[{transform:'scale(.98)'},{transform:'scale(1.01)'},{transform:'none'}],{duration:300});
+    }
+  };
+  try{ T[q.type](q,body,ctx); }catch(e){ console.error(e); body.append(h('p',{class:'feedback show bad'},'Sorry – this question failed to load. Press Skip.')); }
+}
+function finishRun(){
+  const r=S.run; S.lastRun={label:r.label,ids:r.ids,scores:r.scores,conf:r.conf,key:r.key}; S.run=null; save(); results(false);
+}
+function results(progressOnly){
+  DnD.clear(); window.scrollTo(0,0); app.innerHTML='';
+  const L=S.lastRun; if(!L) return home();
+  const all=allScores();
+  const runScore=secScore(L.ids,Object.fromEntries(L.ids.map(id=>[id,L.scores[id]??0])));
+  const wrap=h('div',{class:'stack'}); app.append(wrap);
+  if(!progressOnly){
+    wrap.append(h('div',{class:'card',style:'text-align:center'},h('div',{class:'muted'},L.label),h('div',{class:'score-big'},pct(runScore)+'%'),
+      h('p',{},`${L.ids.filter(id=>(L.scores[id]??0)>=.999).length} of ${L.ids.length} questions fully correct`),
+      L.conf?h('p',{class:'small muted'},`Confidence before: `,h('b',{style:`color:${confCol[L.conf]}`},confName[L.conf]),` → result: `,h('b',{},rag(runScore)==='G'?'Green':rag(runScore)==='A'?'Amber':'Red')):null));
+  } else wrap.append(h('h1',{},'My progress'));
+  // section bars
+  const bars=h('div',{class:'bars'}); const secs=Object.keys(SECTIONS).filter(k=>L.ids.some(id=>QMAP[id].sec===k));
+  secs.forEach(k=>{ const ids=L.ids.filter(id=>QMAP[id].sec===k); const x=secScore(ids,progressOnly?all:Object.fromEntries(ids.map(id=>[id,L.scores[id]??0])));
+    const col=x==null?'var(--line)':`var(--${({G:'green',A:'amber',R:'red'})[rag(x)]})`;
+    bars.append(h('div',{class:'bar-row'},h('span',{},h('b',{},SECTIONS[k].n),' ',h('span',{class:'small muted'},SECTIONS[k].t)),h('div',{class:'bar'},h('i',{style:`width:0;background:${col}`,'data-w':x==null?0:pct(x)})),h('b',{},x==null?'–':pct(x)+'%'))); });
+  wrap.append(h('div',{class:'card'},h('h3',{},'Score by section'),bars));
+  requestAnimationFrame(()=>setTimeout(()=>$$('.bar i',bars).forEach(i=>i.style.width=i.dataset.w+'%'),50));
+  // three topics to revise (all-time data)
+  const secRank=Object.keys(SECTIONS).map(k=>({n:`${SECTIONS[k].n} ${SECTIONS[k].t}`,x:secScore(Q.filter(q=>q.sec===k).map(q=>q.id),all)})).filter(o=>o.x!=null&&o.x<.999).sort((a,b)=>a.x-b.x);
+  const objRank=OBJ.map(([id,t])=>({n:t,x:secScore(Q.filter(q=>q.obj.includes(id)).map(q=>q.id),all)})).filter(o=>o.x!=null&&o.x<.999).sort((a,b)=>a.x-b.x);
+  let three=secRank.slice(0,3); if(three.length<3) three=three.concat(objRank.slice(0,3-three.length));
+  wrap.append(h('div',{class:'card'},h('h3',{},'Three topics I need to revise again'),
+    three.length?h('ol',{class:'revise'},three.map(o=>h('li',{},h('span',{style:'flex:1'},o.n),h('span',{class:'badge'},pct(o.x)+'%')))):h('p',{class:'muted'},'Nothing weak so far – great work! Try another section or the full test.')));
+  // RAG grid
+  wrap.append(h('div',{class:'card'},h('h3',{},'Checklist – RAG rating'),h('p',{class:'small muted'},'Green ≥ 80 %, Amber 50–79 %, Red < 50 % (based on your latest answer to each question).'),
+    h('div',{class:'rag'},OBJ.map(([id,t])=>{ const r=rag(secScore(Q.filter(q=>q.obj.includes(id)).map(q=>q.id),all)); return h('div',{class:'rag-row'},h('span',{},t),h('span',{class:'rag-pill '+r},RAGN[r])); }))));
+  // buttons
+  const wrong=L.ids.filter(id=>(L.scores[id]??0)<.999);
+  wrap.append(h('div',{class:'row',style:'justify-content:center'},
+    !progressOnly&&wrong.length?h('button',{class:'btn primary',onclick:()=>startRun('Review my mistakes',wrong,null,'review')},`Review my mistakes (${wrong.length})`):null,
+    !progressOnly?h('button',{class:'btn',onclick:()=>startRun(L.label,L.key==='all'?shuffle(L.ids):L.ids,L.conf,L.key)},'↻ Restart'):null,
+    h('button',{class:'btn ghost',onclick:home},'Home')));
+}
+
+/* ================= start ================= */
+load(); initTheme();
+$('#homeBtn').addEventListener('click',home);
+home();
+</script>
+</body>
+</html>
