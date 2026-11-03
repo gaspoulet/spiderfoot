@@ -48,7 +48,7 @@
 html{-webkit-text-size-adjust:100%;scroll-padding-top:76px}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;min-height:100vh}
 button{font:inherit;color:inherit}
-.top{position:sticky;top:0;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 16px;background:var(--bg);border-bottom:1px solid var(--line)}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px max(16px,env(safe-area-inset-right,0px)) 10px max(16px,env(safe-area-inset-left,0px));background:var(--bg);border-bottom:1px solid var(--line)}
 .brand{font-weight:700;font-size:15px;display:flex;gap:8px;align-items:center;cursor:pointer;background:none;border:0;padding:0}
 .brand .logo{width:28px;height:28px;border-radius:8px;background:var(--accent);color:#fff;display:grid;place-items:center;font-size:14px}
 .top-actions{display:flex;gap:6px}
@@ -1486,7 +1486,7 @@ function home(){
   app.append(grid,panel);
   if(Object.keys(S.results).length) app.append(h('div',{class:'row',style:'margin-top:18px;justify-content:space-between'},
     h('button',{class:'btn sm',onclick:()=>{ S.lastRun={label:'All progress',ids:Q.map(q=>q.id),scores:allScores(),conf:null}; results(true); }},'📊 My progress & RAG grid'),
-    h('button',{class:'btn ghost sm',onclick:()=>{ if(confirm('Delete all saved progress?')){ S={results:{},conf:{},run:null,lastRun:null}; save(); home(); } }},'Reset all progress')));
+    h('button',{class:'btn ghost sm',onclick:e=>{ const bt=e.currentTarget; if(bt.dataset.arm){ S={results:{},conf:{},run:null,lastRun:null}; save(); home(); } else { bt.dataset.arm='1'; bt.textContent='Tap again to delete everything'; setTimeout(()=>{ if(bt.isConnected){ delete bt.dataset.arm; bt.textContent='Reset all progress'; } },4000); } }},'Reset all progress')));
 }
 function askConf(k,panel){
   const name=k==='all'?'the full test':`${SECTIONS[k].n} ${SECTIONS[k].t}`;
