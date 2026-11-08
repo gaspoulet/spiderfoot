@@ -320,36 +320,46 @@ $('alarm-time-btn').addEventListener('click', openAlarmSheet);
 /* ════════════════════ Emploi du temps ════════════════════ */
 const DEFAULT_TT = `# Un jour par titre, puis un cours par ligne :
 # début-fin Matière @ Salle
+
 Lundi
-08:00-08:55 Mathématiques @ B204
-09:00-09:55 Français @ A112
-10:10-11:05 Anglais @ C03
-11:10-12:05 Physique-Chimie @ Labo 2
-13:30-14:25 Histoire-Géo @ A108
-14:30-15:25 SVT @ Labo 1
+09:30-10:15 Chimie @ 404 PC
+10:40-11:25 Chimie @ 404 PC
+11:30-12:15 Anglais @ 206
+12:35-13:15 Science Plus
 
 Mardi
-08:00-09:55 Mathématiques @ B204
-10:10-11:05 Espagnol @ C05
-11:10-12:05 Philosophie @ A101
-13:30-15:25 EPS @ Gymnase
+08:30-09:30 Maths @ 106 FS
+09:30-10:15 Learning Support
+10:40-11:25 Anglais @ 107
+12:35-13:15 Géographie @ 504
+13:32-14:15 Anglais @ 507A
+14:30-15:15 Physique @ 402
 
 Mercredi
-08:00-08:55 Anglais @ C03
-09:00-09:55 Physique-Chimie @ Labo 2
-10:10-12:05 SVT @ Labo 1
+08:30-09:30 Français @ 304/G03
+09:30-10:15 Géographie @ 202
+10:40-11:25 Chimie @ 404 PC
+12:35-13:15 Learning Support @ UG-04
+13:32-14:15 Biologie @ 402
+14:30-15:15 Biologie @ 402
+15:40-16:15 Maths @ 107
 
 Jeudi
-08:00-08:55 Français @ A112
-09:00-09:55 Histoire-Géo @ A108
-10:10-11:05 Mathématiques @ B204
-13:30-15:25 Physique-Chimie @ Labo 2
+08:30-09:30 Maths @ 508
+09:30-10:15 Français @ 304
+10:40-11:25 Learning Support @ UG-04
+11:30-12:15 Biologie @ 402
+12:35-13:15 Maths @ 107
+14:30-15:15 Français @ 106 FS
 
 Vendredi
-08:00-08:55 Philosophie @ A101
-09:00-09:55 Espagnol @ C05
-10:10-11:05 Anglais @ C03
-11:10-12:05 Mathématiques @ B204
+08:30-09:30 EPS
+09:30-10:15 EPS
+10:40-11:25 PSHE @ 507B
+11:30-12:15 Physique @ 402
+12:35-13:15 Physique @ 402
+14:30-15:15 Géographie @ 201
+15:40-16:15 Anglais @ 206
 `;
 const DAY_ALIASES = {
   dim: 0, dimanche: 0, sun: 0, sunday: 0,
@@ -385,7 +395,7 @@ function parseTimetable(text) {
   return { days, errors };
 }
 
-let ttText = store.get('timetable', DEFAULT_TT);
+let ttText = store.get('timetable', DEFAULT_TT);   // emploi du temps réel, repris de Blubee
 let timetable = parseTimetable(ttText).days;
 const hm = (min) => `${pad(Math.floor(min / 60))}:${pad(min % 60)}`;
 let calRefs = [];
@@ -526,13 +536,17 @@ function renderHomework() {
   if (!items.length) ul.append(el('li', 'rem-empty', 'Aucun devoir à rendre 🎉'));
   for (const { h, info } of items) {
     const li = el('li', 'rem-item');
-    li.style.setProperty('--c', colorFor(h.subject));
+    li.style.setProperty('--c', colorFor((h.subject || '').split(' · ')[0]));
     const check = el('button', 'rem-check');
     check.setAttribute('aria-label', 'Marquer comme fait');
     check.innerHTML = '<svg><use href="#i-check"/></svg>';
     check.addEventListener('click', () => completeHomework(h, li));
     const body = el('div', 'rem-body');
     body.append(el('div', 'rem-title', h.title));
+    if (h.url) {
+      body.classList.add('has-link');
+      body.addEventListener('click', () => window.open(h.url, '_blank', 'noopener'));
+    }
     const sub = el('div', 'rem-sub');
     if (info.badge) sub.append(el('span', 'badge ' + info.badge[0], info.badge[1]));
     if (h.subject) sub.append(el('span', 'rem-subject', h.subject));

@@ -19,26 +19,23 @@ En ligne de commande, c'est la même chose : `npm i -g vercel`, puis `vercel --p
 
 ## Devoirs : connexion à Blubee
 
-La fonction `/api/devoirs` se connecte à Blubee (https://blubee-gaspard.vercel.app) comme toi dans Safari, avec ton e-mail et ton mot de passe. Elle garde la session, lit la page des devoirs et la convertit. L'app l'appelle toutes les 15 minutes.
+La fonction `/api/devoirs` se connecte à ton compte Blubee et lit directement ta liste de devoirs et de contrôles, dans la base Supabase de Blubee, comme le fait l'app Blubee. Elle ne garde que ce qui n'est pas encore marqué comme fait. L'app l'appelle toutes les 15 minutes. Touche un devoir pour l'ouvrir dans Classroom.
 
-Sur Vercel, dans le projet du dashboard : **Settings → Environment Variables**. Ajoute les deux variables, coche **Sensitive**, puis **Redeploy** :
+Sur Vercel, dans le projet du dashboard : **Settings → Environment Variables**. Ajoute ces variables, coche **Sensitive**, puis **Redeploy** :
 
 | Variable | Valeur |
 |---|---|
-| `BLUBEE_EMAIL` | l'adresse mail que tu utilises sur Blubee |
+| `BLUBEE_EMAIL` | l'adresse mail de ton compte Blubee |
 | `BLUBEE_PASSWORD` | ton mot de passe Blubee |
 | `DASHBOARD_KEY` | une phrase secrète de ton choix (conseillé), à saisir aussi dans l'app avec ⚙︎ |
 
-Ton mot de passe reste dans Vercel. Il n'est jamais envoyé à l'iPhone.
+Ton mot de passe reste dans Vercel. Il n'est jamais envoyé à l'iPhone. Si tu changes ton mot de passe Blubee, mets à jour `BLUBEE_PASSWORD` puis fais **Redeploy**.
 
-Pour vérifier, ouvre `https://<ton-dashboard>.vercel.app/api/devoirs?debug=1`. La page indique ce que la fonction a trouvé chez Blubee. Si tu as défini `DASHBOARD_KEY`, ouvre plutôt l'app : la ligne en bas du widget Devoirs affiche l'état de la synchronisation.
+Autres sources possibles à la place de Blubee : Google Classroom (`GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REFRESH_TOKEN`) ou un lien calendrier `.ics` (`ICAL_URL`). Pour forcer une source, utilise `DEVOIRS_SOURCE=blubee|classroom|ical`.
 
-Options :
-- `BLUBEE_PATHS` : pages de Blubee où chercher les devoirs, séparées par des virgules (par défaut `/`).
-- `BLUBEE_URL` : à changer seulement si Blubee change d'adresse.
-- Autres sources possibles à la place de Blubee : Google Classroom (`GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REFRESH_TOKEN`) ou un lien calendrier `.ics` (`ICAL_URL`). Pour forcer une source, utilise `DEVOIRS_SOURCE=blubee|classroom|ical`.
+Les devoirs ajoutés avec **+** restent sur l'iPhone, en plus de ceux de Blubee. Cocher un devoir le masque sur le dashboard, mais ne le coche pas dans Blubee. Le toast « Annuler » permet de revenir en arrière.
 
-Les devoirs ajoutés avec **+** restent sur l'iPhone, en plus de ceux de Blubee. Cocher un devoir le masque, et le toast « Annuler » permet de revenir en arrière.
+L'emploi du temps par défaut est ton vrai emploi du temps, repris de Blubee (périodes P1 à P8). Tu peux le modifier avec le crayon.
 
 ## Installation sur l'iPhone
 
