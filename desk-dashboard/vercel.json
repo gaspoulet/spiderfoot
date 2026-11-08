@@ -1,0 +1,18 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "",
+  "outputDirectory": "public",
+  "cleanUrls": true,
+  "headers": [
+    { "source": "/sw.js", "headers": [
+      { "key": "Cache-Control", "value": "no-cache" },
+      { "key": "Service-Worker-Allowed", "value": "/" }
+    ] },
+    { "source": "/manifest.webmanifest", "headers": [
+      { "key": "Content-Type", "value": "application/manifest+json" }
+    ] },
+    { "source": "/api/(.*)", "headers": [
+      { "key": "Cache-Control", "value": "private, no-store" }
+    ] }
+  ]
+}
