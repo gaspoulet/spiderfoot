@@ -4,7 +4,7 @@
  *
  * Les identifiants restent côté serveur (variables d'environnement Vercel).
  * Sources possibles (DEVOIRS_SOURCE, sinon choisie selon les variables présentes) :
- *   - "blubee"              : l'API de ton site Blubee
+ *   - "blubee"              : ton site Blubee (connexion e-mail + mot de passe)
  *   - "classroom"           : Google Classroom directement (OAuth refresh token)
  *   - "ical"                : n'importe quel flux .ics privé
  */
@@ -22,7 +22,7 @@ class HttpError extends Error {
 function pickSource() {
   const forced = env("DEVOIRS_SOURCE").toLowerCase()
   if (forced) return forced
-  if (env("BLUBEE_URL")) return "blubee"
+  if (env("BLUBEE_EMAIL") || env("BLUBEE_COOKIE") || env("BLUBEE_TOKEN") || env("BLUBEE_URL")) return "blubee"
   if (env("GOOGLE_REFRESH_TOKEN")) return "classroom"
   if (env("ICAL_URL")) return "ical"
   return ""
@@ -40,6 +40,8 @@ export async function GET(req) {
     return json({ error: "not_configured", message: "Aucune source de devoirs configurée" }, 501)
   }
   try {
+    const debug = new URL(req.url).searchParams.has("debug")
+    if (debug && source === "blubee") return json(await fromBlubee(true))
     let devoirs, label
     if (source === "classroom") { devoirs = await fromClassroom(); label = "Classroom" }
     else if (source === "ical") { devoirs = await fromIcal(); label = "Calendrier" }
@@ -61,32 +63,158 @@ export async function GET(req) {
 
 
 /* ───────────────────────── Blubee ───────────────────────── */
-// BLUBEE_URL     adresse du site Blubee, ex. https://blubee.vercel.app
-// BLUBEE_PATH    /api/devoirs                             (route JSON des devoirs)
-// BLUBEE_TOKEN   jeton envoyé en "Authorization: Bearer …" (facultatif)
-// BLUBEE_COOKIE  cookie de session complet, ex. "session=abc…" (facultatif)
-async function fromBlubee() {
-  const base = env("BLUBEE_URL")
-  if (!base) throw new HttpError(501, "not_configured", "BLUBEE_URL manquant")
-  const path = env("BLUBEE_PATH") || "/api/devoirs"
-  const url = new URL(path, base)
-  const headers = { accept: "application/json", "user-agent": UA }
-  if (env("BLUBEE_TOKEN")) headers.authorization = `Bearer ${env("BLUBEE_TOKEN")}`
-  if (env("BLUBEE_COOKIE")) headers.cookie = env("BLUBEE_COOKIE")
+// Blubee (Next.js) n'a pas d'API publique : la fonction se connecte comme toi dans Safari
+// (formulaire e-mail + mot de passe), garde le cookie de session, puis lit la page des devoirs.
+//
+// BLUBEE_EMAIL, BLUBEE_PASSWORD   tes identifiants Blubee (variables secrètes Vercel)
+// BLUBEE_URL     https://blubee-gaspard.vercel.app (défaut)
+// BLUBEE_PATHS   pages où chercher les devoirs, séparées par des virgules (défaut "/")
+// BLUBEE_TOKEN / BLUBEE_COOKIE    alternative : jeton Bearer ou cookie de session tout prêt
+const BLUBEE_DEFAULT = "https://blubee-gaspard.vercel.app"
+let blubeeCookie = "" // réutilisé tant que la fonction reste « chaude »
 
-  const res = await fetch(url, { headers, redirect: "manual", signal: AbortSignal.timeout(15000) })
-  if (res.status === 401 || res.status === 403 || (res.status >= 300 && res.status < 400)) {
-    throw new HttpError(502, "upstream_auth", "Blubee refuse l'accès (jeton ou cookie à renouveler)")
+async function fromBlubee(debug) {
+  const base = env("BLUBEE_URL") || BLUBEE_DEFAULT
+  const paths = (env("BLUBEE_PATHS") || env("BLUBEE_PATH") || "/").split(",").map((p) => p.trim()).filter(Boolean)
+  const found = []
+  const report = []
+  for (const path of paths) {
+    let page = await blubeeGet(base, path)
+    if (page.login) {                                   // session expirée → on se reconnecte une fois
+      blubeeCookie = await blubeeLogin(base)
+      page = await blubeeGet(base, path)
+      if (page.login) throw new HttpError(502, "upstream_auth", "Blubee refuse la connexion (e-mail ou mot de passe ?)")
+    }
+    const lists = extractLists(page.body)
+    report.push({ path, status: page.status, bytes: page.body.length, lists: lists.map((l) => ({ score: l.score, n: l.items.length, keys: Object.keys(l.items[0] ?? {}).slice(0, 15) })) })
+    if (lists.length) found.push(...lists[0].items.map((it, i) => normalize(it, "blubee", i)).filter(Boolean))
   }
-  if (res.status === 404) throw new HttpError(502, "upstream_path", `Blubee : route ${path} introuvable (BLUBEE_PATH)`)
+  if (debug) return { report, sample: found.slice(0, 3) }
+  if (!found.length && report.every((r) => !r.lists.length)) {
+    throw new HttpError(502, "upstream_format", "Connecté à Blubee, mais aucun devoir trouvé sur la page (BLUBEE_PATHS ?)")
+  }
+  return found
+}
+
+function cookieHeader(res) {
+  const list = typeof res.headers.getSetCookie === "function" ? res.headers.getSetCookie() : [res.headers.get("set-cookie") ?? ""]
+  return list.map((c) => c.split(";")[0]).filter((c) => c && !/=$/.test(c)).join("; ")
+}
+function mergeCookies(a, b) {
+  const m = new Map()
+  for (const part of `${a}; ${b}`.split(/;\s*/)) { const i = part.indexOf("="); if (i > 0) m.set(part.slice(0, i), part) }
+  return [...m.values()].join("; ")
+}
+
+async function blubeeLogin(base) {
+  if (env("BLUBEE_COOKIE")) return env("BLUBEE_COOKIE")
+  const email = env("BLUBEE_EMAIL"), password = env("BLUBEE_PASSWORD")
+  if (!email || !password) throw new HttpError(501, "not_configured", "BLUBEE_EMAIL et BLUBEE_PASSWORD manquants")
+
+  const page = await fetch(new URL("/login", base), { headers: { "user-agent": UA }, signal: AbortSignal.timeout(15000) })
+  if (!page.ok) throw new HttpError(502, "upstream", `Blubee indisponible : HTTP ${page.status}`)
+  const html = await page.text()
+  let jar = cookieHeader(page)
+
+  // Champs cachés du formulaire Next.js (dont l'identifiant de la server action, qui change à chaque déploiement)
+  const form = new FormData()
+  const formHtml = html.match(/<form[\s\S]*?<\/form>/i)?.[0] ?? html
+  for (const m of formHtml.matchAll(/<input[^>]*type="hidden"[^>]*>/gi)) {
+    const name = m[0].match(/name="([^"]+)"/)?.[1]
+    if (name) form.append(name, decodeEntities(m[0].match(/value="([^"]*)"/)?.[1] ?? ""))
+  }
+  if (![...form.keys()].some((k) => k.startsWith("$ACTION"))) {
+    throw new HttpError(502, "upstream_format", "Formulaire de connexion Blubee non reconnu")
+  }
+  form.append("email", email)
+  form.append("password", password)
+
+  const res = await fetch(new URL("/login", base), {
+    method: "POST", body: form, redirect: "manual",
+    headers: { "user-agent": UA, cookie: jar, origin: new URL(base).origin, referer: new URL("/login", base).href },
+    signal: AbortSignal.timeout(15000),
+  })
+  jar = mergeCookies(jar, cookieHeader(res))
+  const loc = res.headers.get("location") ?? ""
+  if (!jar || (res.status < 300 && !cookieHeader(res)) || /\/login/.test(loc)) {
+    throw new HttpError(502, "upstream_auth", "Blubee refuse la connexion (e-mail ou mot de passe ?)")
+  }
+  return jar
+}
+
+async function blubeeGet(base, path) {
+  if (!blubeeCookie && !env("BLUBEE_TOKEN")) return { login: true, status: 0, body: "" }
+  const headers = { "user-agent": UA, accept: "text/html,application/json" }
+  if (blubeeCookie) headers.cookie = blubeeCookie
+  if (env("BLUBEE_TOKEN")) headers.authorization = `Bearer ${env("BLUBEE_TOKEN")}`
+  const res = await fetch(new URL(path, base), { headers, redirect: "manual", signal: AbortSignal.timeout(20000) })
+  const loc = res.headers.get("location") ?? ""
+  if ((res.status >= 300 && res.status < 400 && /login/.test(loc)) || res.status === 401) {
+    return { login: true, status: res.status, body: "" }
+  }
   if (!res.ok) {
     const body = await res.text().catch(() => "")
-    const hint = body.includes("usage_exceeded") ? " (quota d'hébergement de Blubee dépassé)" : ""
+    const hint = body.includes("usage_exceeded") ? " (quota d'hébergement dépassé)" : ""
     throw new HttpError(502, "upstream", `Blubee indisponible : HTTP ${res.status}${hint}`)
   }
-  const data = await res.json().catch(() => { throw new HttpError(502, "upstream_format", "Blubee n'a pas renvoyé du JSON") })
-  return findList(data).map((it, i) => normalize(it, "blubee", i)).filter(Boolean)
+  const body = await res.text()
+  if (/name="password"/.test(body) && /\$ACTION_ID_/.test(body)) return { login: true, status: res.status, body: "" }
+  return { status: res.status, body }
 }
+
+/**
+ * Récupère tous les tableaux d'objets « devoir » présents dans une page Next.js :
+ * JSON brut, ou données React Server Components (self.__next_f.push) intégrées au HTML.
+ * Renvoie les listes triées de la plus probable à la moins probable.
+ */
+function extractLists(body) {
+  const texts = []
+  const t = body.trim()
+  if (t.startsWith("{") || t.startsWith("[")) texts.push(t)
+  for (const m of body.matchAll(/self\.__next_f\.push\(\[1,\s*("(?:[^"\\]|\\.)*")\]\)/g)) {
+    try { texts.push(JSON.parse(m[1])) } catch { /* fragment illisible */ }
+  }
+  const flight = texts.join("")
+  const values = []
+  for (const line of flight.split("\n")) {                           // lignes « id:payload »
+    const payload = line.replace(/^[0-9a-z]+:(?:[A-Z]{1,2})?/i, "")
+    if (payload.startsWith("[") || payload.startsWith("{")) { try { values.push(JSON.parse(payload)) } catch { /* ignoré */ } }
+  }
+  if (t.startsWith("{") || t.startsWith("[")) { try { values.push(JSON.parse(t)) } catch { /* ignoré */ } }
+
+  const lists = []
+  const seen = new Set()
+  const walk = (v, depth) => {
+    if (!v || typeof v !== "object" || depth > 40) return
+    if (Array.isArray(v)) {
+      const objs = v.filter((x) => x && typeof x === "object" && !Array.isArray(x))
+      if (objs.length && objs.length >= v.length * 0.8) {
+        const score = scoreList(objs)
+        const sig = JSON.stringify(objs).slice(0, 400)
+        if (score >= 3 && !seen.has(sig)) { seen.add(sig); lists.push({ score: score + Math.min(objs.length, 20) / 10, items: objs }) }
+      }
+      v.forEach((x) => walk(x, depth + 1))
+    } else Object.values(v).forEach((x) => walk(x, depth + 1))
+  }
+  values.forEach((v) => walk(v, 0))
+  return lists.sort((a, b) => b.score - a.score)
+}
+
+const TITLE_KEYS = /^(title|titre|name|nom|intitule|summary|label|description|contenu|content)$/i
+const DUE_KEYS = /^(due|due_?date|due_?at|deadline|echeance|pour_?le|date|for)$/i
+const SUBJ_KEYS = /^(subject|matiere|course|course_?name|cours|discipline|class(_?name)?)$/i
+const HW_HINT = /devoir|homework|assignment|task|controle|exam|test|type|kind/i
+function scoreList(objs) {
+  const keys = new Set(objs.flatMap((o) => Object.keys(o)))
+  let s = 0
+  if ([...keys].some((k) => TITLE_KEYS.test(k))) s += 2
+  if ([...keys].some((k) => DUE_KEYS.test(k))) s += 2
+  if ([...keys].some((k) => SUBJ_KEYS.test(k))) s += 1
+  if ([...keys].some((k) => HW_HINT.test(k))) s += 0.5
+  if ([...keys].some((k) => /^(href|className|children|style)$/.test(k))) s -= 3   // props d'interface, pas des données
+  return s
+}
+const decodeEntities = (s) => s.replace(/&quot;/g, '"').replace(/&#x27;|&#39;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&")
 
 /** Trouve le tableau de devoirs dans une réponse JSON, quelle que soit sa forme. */
 function findList(data, depth = 0) {

@@ -17,21 +17,28 @@ vercel.json       configuration du déploiement
 
 En ligne de commande, c'est la même chose : `npm i -g vercel`, puis `vercel --prod` depuis `desk-dashboard/`.
 
-## Devoirs : choix de la source
+## Devoirs : connexion à Blubee
 
-La fonction `/api/devoirs` est appelée toutes les 15 minutes. La source est choisie avec `DEVOIRS_SOURCE`. Sans cette variable, la fonction prend la première source configurée, dans l'ordre Blubee, Classroom puis iCal.
+La fonction `/api/devoirs` se connecte à Blubee (https://blubee-gaspard.vercel.app) comme toi dans Safari, avec ton e-mail et ton mot de passe. Elle garde la session, lit la page des devoirs et la convertit. L'app l'appelle toutes les 15 minutes.
 
-| Source | Variables |
+Sur Vercel, dans le projet du dashboard : **Settings → Environment Variables**. Ajoute les deux variables, coche **Sensitive**, puis **Redeploy** :
+
+| Variable | Valeur |
 |---|---|
-| **Blubee** (`blubee`) | `BLUBEE_URL` (adresse du site, ex. `https://blubee.vercel.app`), `BLUBEE_PATH` (route JSON des devoirs, `/api/devoirs` par défaut), plus `BLUBEE_TOKEN` (envoyé en `Authorization: Bearer`) **ou** `BLUBEE_COOKIE` (cookie de session) |
-| **Google Classroom** (`classroom`) | `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REFRESH_TOKEN` (portées `classroom.courses.readonly` et `classroom.coursework.me.readonly`) |
-| **Flux iCal** (`ical`) | `ICAL_URL` (lien `.ics` privé, `webcal://` accepté) |
+| `BLUBEE_EMAIL` | l'adresse mail que tu utilises sur Blubee |
+| `BLUBEE_PASSWORD` | ton mot de passe Blubee |
+| `DASHBOARD_KEY` | une phrase secrète de ton choix (conseillé), à saisir aussi dans l'app avec ⚙︎ |
 
-Pour Blubee, la réponse JSON peut avoir plusieurs formes : un tableau ou un objet `{ devoirs: [...] }`, avec des champs en français ou en anglais (`titre`/`title`, `matiere`/`subject`, `pourLe`/`dueDate`…). Les devoirs déjà rendus (`done`, `TURNED_IN`…) sont ignorés.
+Ton mot de passe reste dans Vercel. Il n'est jamais envoyé à l'iPhone.
 
-**`DASHBOARD_KEY`** (conseillé) : si tu la définis, la fonction exige cette clé. Saisis la même valeur dans l'app avec l'icône ⚙︎ du widget Devoirs. Sans clé, n'importe qui qui connaît l'URL peut lire tes devoirs.
+Pour vérifier, ouvre `https://<ton-dashboard>.vercel.app/api/devoirs?debug=1`. La page indique ce que la fonction a trouvé chez Blubee. Si tu as défini `DASHBOARD_KEY`, ouvre plutôt l'app : la ligne en bas du widget Devoirs affiche l'état de la synchronisation.
 
-Les devoirs ajoutés avec **+** restent sur l'iPhone, en plus de ceux de la source. Cocher un devoir le masque, et le toast « Annuler » permet de revenir en arrière.
+Options :
+- `BLUBEE_PATHS` : pages de Blubee où chercher les devoirs, séparées par des virgules (par défaut `/`).
+- `BLUBEE_URL` : à changer seulement si Blubee change d'adresse.
+- Autres sources possibles à la place de Blubee : Google Classroom (`GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `GOOGLE_REFRESH_TOKEN`) ou un lien calendrier `.ics` (`ICAL_URL`). Pour forcer une source, utilise `DEVOIRS_SOURCE=blubee|classroom|ical`.
+
+Les devoirs ajoutés avec **+** restent sur l'iPhone, en plus de ceux de Blubee. Cocher un devoir le masque, et le toast « Annuler » permet de revenir en arrière.
 
 ## Installation sur l'iPhone
 
