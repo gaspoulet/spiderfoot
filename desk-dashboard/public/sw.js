@@ -1,14 +1,27 @@
 // Service worker : l'app reste utilisable hors ligne.
 // - Fichiers de l'app : cache d'abord, mis à jour en arrière-plan.
 // - /api/devoirs : réseau d'abord, dernière réponse en secours.
-const VERSION = 'bureau-v7';
+const VERSION = 'bureau-v8';
 const SHELL = [
-  '/', '/index.html', '/styles.css', '/app.js', '/manifest.webmanifest',
+  '/', '/styles.css', '/app.js', '/manifest.webmanifest',
   '/icons/icon.svg', '/icons/apple-touch-icon.png', '/icons/icon-192.png', '/icons/icon-512.png',
 ];
 
+// Safari refuse une réponse « redirigée » servie par le service worker : on la recopie.
+async function clean(res) {
+  if (!res || !res.redirected) return res;
+  const body = await res.blob();
+  return new Response(body, { status: res.status, statusText: res.statusText, headers: res.headers });
+}
+
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(VERSION).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
+  event.waitUntil((async () => {
+    const c = await caches.open(VERSION);
+    for (const url of SHELL) {
+      try { const res = await fetch(url, { cache: 'reload' }); if (res.ok) await c.put(url, await clean(res)); } catch { /* hors ligne */ }
+    }
+    await self.skipWaiting();
+  })());
 });
 
 self.addEventListener('activate', (event) => {
@@ -38,15 +51,28 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Navigation : toujours renvoyer l'app (même hors ligne)
-  const key = req.mode === 'navigate' ? '/index.html' : req;
-  event.respondWith(
-    caches.match(key).then((cached) => {
-      const network = fetch(req).then((res) => {
-        if (res.ok && res.type === 'basic') { const copy = res.clone(); caches.open(VERSION).then((c) => c.put(key, copy)); }
+  // Navigation : réseau d'abord (toujours la dernière version), copie en cache pour le hors-ligne
+  if (req.mode === 'navigate') {
+    event.respondWith((async () => {
+      try {
+        const res = await clean(await fetch('/', { cache: 'no-store' }));
+        if (res.ok) { const c = await caches.open(VERSION); await c.put('/', res.clone()); }
         return res;
-      }).catch(() => cached);
-      return cached || network;
-    }),
-  );
+      } catch {
+        return (await caches.match('/')) || Response.error();
+      }
+    })());
+    return;
+  }
+
+  // Fichiers : cache d'abord, mis à jour en arrière-plan
+  event.respondWith((async () => {
+    const cached = await caches.match(req);
+    const network = fetch(req).then(async (res) => {
+      res = await clean(res);
+      if (res.ok && res.type === 'basic') { const c = await caches.open(VERSION); await c.put(req, res.clone()); }
+      return res;
+    }).catch(() => cached);
+    return cached || network;
+  })());
 });
