@@ -35,7 +35,7 @@ Autres sources possibles à la place de Blubee : Google Classroom (`GOOGLE_CLIEN
 
 Les devoirs ajoutés avec **+** restent sur l'iPhone, en plus de ceux de Blubee. Cocher un devoir le masque sur le dashboard, mais ne le coche pas dans Blubee. Le toast « Annuler » permet de revenir en arrière.
 
-L'emploi du temps par défaut est ton vrai emploi du temps, repris de Blubee (périodes P1 à P8). Tu peux le modifier avec le crayon.
+L'emploi du temps par défaut est ton vrai emploi du temps, repris de Blubee (périodes P1 à P8). Tu peux le modifier avec un appui long sur le widget.
 
 ## Installation sur l'iPhone
 
