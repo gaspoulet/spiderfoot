@@ -301,7 +301,7 @@ function openAlarmSheet() {
   const foot = el('p', 'foot', 'Aucun jour sélectionné = une seule fois. Le son monte progressivement pendant une minute.');
 
   const test = el('button', 'danger-btn', 'Tester la sonnerie (5 s)');
-  test.style.color = 'var(--blue)';
+  test.style.color = 'var(--label)';
   test.addEventListener('click', () => { armSound(); startSound(); setTimeout(stopSound, 5000); });
 
   body.append(g, g2, foot, test);
@@ -675,7 +675,7 @@ function openSettingsSheet() {
   const foot = el('p', 'foot');
   foot.innerHTML = 'Si tu as défini <code>DASHBOARD_KEY</code> sur Vercel, saisis la même valeur ici. Elle reste sur cet iPhone.';
   const refresh = el('button', 'danger-btn', 'Rafraîchir maintenant');
-  refresh.style.color = 'var(--blue)'; refresh.style.marginBottom = '10px';
+  refresh.style.color = 'var(--label)'; refresh.style.marginBottom = '10px';
   refresh.addEventListener('click', () => { apiKey = key.value.trim(); store.set('apiKey', apiKey); closeSheet(); syncHomework(); });
   const g2 = el('div', 'group');
   const done = Object.keys(doneMap).length;
