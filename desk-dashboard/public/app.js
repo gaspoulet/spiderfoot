@@ -421,16 +421,30 @@ let timetable = parseTimetable(ttText).days;
 const hm = (min) => `${pad(Math.floor(min / 60))}:${pad(min % 60)}`;
 let calRefs = [];
 
+const DAY_TITLES = ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'];
+let calView = { dow: -1, offset: 0 };
+
+// Aujourd'hui tant que la journée de cours n'est pas finie, sinon le prochain jour de cours
+function pickCalView(hk) {
+  const nowMin = hk.h * 60 + hk.mi;
+  const today = timetable[hk.dow] || [];
+  if (today.length && nowMin < today[today.length - 1].end) return { dow: hk.dow, offset: 0 };
+  for (let k = 1; k <= 7; k++) {
+    const d = (hk.dow + k) % 7;
+    if ((timetable[d] || []).length) return { dow: d, offset: k };
+  }
+  return { dow: hk.dow, offset: 0 };
+}
+
 function renderSchedule(hk) {
   const list = $('cal-list');
   list.textContent = '';
   calRefs = [];
-  const today = timetable[hk.dow] || [];
-  $('cal-title').textContent = "Aujourd'hui";
-  if (!today.length) {
-    list.append(el('li', 'cal-empty', 'Pas de cours aujourd’hui'));
-  }
-  for (const c of today) {
+  calView = pickCalView(hk);
+  const day = timetable[calView.dow] || [];
+  $('cal-title').textContent = calView.offset === 0 ? 'Aujourd’hui' : calView.offset === 1 ? 'Demain' : DAY_TITLES[calView.dow];
+  if (!day.length) list.append(el('li', 'cal-empty', 'Aucun cours'));
+  for (const c of day) {
     const li = el('li', 'cal-item');
     li.style.setProperty('--c', colorFor(c.name));
     const bar = el('span', 'cal-bar');
@@ -438,23 +452,34 @@ function renderSchedule(hk) {
     main.append(el('div', 'cal-name', c.name));
     main.append(el('div', 'cal-meta', `${hm(c.start)} – ${hm(c.end)}${c.room ? ' · ' + c.room : ''}`));
     const prog = el('div', 'cal-progress'); const fill = el('i'); prog.append(fill);
+    prog.hidden = true;
     main.append(prog);
     li.append(bar, main);
     list.append(li);
     calRefs.push({ c, li, prog, fill });
   }
+  const line = $('next-line');
+  line.textContent = '';
+  if (calView.offset > 0 && day.length) {
+    line.append('Premier cours : ', el('b', null, day[0].name), ` à ${hm(day[0].start)}`);
+  }
+  list.scrollTop = 0;
   tickSchedule(hk);
 }
 
 function tickSchedule(hk) {
+  if (calView.offset > 0) return;                      // vue « demain » : rien ne bouge
   const nowMin = hk.h * 60 + hk.mi + hk.s / 60;
   const today = timetable[hk.dow] || [];
+  if (calView.dow !== hk.dow || (today.length && nowMin >= today[today.length - 1].end)) {
+    renderSchedule(hk);                                // journée finie → on passe au lendemain
+    return;
+  }
   let currentEl = null;
   for (const r of calRefs) {
     const isNow = nowMin >= r.c.start && nowMin < r.c.end;
-    const past = nowMin >= r.c.end;
     r.li.classList.toggle('now', isNow);
-    r.li.classList.toggle('past', past);
+    r.li.classList.toggle('past', nowMin >= r.c.end);
     r.prog.hidden = !isNow;
     if (isNow) {
       r.fill.style.width = `${((nowMin - r.c.start) / (r.c.end - r.c.start) * 100).toFixed(2)}%`;
@@ -469,8 +494,6 @@ function tickSchedule(hk) {
     line.append('Prochain : ', el('b', null, next.name), ` dans ${durationFr(Math.floor(next.start - nowMin))}`);
   } else if (cur) {
     line.append('Dernier cours · fin dans ', el('b', null, durationFr(Math.ceil(cur.end - nowMin))));
-  } else if (today.length) {
-    line.textContent = 'Plus de cours aujourd’hui';
   }
   // garde le cours en cours visible
   if (currentEl && currentEl.dataset.scrolled !== hk.key) {

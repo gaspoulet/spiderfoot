@@ -153,11 +153,12 @@ svg { display: block; }
 .clk-d.enter { transform: translateY(55%) scale(.96); opacity: 0; filter: blur(6px); transition: none; }
 .clk-d.leave { position: absolute; left: 0; top: 0; transform: translateY(-55%) scale(.96); opacity: 0; filter: blur(6px); }
 .col-clock { justify-content: space-between; }
-.clock { padding: 0 4px; }
+.clock { padding: 0 4px; width: 100%; container-type: inline-size; }
 .clock-time {
   font-family: var(--rounded);
   font-weight: 700;
-  font-size: clamp(64px, 11.6vw, 112px);
+  font-size: clamp(48px, 11vw, 112px);
+  font-size: min(33cqw, 112px);
   line-height: .9;
   letter-spacing: -.035em;
   display: flex; align-items: baseline;
