@@ -141,7 +141,7 @@ svg { display: block; }
 .clock-time {
   font-family: var(--rounded);
   font-weight: 700;
-  font-size: clamp(58px, 10.1vw, 100px);
+  font-size: clamp(64px, 11.6vw, 112px);
   line-height: .9;
   letter-spacing: -.035em;
   display: flex; align-items: baseline;

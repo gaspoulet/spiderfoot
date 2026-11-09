@@ -70,24 +70,13 @@ let lastMinuteKey = '';
 function renderClocks(now) {
   const hk = zoned(HK, now), pa = zoned(PARIS, now);
   $('hk-hm').textContent = `${pad(hk.h)}:${pad(hk.mi)}`;
-  $('hk-s').textContent = pad(hk.s);
 
   const minuteKey = `${hk.key} ${hk.min}`;
   const minuteChanged = minuteKey !== lastMinuteKey;
   lastMinuteKey = minuteKey;
   if (minuteChanged) {
     $('hk-date').textContent = cap(frDate.format(now));
-    // Fond d'écran : ambiance selon le moment de la journée (heure de HK)
-    document.body.dataset.tod = hk.h < 6 ? 'night' : hk.h < 11 ? 'morning' : hk.h < 17 ? 'day' : hk.h < 20 ? 'evening' : 'night';
-    const diff = Math.round((pa.wall - hk.wall) / 36e5 * 2) / 2;   // en heures (demi-heures gérées)
-    const sign = diff < 0 ? '−' : '+';
-    const abs = Math.abs(diff);
-    const hours = Number.isInteger(abs) ? `${abs} h` : `${Math.floor(abs)} h 30`;
-    let off = `${sign}${hours}`;
-    if (pa.day < hk.day) off += ' · hier';
-    else if (pa.day > hk.day) off += ' · demain';
     $('paris-time').textContent = `${pad(pa.h)}:${pad(pa.mi)}`;
-    $('paris-off').textContent = off;
   }
   return { hk, minuteChanged };
 }
