@@ -82,7 +82,7 @@ svg { display: block; }
 .col > .widget { flex: 1; }
 
 /* ───────── Matériau verre (widgets, capsules, feuilles) ───────── */
-.widget, .paris-pill, .sheet, .toast, .ring-btn, .arm-btn, .w-action {
+.widget, .paris-pill, .sheet, .toast, .ring-btn, .arm-btn, .w-action, .standby-btn {
   position: relative;
   isolation: isolate;
   background:
@@ -98,7 +98,7 @@ svg { display: block; }
     inset 0 0 18px rgba(255,255,255,.03);
 }
 /* liseré lumineux qui suit la courbe (reflet sur l'arête du verre) */
-.widget::before, .paris-pill::before, .sheet::before, .toast::before, .ring-btn::before, .arm-btn::before, .w-action::before {
+.widget::before, .paris-pill::before, .sheet::before, .toast::before, .ring-btn::before, .arm-btn::before, .w-action::before, .standby-btn::before {
   content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
   background: var(--rim);
   -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
@@ -171,6 +171,14 @@ svg { display: block; }
 }
 .clock-date { white-space: nowrap; margin-top: 8px; font-size: 17px; font-weight: 600; color: var(--label2); letter-spacing: -.2px; }
 
+.pill-row { display: flex; align-items: center; gap: 8px; }
+.standby-btn {
+  width: 38px; height: 38px; border-radius: 50%; flex: none;
+  display: grid; place-items: center; color: var(--label2);
+  transition: transform .45s var(--bounce);
+}
+.standby-btn svg { width: 17px; height: 17px; }
+.standby-btn:active { transform: scale(.86); }
 .paris-pill {
   align-self: flex-start;
   display: inline-flex; align-items: center; gap: 8px;
@@ -423,32 +431,33 @@ textarea.tt {
 .toast.show { transform: translate(-50%, 0); opacity: 1; }
 .toast button { color: var(--label); font-weight: 600; padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,.08); }
 
-/* ───────── Mode nuit façon StandBy ───────── */
-/* Fond de nuit : gris sombre et flou, très doux */
-body.night .bg {
-  background:
-    radial-gradient(60% 70% at 50% 42%, rgba(120,130,150,.22), transparent 70%),
-    radial-gradient(45% 55% at 18% 80%, rgba(90,100,120,.14), transparent 70%),
-    linear-gradient(180deg, #16171b 0%, #0b0c0e 60%, #050506 100%);
-  filter: blur(30px);
-}
-body.night .app { grid-template-columns: 1fr; place-items: center; }
-body.night .app > .col:not(.col-clock),
-body.night .paris-pill,
-body.night .alarm-widget { display: none; }
-body.night .col-clock { justify-content: center; align-items: center; width: 100%; justify-self: stretch; }
-body.night .clock { text-align: center; }
-/* Chiffres en verre gris légèrement bleuté */
-body.night .clock-time {
+/* ───────── Horloge seule (la nuit, ou en journée avec le bouton) ───────── */
+body.standby .app { grid-template-columns: 1fr; place-items: center; }
+body.standby .app > .col:not(.col-clock),
+body.standby .pill-row,
+body.standby .alarm-widget { display: none; }
+body.standby .col-clock { justify-content: center; align-items: center; width: 100%; justify-self: stretch; }
+body.standby .clock { text-align: center; }
+body.standby .clock-time {
   font-size: min(30vw, 72vh); font-size: min(30cqw, 72vh); justify-content: center; letter-spacing: -.04em;
   filter: drop-shadow(0 0 1px rgba(255,255,255,.18)) drop-shadow(0 10px 30px rgba(0,0,0,.45));
 }
+body.standby .clock-date { text-align: center; font-size: 20px; }
+.app, .bg { transition: opacity .6s ease; }
+
+/* Nuit (23 h → 8 h) : presque noir, chiffres gris-bleu très discrets */
+body.night .bg {
+  background:
+    radial-gradient(55% 65% at 50% 42%, rgba(110,120,140,.09), transparent 70%),
+    linear-gradient(180deg, #08090b 0%, #030304 60%, #000 100%);
+  filter: blur(30px);
+}
+body.night .clock-time { filter: none; }
 body.night .clk-d {
-  background: linear-gradient(180deg, rgba(222,228,240,.62) 0%, rgba(176,186,204,.42) 55%, rgba(140,150,170,.30) 100%);
+  background: linear-gradient(180deg, rgba(210,218,232,.36) 0%, rgba(170,180,198,.26) 55%, rgba(140,150,170,.18) 100%);
   -webkit-background-clip: text; background-clip: text;
 }
-body.night .clock-sec { display: none; }
-body.night .clock-date { color: rgba(200,208,222,.38); text-align: center; font-size: 20px; }
+body.night .clock-date { color: rgba(200,208,222,.2); }
 body.night .ring { background: rgba(0,0,0,.85); }
 
 /* Portrait : on empile (l'app est faite pour le paysage) */

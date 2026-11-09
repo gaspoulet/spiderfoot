@@ -58,7 +58,8 @@ L'emploi du temps par défaut est ton vrai emploi du temps, repris de Blubee (p�
   10:10-11:05 Anglais @ C03
   ```
   Chaque matière garde toujours la même couleur.
-- **Mode nuit** (de 23 h à 7 h, heure de Hong Kong) : seule l'horloge reste affichée, en rouge sombre. Touche l'écran pour tout réafficher pendant 20 secondes.
+- **Nuit** (de 23 h à 8 h, heure de Hong Kong) : seules l'heure et la date restent affichées, en gris-bleu très sombre. Touche l'écran pour tout réafficher pendant 20 secondes.
+- **Horloge seule en journée** : touche le petit bouton rond à côté de la bulle « Paris ». Touche l'écran n'importe où pour revenir aux widgets.
 - Contre le marquage OLED, l'affichage se décale de quelques pixels toutes les 2 minutes. Le Wake Lock empêche l'écran de s'éteindre.
 - **Hors ligne** : l'app et la dernière liste de devoirs restent disponibles. Le réveil, l'emploi du temps et les devoirs ajoutés à la main sont sauvegardés en `localStorage`.
 

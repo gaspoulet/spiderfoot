@@ -6,7 +6,7 @@
 
 const HK = 'Asia/Hong_Kong';
 const PARIS = 'Europe/Paris';
-const NIGHT_START = 23, NIGHT_END = 7;           // mode nuit 23 h → 7 h (heure de HK)
+const NIGHT_START = 23, NIGHT_END = 8;           // nuit 23 h → 8 h (heure de HK) : seulement l'heure, très sombre
 const SHIFT_EVERY = 2 * 60 * 1000;               // anti-marquage OLED
 const SYNC_EVERY = 15 * 60 * 1000;               // devoirs : toutes les 15 min
 const RING_MAX = 10 * 60 * 1000;                 // la sonnerie s'arrête seule après 10 min
@@ -109,17 +109,27 @@ function setClock(str) {
 
 /* ════════════════════ Mode nuit, Wake Lock, anti-marquage ════════════════════ */
 let revealUntil = 0;
+let clockMode = false;                            // horloge seule en journée (bouton à côté de Paris)
 function applyNight(hk) {
   const nightHours = hk.h >= NIGHT_START || hk.h < NIGHT_END;
-  const night = nightHours && Date.now() > revealUntil && !sheetOpen;
+  if (nightHours) clockMode = false;               // le lendemain matin, retour aux widgets
+  const revealed = Date.now() < revealUntil || sheetOpen;
+  const night = nightHours && !revealed;
+  const day = clockMode && !sheetOpen;
   document.body.classList.toggle('night', night);
+  document.body.classList.toggle('clockmode', day && !night);
+  document.body.classList.toggle('standby', night || day);
 }
 document.addEventListener('click', () => {
   if (document.body.classList.contains('night')) {
-    revealUntil = Date.now() + 20000;                // un tapotement rallume tout 20 s
+    revealUntil = Date.now() + 20000;                // la nuit, un toucher rallume tout 20 s
+    applyNight(zoned(HK));
+  } else if (document.body.classList.contains('clockmode')) {
+    clockMode = false;                               // en journée, un toucher ramène les widgets
     applyNight(zoned(HK));
   }
 }, true);
+$('standby-btn').addEventListener('click', () => { clockMode = true; applyNight(zoned(HK)); });
 
 let wakeLock = null;
 async function keepAwake() {
