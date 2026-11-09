@@ -56,7 +56,7 @@ function durationFr(mins) {
 }
 
 /* ───────── Couleurs par matière (palette système iOS) ───────── */
-const PALETTE = ['#0A84FF', '#FF9F0A', '#30D158', '#BF5AF2', '#FF375F', '#64D2FF', '#FFD60A', '#5E5CE6', '#66D4CF', '#FF453A', '#AC8E68'];
+const PALETTE = ['#0A84FF', '#FF9F0A', '#30D158', '#BF5AF2', '#FF453A', '#64D2FF', '#FFD60A', '#AC8E68'];
 function colorFor(name) {
   if (!name) return '#8E8E93';
   const s = name.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
@@ -533,7 +533,7 @@ function renderHomework() {
   ul.textContent = '';
   const items = allHomework().map((h) => ({ h, info: dueInfo(h, hk) })).sort((a, b) => a.info.sort - b.info.sort);
   $('hw-count').textContent = items.length ? String(items.length) : '';
-  if (!items.length) ul.append(el('li', 'rem-empty', 'Aucun devoir à rendre 🎉'));
+  if (!items.length) ul.append(el('li', 'rem-empty', !remote && syncState.busy ? 'Chargement…' : 'Aucun devoir à rendre'));
   for (const { h, info } of items) {
     const li = el('li', 'rem-item');
     li.style.setProperty('--c', colorFor((h.subject || '').split(' · ')[0]));
@@ -550,7 +550,6 @@ function renderHomework() {
     const sub = el('div', 'rem-sub');
     if (info.badge) sub.append(el('span', 'badge ' + info.badge[0], info.badge[1]));
     if (h.subject) sub.append(el('span', 'rem-subject', h.subject));
-    if (h.manual) sub.append(el('span', 'rem-manual', '· ajouté'));
     body.append(sub);
     li.append(check, body);
     ul.append(li);
