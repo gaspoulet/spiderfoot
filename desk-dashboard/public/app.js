@@ -69,7 +69,7 @@ function colorFor(name) {
 let lastMinuteKey = '';
 function renderClocks(now) {
   const hk = zoned(HK, now), pa = zoned(PARIS, now);
-  $('hk-hm').textContent = `${pad(hk.h)}:${pad(hk.mi)}`;
+  setClock(`${pad(hk.h)}:${pad(hk.mi)}`);
 
   const minuteKey = `${hk.key} ${hk.min}`;
   const minuteChanged = minuteKey !== lastMinuteKey;
@@ -79,6 +79,32 @@ function renderClocks(now) {
     $('paris-time').textContent = `${pad(pa.h)}:${pad(pa.mi)}`;
   }
   return { hk, minuteChanged };
+}
+
+/* Chiffres qui roulent quand la minute change (comme l'horloge d'iOS) */
+const clockCells = [];
+function setClock(str) {
+  const root = $('hk-hm');
+  if (!clockCells.length) {
+    for (const ch of str) {
+      const cell = el('span', ch === ':' ? 'clk-cell clk-colon' : 'clk-cell');
+      cell.append(el('span', 'clk-d', ch));
+      root.append(cell);
+      clockCells.push({ cell, ch });
+    }
+    return;
+  }
+  [...str].forEach((ch, i) => {
+    const c = clockCells[i];
+    if (!c || c.ch === ch) return;
+    c.ch = ch;
+    const old = c.cell.querySelector('.clk-d:not(.leave)');
+    const nu = el('span', 'clk-d enter', ch);
+    c.cell.append(nu);
+    if (old) { old.classList.add('leave'); setTimeout(() => old.remove(), 900); }
+    nu.getBoundingClientRect();                       // force le départ de l'animation
+    requestAnimationFrame(() => nu.classList.remove('enter'));
+  });
 }
 
 /* ════════════════════ Mode nuit, Wake Lock, anti-marquage ════════════════════ */
@@ -139,7 +165,8 @@ function renderArm() {
   const ok = audioRunning();
   const b = $('arm-btn');
   b.classList.toggle('armed', ok);
-  b.querySelector('span').textContent = ok ? 'Son armé' : 'Armer le son';
+  b.querySelector('use').setAttribute('href', ok ? '#i-speaker' : '#i-speaker-off');
+  b.setAttribute('aria-label', ok ? 'Son du réveil armé' : 'Son du réveil non armé : touche l\u2019écran');
 }
 
 function chime(t, gainNode) {
@@ -258,6 +285,10 @@ function stopRing() {
 $('ring-stop').addEventListener('click', () => { alarmRt.snoozeUntil = 0; saveAlarm(); stopRing(); });
 $('ring-snooze').addEventListener('click', () => { alarmRt.snoozeUntil = Date.now() + SNOOZE; saveAlarm(); stopRing(); });
 $('arm-btn').addEventListener('click', armSound);
+// iOS n'autorise le son qu'après un toucher : n'importe quel toucher l'arme (et le réarme si iOS l'a coupé)
+for (const ev of ['touchend', 'click', 'keydown']) {
+  document.addEventListener(ev, () => { if (!audioRunning()) armSound(); }, { capture: true, passive: true });
+}
 $('alarm-enabled').addEventListener('change', (e) => {
   alarm.enabled = e.target.checked;
   if (!alarm.enabled) alarmRt.snoozeUntil = 0;
@@ -305,7 +336,6 @@ function openAlarmSheet() {
     saveAlarm();
   });
 }
-$('alarm-edit').addEventListener('click', openAlarmSheet);
 $('alarm-time-btn').addEventListener('click', openAlarmSheet);
 
 /* ════════════════════ Emploi du temps ════════════════════ */
@@ -471,7 +501,7 @@ function openTimetableSheet() {
     renderSchedule(zoned(HK));
   });
 }
-$('tt-edit').addEventListener('click', openTimetableSheet);
+
 
 /* ════════════════════ Devoirs ════════════════════ */
 let manual = store.get('manual', []);        // devoirs ajoutés à la main
@@ -678,7 +708,32 @@ function openSettingsSheet() {
     apiKey = key.value.trim(); store.set('apiKey', apiKey); syncHomework();
   });
 }
-$('hw-settings').addEventListener('click', openSettingsSheet);
+
+/* ════════════════════ Appui long sur un widget → modifier ════════════════════ */
+let suppressClick = false;
+function onLongPress(node, action) {
+  let timer = null, x = 0, y = 0;
+  const cancel = () => { clearTimeout(timer); timer = null; node.classList.remove('pressing'); };
+  node.addEventListener('pointerdown', (e) => {
+    if (e.target.closest('.ios-switch, .w-action, .rem-check, input')) return;
+    x = e.clientX; y = e.clientY;
+    node.classList.add('pressing');
+    timer = setTimeout(() => {
+      timer = null;
+      node.classList.remove('pressing');
+      suppressClick = true; setTimeout(() => { suppressClick = false; }, 600);
+      if (navigator.vibrate) navigator.vibrate(8);
+      action();
+    }, 480);
+  });
+  node.addEventListener('pointermove', (e) => { if (timer && Math.hypot(e.clientX - x, e.clientY - y) > 10) cancel(); });
+  for (const ev of ['pointerup', 'pointercancel', 'pointerleave']) node.addEventListener(ev, () => { if (timer) cancel(); });
+  node.addEventListener('contextmenu', (e) => e.preventDefault());
+}
+document.addEventListener('click', (e) => { if (suppressClick) { e.stopPropagation(); e.preventDefault(); suppressClick = false; } }, true);
+onLongPress($('alarm-widget'), openAlarmSheet);
+onLongPress($('cal-widget'), openTimetableSheet);
+onLongPress($('rem-widget'), openSettingsSheet);
 
 /* ════════════════════ Feuilles iOS ════════════════════ */
 let sheetOpen = false, sheetOk = null;

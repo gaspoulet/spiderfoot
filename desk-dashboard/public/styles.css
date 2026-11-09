@@ -112,12 +112,17 @@ svg { display: block; }
 }
 
 .widget {
+  transition: transform .5s var(--bounce);
+  -webkit-touch-callout: none;
   border-radius: var(--r-widget);
   padding: 15px 16px 13px;
   min-height: 0;
   display: flex; flex-direction: column;
   overflow: hidden;
 }
+
+/* Appui long : le widget s'enfonce légèrement, comme sur l'écran d'accueil */
+.widget.pressing { transform: scale(.965); transition: transform .48s cubic-bezier(.2,.7,.3,1); }
 
 /* En-tête de widget : glyphe teinté + titre */
 .w-head { display: flex; align-items: center; gap: 7px; flex: none; margin-bottom: 10px; min-height: 30px; }
@@ -135,7 +140,18 @@ svg { display: block; }
 .w-action svg { width: 14px; height: 14px; opacity: .92; }
 .w-action:active { transform: scale(.86); }
 
-/* ───────── Horloge (verre gravé) ───────── */
+/* ───────── Horloge (verre gravé, chiffres qui roulent) ───────── */
+.clk-cell { position: relative; display: inline-block; }
+.clk-colon { margin: 0 .01em; transform: translateY(-.04em); }
+.clk-d {
+  display: inline-block;
+  background: linear-gradient(180deg, #fff 0%, #fff 45%, rgba(255,255,255,.74) 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  transition: transform .75s var(--spring), opacity .55s ease, filter .6s ease;
+  will-change: transform;
+}
+.clk-d.enter { transform: translateY(55%) scale(.96); opacity: 0; filter: blur(6px); transition: none; }
+.clk-d.leave { position: absolute; left: 0; top: 0; transform: translateY(-55%) scale(.96); opacity: 0; filter: blur(6px); }
 .col-clock { justify-content: space-between; }
 .clock { padding: 0 4px; }
 .clock-time {
@@ -145,9 +161,6 @@ svg { display: block; }
   line-height: .9;
   letter-spacing: -.035em;
   display: flex; align-items: baseline;
-  background: linear-gradient(180deg, #fff 0%, #fff 45%, rgba(255,255,255,.74) 100%);
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 2px 18px rgba(0,0,0,.28)) drop-shadow(0 0 1px rgba(255,255,255,.25));
 }
 .clock-sec {
@@ -169,6 +182,10 @@ svg { display: block; }
 .paris-off { color: var(--label3); font-weight: 500; font-size: 13px; }
 
 /* ───────── Réveil ───────── */
+.sound-ind { margin-left: auto; width: 26px; height: 26px; display: grid; place-items: center; color: var(--label); border-radius: 50%; transition: color .3s ease, transform .4s var(--bounce); }
+.sound-ind svg { width: 16px; height: 16px; }
+.sound-ind.armed { color: var(--label3); }
+.sound-ind:active { transform: scale(.85); }
 .alarm-widget { flex: none !important; }
 .alarm-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .alarm-time { text-align: left; display: flex; flex-direction: column; }
@@ -403,11 +420,8 @@ body.night .paris-pill,
 body.night .alarm-widget { display: none; }
 body.night .col-clock { justify-content: center; align-items: center; }
 body.night .clock { text-align: center; }
-body.night .clock-time {
-  font-size: min(30vw, 72vh); justify-content: center; letter-spacing: -.04em;
-  background: var(--night); -webkit-background-clip: text; background-clip: text;
-  opacity: .5; filter: none;
-}
+body.night .clock-time { font-size: min(30vw, 72vh); justify-content: center; letter-spacing: -.04em; opacity: .5; filter: none; }
+body.night .clk-d { background: var(--night); -webkit-background-clip: text; background-clip: text; }
 body.night .clock-sec { display: none; }
 body.night .clock-date { color: var(--night); opacity: .36; text-align: center; font-size: 20px; }
 body.night .ring { background: rgba(0,0,0,.85); }

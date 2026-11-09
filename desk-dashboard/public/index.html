@@ -27,6 +27,7 @@
     <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
     <symbol id="i-pencil" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="m13.5 6.5 4 4" stroke="currentColor" stroke-width="2"/></symbol>
     <symbol id="i-speaker" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18 6.5a7.8 7.8 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-speaker-off" viewBox="0 0 24 24"><path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/><path d="m15.5 9.5 5 5m0-5-5 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="m6.5 12.5 3.6 3.6 7.4-8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-sync" viewBox="0 0 24 24"><path d="M19 12a7 7 0 0 1-12.2 4.7M5 12a7 7 0 0 1 12.2-4.7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M17.5 3.5v4h-4M6.5 20.5v-4h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2.8v2.6M12 18.6v2.6M21.2 12h-2.6M5.4 12H2.8M18.5 5.5l-1.8 1.8M7.3 16.7l-1.8 1.8M18.5 18.5l-1.8-1.8M7.3 7.3 5.5 5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
@@ -38,7 +39,7 @@
     <!-- Colonne 1 : horloge + Paris + réveil -->
     <section class="col col-clock">
       <div class="clock" id="clock">
-        <div class="clock-time"><span id="hk-hm">--:--</span></div>
+        <div class="clock-time" id="hk-hm" aria-live="off"></div>
         <div class="clock-date" id="hk-date">—</div>
       </div>
 
@@ -52,23 +53,21 @@
         <header class="w-head">
           <span class="w-icon" style="--tint:var(--orange)"><svg><use href="#i-alarm"/></svg></span>
           <span class="w-title">Réveil</span>
-          <button class="w-action" id="alarm-edit" aria-label="Modifier le réveil"><svg><use href="#i-pencil"/></svg></button>
+          <button class="sound-ind" id="arm-btn" aria-label="Son du réveil"><svg><use href="#i-speaker-off"/></svg></button>
         </header>
         <div class="alarm-row">
           <button class="alarm-time" id="alarm-time-btn"><span id="alarm-time">07:00</span><small id="alarm-days">Tous les jours</small></button>
           <label class="ios-switch"><input type="checkbox" id="alarm-enabled"><span></span></label>
         </div>
-        <button class="arm-btn" id="arm-btn"><svg><use href="#i-speaker"/></svg><span>Armer le son</span></button>
       </article>
     </section>
 
     <!-- Colonne 2 : emploi du temps -->
     <section class="col">
-      <article class="widget cal-widget">
+      <article class="widget cal-widget" id="cal-widget">
         <header class="w-head">
           <span class="w-icon" style="--tint:var(--red)"><svg><use href="#i-calendar"/></svg></span>
           <span class="w-title" id="cal-title">Aujourd'hui</span>
-          <button class="w-action" id="tt-edit" aria-label="Modifier l'emploi du temps"><svg><use href="#i-pencil"/></svg></button>
         </header>
         <div class="next-line" id="next-line"></div>
         <ol class="cal-list" id="cal-list"></ol>
@@ -77,12 +76,11 @@
 
     <!-- Colonne 3 : devoirs -->
     <section class="col">
-      <article class="widget rem-widget">
+      <article class="widget rem-widget" id="rem-widget">
         <header class="w-head">
           <span class="w-icon" style="--tint:var(--blue)"><svg><use href="#i-list"/></svg></span>
           <span class="w-title">Devoirs</span>
           <span class="w-count" id="hw-count"></span>
-          <button class="w-action" id="hw-settings" aria-label="Réglages des devoirs"><svg><use href="#i-gear"/></svg></button>
           <button class="w-action" id="hw-add" aria-label="Ajouter un devoir"><svg><use href="#i-plus"/></svg></button>
         </header>
         <ul class="rem-list" id="hw-list"></ul>

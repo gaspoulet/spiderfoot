@@ -1,7 +1,7 @@
 // Service worker : l'app reste utilisable hors ligne.
 // - Fichiers de l'app : cache d'abord, mis à jour en arrière-plan.
 // - /api/devoirs : réseau d'abord, dernière réponse en secours.
-const VERSION = 'bureau-v6';
+const VERSION = 'bureau-v7';
 const SHELL = [
   '/', '/index.html', '/styles.css', '/app.js', '/manifest.webmanifest',
   '/icons/icon.svg', '/icons/apple-touch-icon.png', '/icons/icon-192.png', '/icons/icon-512.png',

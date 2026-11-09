@@ -43,13 +43,14 @@ L'emploi du temps par défaut est ton vrai emploi du temps, repris de Blubee (p�
 2. Lance l'app depuis son icône : elle s'ouvre en plein écran, sans barre Safari.
 3. **Réglages → Luminosité et affichage → Verrouillage auto → Jamais**.
 4. Désactive le verrouillage de l'orientation et pose l'iPhone à l'horizontale.
-5. Touche **Armer le son** une fois après chaque lancement : iOS bloque l'audio tant qu'on n'a pas touché l'écran. Le bouton passe au vert (« Son armé »).
+5. Touche l'écran une fois après chaque lancement : iOS bloque le son tant qu'on n'a pas touché l'écran, et n'importe quel toucher l'arme. Le petit haut-parleur dans l'en-tête du réveil est barré tant que le son n'est pas armé.
 6. Facultatif : **Réglages → Accessibilité → Accès guidé** pour verrouiller l'iPhone sur l'app.
 
 ## Utilisation
 
-- **Réveil** : touche l'heure ou le crayon pour régler l'heure, les jours et le libellé. Une option permet de tester la sonnerie. Le son monte progressivement pendant une minute. **+5 min** relance le réveil 5 minutes plus tard. Sans action, la sonnerie s'arrête seule au bout de 10 minutes.
-- **Emploi du temps** : touche le crayon. Format :
+- **Modifier un widget** : fais un appui long dessus. Sur le réveil, ça permet de régler l'heure, les jours et le libellé (toucher l'heure marche aussi). Sur l'emploi du temps, ça permet de le modifier. Sur les devoirs, ça ouvre les réglages.
+- **Réveil** : une option permet de tester la sonnerie. Une option permet de tester la sonnerie. Le son monte progressivement pendant une minute. **+5 min** relance le réveil 5 minutes plus tard. Sans action, la sonnerie s'arrête seule au bout de 10 minutes.
+- **Emploi du temps**, format :
   ```
   Lundi
   08:00-08:55 Mathématiques @ B204
