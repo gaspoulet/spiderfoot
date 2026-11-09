@@ -183,44 +183,72 @@ function tone(t, dest, { f, type = 'sine', peak = 0.3, attack = 0.01, decay = 1.
     o.start(t); o.stop(t + attack + decay + 0.05);
   }
 }
+// Notes (Hz)
+const N = {
+  C3: 130.81, F3: 174.61, G3: 196.0, A3: 220.0, E3: 164.81, D3: 146.83,
+  B3: 246.94, C4: 261.63, D4: 293.66, E4: 329.63, F4: 349.23, G4: 392.0, A4: 440.0, B4: 493.88,
+  C5: 523.25, D5: 587.33, E5: 659.25, F5: 698.46, G5: 783.99, A5: 880.0, B5: 987.77, C6: 1046.5, D6: 1174.66, E6: 1318.51,
+};
+const VOICES = {
+  pad:     (f) => ({ f, peak: 0.07, attack: 1.2, decay: 3.6, partials: [[1, 1], [2, 0.06], [1.004, 0.7]] }),
+  lead:    (f) => ({ f, peak: 0.12, attack: 0.25, decay: 2.2, partials: [[1, 1], [2, 0.05]] }),
+  harp:    (f) => ({ f, peak: 0.2, attack: 0.006, decay: 1.8, partials: [[1, 1], [2, 0.12], [3, 0.04]] }),
+  bass:    (f) => ({ f, peak: 0.16, attack: 0.02, decay: 2.4, partials: [[1, 1], [2, 0.2]] }),
+  bell:    (f) => ({ f, peak: 0.16, attack: 0.008, decay: 3.2, partials: [[1, 1], [2.76, 0.26], [5.4, 0.07]] }),
+  marimba: (f) => ({ f, peak: 0.26, attack: 0.005, decay: 0.8, partials: [[1, 1], [4, 0.1]] }),
+  chime:   (f) => ({ f, peak: 0.2, attack: 0.015, decay: 1.6, partials: [[1, 1], [2, 0.1], [3, 0.03]] }),
+};
+// Joue une suite de notes : [instant (s), note, voix]
+function seq(t, d, notes) { for (const [at, n, v] of notes) tone(t + at, d, VOICES[v](N[n])); }
+const chord = (at, names, v = 'pad') => names.map((n, k) => [at + k * 0.08, n, v]);
+const arp = (at, names, step, v = 'harp') => names.map((n, k) => [at + k * step, n, v]);
+
 const SOUNDS = {
   douceur: {
-    label: 'Douceur', hint: 'accord lent qui respire', period: 4.2,
-    play(t, d) {
-      [261.63, 329.63, 392.0, 493.88].forEach((f, k) =>
-        tone(t + k * 0.12, d, { f, peak: 0.11, attack: 0.9, decay: 3.0, partials: [[1, 1], [2, 0.08], [1.003, 0.6]] }));
-    },
+    label: 'Douceur', hint: 'accords lents et une mélodie, 14 s', period: 14,
+    notes: [
+      ...chord(0, ['C4', 'E4', 'G4', 'B4']), [0, 'C3', 'bass'], [0.6, 'G5', 'lead'], [2.0, 'E5', 'lead'],
+      ...chord(3.5, ['A3', 'C4', 'E4', 'G4']), [3.5, 'A3', 'bass'], [4.1, 'C5', 'lead'], [5.5, 'E5', 'lead'],
+      ...chord(7, ['F3', 'A3', 'C4', 'E4']), [7, 'F3', 'bass'], [7.6, 'A5', 'lead'], [9.0, 'G5', 'lead'],
+      ...chord(10.5, ['G3', 'B3', 'D4', 'E4']), [10.5, 'G3', 'bass'], [11.1, 'D5', 'lead'], [12.4, 'E5', 'lead'],
+    ],
   },
   harpe: {
-    label: 'Harpe', hint: 'arpège léger', period: 3.4,
-    play(t, d) {
-      [392.0, 523.25, 659.25, 783.99, 1046.5, 783.99].forEach((f, k) =>
-        tone(t + k * 0.2, d, { f, peak: 0.24, attack: 0.006, decay: 1.5, partials: [[1, 1], [2, 0.12], [3, 0.04]] }));
-    },
+    label: 'Harpe', hint: 'arpèges qui descendent et remontent, 12 s', period: 12,
+    notes: [
+      [0, 'C3', 'bass'], ...arp(0, ['C4', 'E4', 'G4', 'C5', 'E5', 'G5', 'E5', 'C5'], 0.19),
+      [3, 'A3', 'bass'], ...arp(3, ['A3', 'C4', 'E4', 'A4', 'C5', 'E5', 'C5', 'A4'], 0.19),
+      [6, 'F3', 'bass'], ...arp(6, ['F3', 'A3', 'C4', 'F4', 'A4', 'C5', 'A4', 'F4'], 0.19),
+      [9, 'G3', 'bass'], ...arp(9, ['G3', 'B3', 'D4', 'G4', 'B4', 'D5', 'G5', 'D5'], 0.19),
+    ],
   },
   cloches: {
-    label: 'Cloches', hint: 'deux cloches lointaines', period: 3.8,
-    play(t, d) {
-      const bell = [[1, 1], [2.76, 0.28], [5.4, 0.08]];
-      tone(t, d, { f: 659.25, peak: 0.2, attack: 0.008, decay: 2.8, partials: bell });
-      tone(t + 1.1, d, { f: 523.25, peak: 0.18, attack: 0.008, decay: 2.8, partials: bell });
-    },
+    label: 'Cloches', hint: 'cloches lentes et lointaines, 12 s', period: 12,
+    notes: [
+      [0, 'E5', 'bell'], [1.2, 'G5', 'bell'], [2.4, 'D5', 'bell'], [3.6, 'C5', 'bell'], [3.6, 'C4', 'bell'],
+      [6, 'E5', 'bell'], [7.2, 'D5', 'bell'], [8.4, 'G4', 'bell'], [9.6, 'C5', 'bell'], [9.6, 'G3', 'bell'],
+    ],
   },
   aube: {
-    label: 'Aube', hint: 'marimba doux', period: 2.6,
-    play(t, d) {
-      [523.25, 659.25, 783.99, 659.25].forEach((f, k) =>
-        tone(t + k * 0.24, d, { f, peak: 0.3, attack: 0.005, decay: 0.7, partials: [[1, 1], [4, 0.1]] }));
-    },
+    label: 'Aube', hint: 'petit air au marimba, 10 s', period: 10,
+    notes: [
+      ...arp(0, ['C5', 'E5', 'G5', 'E5', 'D5', 'E5', 'C5', 'G4'], 0.3, 'marimba'), [0, 'C4', 'marimba'],
+      ...arp(2.5, ['A4', 'C5', 'E5', 'C5', 'D5', 'C5', 'A4', 'G4'], 0.3, 'marimba'), [2.5, 'A3', 'marimba'],
+      ...arp(5, ['F4', 'A4', 'C5', 'A4', 'G4', 'A4', 'C5', 'D5'], 0.3, 'marimba'), [5, 'F3', 'marimba'],
+      ...arp(7.5, ['E5', 'D5', 'C5', 'G4', 'C5'], 0.34, 'marimba'), [7.5, 'C4', 'marimba'],
+    ],
   },
   carillon: {
-    label: 'Carillon', hint: 'plus vif', period: 1.9,
-    play(t, d) {
-      [1046.5, 1318.5, 1568].forEach((f, k) =>
-        tone(t + k * 0.16, d, { f, peak: 0.28, attack: 0.02, decay: 0.9, partials: [[1, 1], [2, 0.1]] }));
-    },
+    label: 'Carillon', hint: 'carillon d’horloge, plus vif, 11 s', period: 11,
+    notes: [
+      ...arp(0, ['E5', 'C5', 'D5', 'G4'], 0.6, 'chime'),
+      ...arp(2.8, ['C5', 'D5', 'E5', 'C5'], 0.6, 'chime'),
+      ...arp(5.6, ['E5', 'C5', 'D5', 'G4'], 0.6, 'chime'),
+      ...arp(8.0, ['G4', 'D5', 'E5', 'C5'], 0.6, 'chime'), [8.0, 'C4', 'bass'],
+    ],
   },
 };
+for (const s of Object.values(SOUNDS)) s.play = (t, d) => seq(t, d, s.notes);
 const soundOf = (id) => SOUNDS[id] || SOUNDS.douceur;
 
 // Chaîne de sortie : volume → filtre doux (arrondit les aigus) → haut-parleur
@@ -247,7 +275,7 @@ function startSound() {
   let next = actx.currentTime + 0.05;
   const m = master;
   const schedule = () => {
-    while (next < actx.currentTime + 1.5) { s.play(next, m); next += s.period; }
+    while (next < actx.currentTime + 2) { s.play(next, m); next += s.period; }
   };
   schedule();
   ringTimer = setInterval(schedule, 400);
@@ -265,7 +293,7 @@ function stopSound() {
   master = null;
 }
 
-// Aperçu : volume fixe et confortable, 5 secondes
+// Aperçu : volume fixe et confortable, la mélodie entière
 let preview = null;
 function previewSound(id) {
   armSound();
@@ -274,8 +302,8 @@ function previewSound(id) {
   const s = soundOf(id);
   const g = outputChain(0.7);
   const t = actx.currentTime + 0.08;
-  for (let k = 0; k * s.period < 4.6; k++) s.play(t + k * s.period, g);
-  const timer = setTimeout(stopPreview, 5200);
+  s.play(t, g);                                        // une fois la mélodie entière (10 à 14 s)
+  const timer = setTimeout(stopPreview, (s.period + 1.5) * 1000);
   preview = { g, timer };
 }
 function stopPreview() {
@@ -412,7 +440,7 @@ function openAlarmSheet() {
     rows[id] = r;
     g3.append(r);
   }
-  const foot2 = el('p', 'foot', 'Touche une sonnerie pour l\u2019écouter. Le volume suit celui des médias de l\u2019iPhone.');
+  const foot2 = el('p', 'foot', 'Touche une sonnerie pour l\u2019écouter en entier. Le volume suit celui des médias de l\u2019iPhone.');
 
   body.append(g, g2, foot, el('p', 'sheet-sec', 'Sonnerie'), g3, foot2);
   openSheet('Réveil', body, () => {
