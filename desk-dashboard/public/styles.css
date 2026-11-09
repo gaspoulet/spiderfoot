@@ -413,17 +413,31 @@ textarea.tt {
 .toast button { color: var(--label); font-weight: 600; padding: 4px 10px; border-radius: 999px; background: rgba(255,255,255,.08); }
 
 /* ───────── Mode nuit façon StandBy ───────── */
-body.night .bg { opacity: 0; }
+/* Fond de nuit : gris sombre et flou, très doux */
+body.night .bg {
+  background:
+    radial-gradient(60% 70% at 50% 42%, rgba(120,130,150,.22), transparent 70%),
+    radial-gradient(45% 55% at 18% 80%, rgba(90,100,120,.14), transparent 70%),
+    linear-gradient(180deg, #16171b 0%, #0b0c0e 60%, #050506 100%);
+  filter: blur(30px);
+}
 body.night .app { grid-template-columns: 1fr; place-items: center; }
 body.night .app > .col:not(.col-clock),
 body.night .paris-pill,
 body.night .alarm-widget { display: none; }
 body.night .col-clock { justify-content: center; align-items: center; }
 body.night .clock { text-align: center; }
-body.night .clock-time { font-size: min(30vw, 72vh); justify-content: center; letter-spacing: -.04em; opacity: .5; filter: none; }
-body.night .clk-d { background: var(--night); -webkit-background-clip: text; background-clip: text; }
+/* Chiffres en verre gris légèrement bleuté */
+body.night .clock-time {
+  font-size: min(30vw, 72vh); justify-content: center; letter-spacing: -.04em;
+  filter: drop-shadow(0 0 1px rgba(255,255,255,.18)) drop-shadow(0 10px 30px rgba(0,0,0,.45));
+}
+body.night .clk-d {
+  background: linear-gradient(180deg, rgba(222,228,240,.62) 0%, rgba(176,186,204,.42) 55%, rgba(140,150,170,.30) 100%);
+  -webkit-background-clip: text; background-clip: text;
+}
 body.night .clock-sec { display: none; }
-body.night .clock-date { color: var(--night); opacity: .36; text-align: center; font-size: 20px; }
+body.night .clock-date { color: rgba(200,208,222,.38); text-align: center; font-size: 20px; }
 body.night .ring { background: rgba(0,0,0,.85); }
 
 /* Portrait : on empile (l'app est faite pour le paysage) */
