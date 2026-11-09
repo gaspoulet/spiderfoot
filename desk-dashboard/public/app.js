@@ -169,36 +169,85 @@ function renderArm() {
   b.setAttribute('aria-label', ok ? 'Son du réveil armé' : 'Son du réveil non armé : touche l\u2019écran');
 }
 
-function chime(t, gainNode) {
-  // Petit carillon (3 notes douces) façon « Radar » adouci
-  const notes = [1046.5, 1318.5, 1568];
-  notes.forEach((f, i) => {
-    const start = t + i * 0.16;
-    const o = actx.createOscillator(), o2 = actx.createOscillator(), g = actx.createGain();
-    o.type = 'sine'; o.frequency.value = f;
-    o2.type = 'triangle'; o2.frequency.value = f * 2;
-    const g2 = actx.createGain(); g2.gain.value = 0.12;
-    g.gain.setValueAtTime(0.0001, start);
-    g.gain.exponentialRampToValueAtTime(0.5, start + 0.02);
-    g.gain.exponentialRampToValueAtTime(0.0001, start + 0.9);
-    o.connect(g); o2.connect(g2).connect(g); g.connect(gainNode);
-    o.start(start); o2.start(start); o.stop(start + 1); o2.stop(start + 1);
-  });
+/* Sonneries douces, synthétisées (aucun fichier : marche hors ligne) */
+function tone(t, dest, { f, type = 'sine', peak = 0.3, attack = 0.01, decay = 1.2, partials = [[1, 1]] }) {
+  const g = actx.createGain();
+  g.gain.setValueAtTime(0.0001, t);
+  g.gain.exponentialRampToValueAtTime(peak, t + attack);
+  g.gain.exponentialRampToValueAtTime(0.0001, t + attack + decay);
+  g.connect(dest);
+  for (const [mult, amp] of partials) {
+    const o = actx.createOscillator(), pg = actx.createGain();
+    o.type = type; o.frequency.value = f * mult; pg.gain.value = amp;
+    o.connect(pg).connect(g);
+    o.start(t); o.stop(t + attack + decay + 0.05);
+  }
+}
+const SOUNDS = {
+  douceur: {
+    label: 'Douceur', hint: 'accord lent qui respire', period: 4.2,
+    play(t, d) {
+      [261.63, 329.63, 392.0, 493.88].forEach((f, k) =>
+        tone(t + k * 0.12, d, { f, peak: 0.11, attack: 0.9, decay: 3.0, partials: [[1, 1], [2, 0.08], [1.003, 0.6]] }));
+    },
+  },
+  harpe: {
+    label: 'Harpe', hint: 'arpège léger', period: 3.4,
+    play(t, d) {
+      [392.0, 523.25, 659.25, 783.99, 1046.5, 783.99].forEach((f, k) =>
+        tone(t + k * 0.2, d, { f, peak: 0.24, attack: 0.006, decay: 1.5, partials: [[1, 1], [2, 0.12], [3, 0.04]] }));
+    },
+  },
+  cloches: {
+    label: 'Cloches', hint: 'deux cloches lointaines', period: 3.8,
+    play(t, d) {
+      const bell = [[1, 1], [2.76, 0.28], [5.4, 0.08]];
+      tone(t, d, { f: 659.25, peak: 0.2, attack: 0.008, decay: 2.8, partials: bell });
+      tone(t + 1.1, d, { f: 523.25, peak: 0.18, attack: 0.008, decay: 2.8, partials: bell });
+    },
+  },
+  aube: {
+    label: 'Aube', hint: 'marimba doux', period: 2.6,
+    play(t, d) {
+      [523.25, 659.25, 783.99, 659.25].forEach((f, k) =>
+        tone(t + k * 0.24, d, { f, peak: 0.3, attack: 0.005, decay: 0.7, partials: [[1, 1], [4, 0.1]] }));
+    },
+  },
+  carillon: {
+    label: 'Carillon', hint: 'plus vif', period: 1.9,
+    play(t, d) {
+      [1046.5, 1318.5, 1568].forEach((f, k) =>
+        tone(t + k * 0.16, d, { f, peak: 0.28, attack: 0.02, decay: 0.9, partials: [[1, 1], [2, 0.1]] }));
+    },
+  },
+};
+const soundOf = (id) => SOUNDS[id] || SOUNDS.douceur;
+
+// Chaîne de sortie : volume → filtre doux (arrondit les aigus) → haut-parleur
+function outputChain(level) {
+  const g = actx.createGain(), lp = actx.createBiquadFilter();
+  lp.type = 'lowpass'; lp.frequency.value = 3200; lp.Q.value = 0.4;
+  const boost = actx.createGain(); boost.gain.value = 2.2;      // niveau global (les sons sont doux à la base)
+  g.gain.value = level;
+  g.connect(lp).connect(boost).connect(actx.destination);
+  return g;
 }
 
 function startSound() {
   if (!actx) armSound();
   if (!actx) return;
   actx.resume();
-  master = actx.createGain();
+  stopPreview();
+  const s = soundOf(alarm.sound);
+  master = outputChain(0.06);
   const t = actx.currentTime;
-  master.gain.setValueAtTime(0.04, t);
-  master.gain.linearRampToValueAtTime(0.25, t + 20);   // montée progressive
-  master.gain.linearRampToValueAtTime(1.0, t + 60);
-  master.connect(actx.destination);
+  master.gain.setValueAtTime(0.06, t);
+  master.gain.linearRampToValueAtTime(0.35, t + 30);   // montée progressive et lente
+  master.gain.linearRampToValueAtTime(0.9, t + 75);
   let next = actx.currentTime + 0.05;
+  const m = master;
   const schedule = () => {
-    while (next < actx.currentTime + 1.5) { chime(next, master); next += 1.8; }
+    while (next < actx.currentTime + 1.5) { s.play(next, m); next += s.period; }
   };
   schedule();
   ringTimer = setInterval(schedule, 400);
@@ -216,10 +265,34 @@ function stopSound() {
   master = null;
 }
 
+// Aperçu : volume fixe et confortable, 5 secondes
+let preview = null;
+function previewSound(id) {
+  armSound();
+  if (!actx) return;
+  stopPreview();
+  const s = soundOf(id);
+  const g = outputChain(0.7);
+  const t = actx.currentTime + 0.08;
+  for (let k = 0; k * s.period < 4.6; k++) s.play(t + k * s.period, g);
+  const timer = setTimeout(stopPreview, 5200);
+  preview = { g, timer };
+}
+function stopPreview() {
+  if (!preview) return;
+  clearTimeout(preview.timer);
+  const { g } = preview; preview = null;
+  try {
+    const t = actx.currentTime;
+    g.gain.cancelScheduledValues(t); g.gain.setValueAtTime(g.gain.value, t); g.gain.linearRampToValueAtTime(0, t + 0.25);
+    setTimeout(() => g.disconnect(), 350);
+  } catch { /* déjà arrêté */ }
+}
+
 /* ════════════════════ Réveil ════════════════════ */
 const DAY_LETTERS = [['L', 1], ['M', 2], ['M', 3], ['J', 4], ['V', 5], ['S', 6], ['D', 0]];
 const DAY_NAMES = ['dim.', 'lun.', 'mar.', 'mer.', 'jeu.', 'ven.', 'sam.'];
-let alarm = Object.assign({ time: '07:00', enabled: false, days: [1, 2, 3, 4, 5], label: 'Réveil' }, store.get('alarm', {}));
+let alarm = Object.assign({ time: '07:00', enabled: false, days: [1, 2, 3, 4, 5], label: 'Réveil', sound: 'douceur' }, store.get('alarm', {}));
 let alarmRt = Object.assign({ lastFired: '', snoozeUntil: 0 }, store.get('alarmRt', {}));
 let ringing = false;
 
@@ -318,18 +391,36 @@ function openAlarmSheet() {
     days.append(b);
   }
   g2.append(days);
-  const foot = el('p', 'foot', 'Aucun jour sélectionné = une seule fois. Le son monte progressivement pendant une minute.');
+  const foot = el('p', 'foot', 'Aucun jour sélectionné = une seule fois. Le son monte doucement pendant environ une minute.');
 
-  const test = el('button', 'danger-btn', 'Tester la sonnerie (5 s)');
-  test.style.color = 'var(--label)';
-  test.addEventListener('click', () => { armSound(); startSound(); setTimeout(stopSound, 5000); });
+  // Choix de la sonnerie : toucher une ligne la sélectionne et la fait écouter
+  let chosen = soundOf(alarm.sound) === SOUNDS[alarm.sound] ? alarm.sound : 'douceur';
+  const g3 = el('div', 'group');
+  const rows = {};
+  for (const [id, s] of Object.entries(SOUNDS)) {
+    const r = el('button', 'row sound-row' + (id === chosen ? ' on' : ''));
+    r.type = 'button';
+    const txt = el('span', 'sound-txt');
+    txt.append(el('span', 'lbl', s.label), el('small', null, s.hint));
+    const ck = el('span', 'sound-check'); ck.innerHTML = '<svg><use href="#i-check"/></svg>';
+    r.append(txt, ck);
+    r.addEventListener('click', () => {
+      rows[chosen]?.classList.remove('on');
+      chosen = id; r.classList.add('on');
+      previewSound(id);
+    });
+    rows[id] = r;
+    g3.append(r);
+  }
+  const foot2 = el('p', 'foot', 'Touche une sonnerie pour l\u2019écouter. Le volume suit celui des médias de l\u2019iPhone.');
 
-  body.append(g, g2, foot, test);
+  body.append(g, g2, foot, el('p', 'sheet-sec', 'Sonnerie'), g3, foot2);
   openSheet('Réveil', body, () => {
     alarm.time = t.value || alarm.time;
     alarm.label = lab.value.trim() || 'Réveil';
     alarm.enabled = cb.checked;
     alarm.days = [...sel];
+    alarm.sound = chosen;
     alarmRt.lastFired = '';
     alarmRt.snoozeUntil = 0;
     if (alarm.enabled && !audioRunning()) armSound();
@@ -772,6 +863,7 @@ function openSheet(title, bodyNode, onOk, okLabel = 'OK') {
 }
 function closeSheet() {
   sheetOpen = false;
+  stopPreview();
   if (document.activeElement) document.activeElement.blur();
   $('sheet').style.transform = '';
   $('sheet').classList.remove('open', 'dragging');
