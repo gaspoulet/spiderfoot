@@ -1,0 +1,7 @@
+{
+  "name": "bureau-dashboard",
+  "private": true,
+  "type": "module",
+  "description": "Dashboard de bureau iOS (PWA) et fonction Vercel pour les devoirs",
+  "engines": { "node": ">=20" }
+}
