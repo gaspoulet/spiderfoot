@@ -110,8 +110,10 @@ function setClock(str) {
 /* ════════════════════ Mode nuit, Wake Lock, anti-marquage ════════════════════ */
 let revealUntil = 0;
 let clockMode = false;                            // horloge seule en journée (bouton à côté de Paris)
+// Sur ordinateur (souris, pas d'écran tactile) : jamais d'écran « horloge seule », tout reste affiché
+const IS_TOUCH = matchMedia('(hover: none) and (pointer: coarse)').matches;
 function applyNight(hk) {
-  const nightHours = hk.h >= NIGHT_START || hk.h < NIGHT_END;
+  const nightHours = IS_TOUCH && (hk.h >= NIGHT_START || hk.h < NIGHT_END);
   if (nightHours) clockMode = false;               // le lendemain matin, retour aux widgets
   const revealed = Date.now() < revealUntil || sheetOpen;
   const night = nightHours && !revealed;

@@ -178,6 +178,7 @@ svg { display: block; }
   transition: transform .45s var(--bounce);
 }
 .standby-btn svg { width: 17px; height: 17px; }
+@media (hover: hover) and (pointer: fine) { .standby-btn { display: none; } }
 .standby-btn:active { transform: scale(.86); }
 .paris-pill {
   align-self: flex-start;
